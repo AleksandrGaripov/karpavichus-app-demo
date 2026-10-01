@@ -20542,6 +20542,9 @@
     #kp-prototype-v1 .kp-setting small { display: block; }
     #kp-prototype-v1 .kp-setting strong { font-size: 14px; font-weight: 500; }
     #kp-prototype-v1 .kp-setting small { color: var(--kp-muted); margin-top: 4px; }
+    #kp-prototype-v1 .kp-setting-stack { display: block; }
+    #kp-prototype-v1 .kp-setting-stack .kp-segments { margin-top: 12px; }
+    #kp-prototype-v1 .kp-theme .kp-segment { min-height: 38px; font-size: 11.5px; }
     #kp-prototype-v1 .kp-toggle {
       width: 43px;
       height: 25px;
@@ -21005,6 +21008,7 @@
 
           <main class="kp-screen" data-screen="profile">
             <div class="kp-head"><div><p class="kp-eyebrow">demo@example.com</p><h2 class="kp-title">Профиль</h2></div></div>
+            <div class="kp-setting kp-setting-stack"><span><strong>Оформление</strong><small id="kp-theme-note">Как в системе</small></span><div class="kp-segments kp-theme" role="radiogroup" aria-label="Тема оформления"><button class="kp-segment cursor-interaction is-on" type="button" role="radio" aria-checked="true" data-theme-choice="auto">Авто</button><button class="kp-segment cursor-interaction" type="button" role="radio" aria-checked="false" data-theme-choice="light">Светлая</button><button class="kp-segment cursor-interaction" type="button" role="radio" aria-checked="false" data-theme-choice="dark">Тёмная</button></div></div>
             <div class="kp-setting"><span><strong>Защита приложения</strong><small>Face ID или код устройства</small></span><button class="kp-toggle cursor-interaction" type="button" aria-label="Защита включена"></button></div>
             <div class="kp-setting"><span><strong>Напоминания</strong><small>Мягкое ежедневное напоминание</small></span><i data-lucide="chevron-right" aria-hidden="true"></i></div>
             <div class="kp-setting"><span><strong>Экспорт записей</strong><small>Формат ещё предстоит выбрать</small></span><i data-lucide="chevron-right" aria-hidden="true"></i></div>
@@ -23033,6 +23037,45 @@
       });
 
 
+      /* ——— Тема оформления: ручный выбор в профиле («Авто» / «Светлая» / «Тёмная») ——— */
+      const kpThemeChoices = ['auto', 'light', 'dark'];
+      const kpThemeLabels = { auto: 'Как в системе', light: 'Светлая', dark: 'Тёмная' };
+      let kpTheme = 'auto';
+      try {
+        const storedTheme = localStorage.getItem('kp-theme');
+        if (kpThemeChoices.includes(storedTheme)) kpTheme = storedTheme;
+      } catch (error) { /* песочница или приватный режим — остаётся «Авто» */ }
+
+      function kpApplyTheme(choice, persist) {
+        if (!kpThemeChoices.includes(choice)) choice = 'auto';
+        kpTheme = choice;
+        if (choice === 'auto') {
+          root.removeAttribute('data-kp-theme');
+          root.style.removeProperty('color-scheme');
+        } else {
+          root.dataset.kpTheme = choice;
+          root.style.colorScheme = choice;
+        }
+        root.querySelectorAll('[data-theme-choice]').forEach(button => {
+          const on = button.dataset.themeChoice === choice;
+          button.classList.toggle('is-on', on);
+          button.setAttribute('aria-checked', on ? 'true' : 'false');
+        });
+        const themeNote = root.querySelector('#kp-theme-note');
+        if (themeNote) themeNote.textContent = kpThemeLabels[choice];
+        if (persist) {
+          try { localStorage.setItem('kp-theme', choice); } catch (error) { /* не критично */ }
+        }
+      }
+
+      root.querySelectorAll('.kp-theme').forEach(group => {
+        group.addEventListener('click', event => {
+          const button = event.target.closest('[data-theme-choice]');
+          if (button) kpApplyTheme(button.dataset.themeChoice, true);
+        });
+      });
+      kpApplyTheme(kpTheme, false);
+
       root.querySelectorAll('.kp-phone').forEach(phone => {
         const key = phone.id === 'kp-phone-cards' ? 'cardsScreen' : 'listScreen';
         showScreen(phone, saved[key] || 'products');
@@ -23127,6 +23170,11 @@
     }
   };
   const sync = () => {
+    const manual = root.dataset.kpTheme; // ручной выбор темы в настройках приложения — ведём его на всю страницу
+    if (manual) {
+      apply(manual);
+      return;
+    }
     const level = resolveLevel();
     apply(level == null ? null : (level < 128 ? 'light' : 'dark'));
   };
