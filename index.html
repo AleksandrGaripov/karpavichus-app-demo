@@ -20067,6 +20067,8 @@
       border-radius: 99px;
     }
     #kp-prototype-v1 .kp-video {
+      position: relative;
+      overflow: hidden;
       aspect-ratio: 16 / 9;
       display: grid;
       place-items: center;
@@ -20083,6 +20085,51 @@
       border-radius: 50%;
       background: rgba(255,255,255,.15);
     }
+    #kp-prototype-v1 .kp-video img.kp-video-poster {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    #kp-prototype-v1 .kp-video .kp-video-play {
+      position: relative;
+      width: 56px;
+      height: 56px;
+      padding: 0;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      cursor: pointer;
+      color: #241505;
+      background: rgba(255, 255, 255, .92);
+      box-shadow: 0 8px 22px rgba(20, 8, 2, .35);
+      transition: transform .18s ease;
+    }
+    #kp-prototype-v1 .kp-video .kp-video-play:hover { transform: scale(1.05); }
+    #kp-prototype-v1 .kp-video .kp-video-play svg { width: 22px; height: 22px; margin-left: 2px; }
+    #kp-prototype-v1 .kp-video iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      border-radius: inherit;
+    }
+    #kp-prototype-v1 .kp-video .kp-video-fallback {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      align-content: center;
+      justify-items: center;
+      gap: 6px;
+      padding: 18px;
+      text-align: center;
+      font-size: 13px;
+      background: rgba(24, 13, 4, .82);
+    }
+    #kp-prototype-v1 .kp-video .kp-video-fallback a { color: #ffe3ba; }
     #kp-prototype-v1 .kp-field-label {
       display: block;
       margin: 15px 0 7px;
@@ -21135,6 +21182,17 @@
           button.classList.toggle('is-active', button.dataset.nav === activeSection);
         });
         phone.dataset.activeScreen = target;
+        if (phone.id === 'kp-phone-cards' && target !== 'day') {
+          const dayVideoBox = phone.querySelector('#kp-day-video');
+          const playing = dayVideoBox && dayVideoBox.querySelector('iframe[data-kp-video]');
+          if (playing) {
+            playing.remove();
+            const label = kpOpenItem === 'intro' ? 'Вводное видео'
+              : kpOpenItem === 'final' ? 'Заключительное видео'
+                : 'Видео занятия, день ' + kpOpenItem;
+            renderDayVideo(dayVideoBox, kpDayVideoForItem(kpOpenItem), label);
+          }
+        }
         const cardsScreen = document.getElementById('kp-phone-cards')?.dataset.activeScreen || 'products';
         const listScreen = document.getElementById('kp-phone-list')?.dataset.activeScreen || 'products';
         window.openai?.setWidgetState?.({
@@ -21487,6 +21545,7 @@
       const ANXIETY_DAYS = [
         {
           n: 1, title: 'Как работает тревога', lead: 'Понимание механизма', minutes: 25,
+          video: 'uVnqQn9UMr99uEoBWMmhXi',
           theory: ['Ситуация → Мысль → Эмоция → Тело → Поведение', 'Одна и та же ситуация с разными мыслями даёт разные эмоции'],
           blocks: [
             { type: 'topicrows', title: 'Задание 1. Моя тревожная жвачка', hint: 'О чём вы тревожитесь регулярно? Отметьте, можете ли повлиять.', count: 5, options: ['Да', 'Нет', 'Частично'], key: 'd1-gum', placeholder: 'Тема тревоги' },
@@ -21501,6 +21560,7 @@
             { type: 'text', title: 'Итог дня', hint: 'Одно открытие о своей тревоге.', key: 'd1-sum', big: true } ] },
         {
           n: 2, title: 'Ловушки мышления', lead: 'Типичные ошибки тревожного ума', minutes: 25,
+          video: 'kr2JLg6QNoPK9ZP7wFs6Gr',
           theory: ['1. Катастрофизация — ожидание худшего', '2. Чтение мыслей — «знаю, что они думают»', '3. Предсказание будущего — «точно не получится»', '4. Чёрно-белое — только крайности', '5. Фильтрация негатива — замечать только плохое', '6. Обесценивание позитива — хорошее не считается', '7. Долженствование — жёсткие «должен», «обязан»', '8. Эмоциональное обоснование — чувствую, значит правда', '9. Персонализация — всё из-за меня', '10. Сверхобобщение — один случай = всегда'],
           blocks: [
             { type: 'chips', title: 'Задание 1. Мои ловушки', hint: 'Отметьте те, которые узнаёте у себя.', options: LURES, key: 'd2-traps' },
@@ -21515,6 +21575,7 @@
             { type: 'text', title: 'Итог дня', hint: 'Какие ловушки оказались главными.', key: 'd2-sum', big: true } ] },
         {
           n: 3, title: 'Мой профайл тревоги', lead: 'Полная картина', minutes: 25,
+          video: '6bmDBh6dS3yoBUCP4rzGTa',
           theory: [],
           blocks: [
             { type: 'chips', title: 'Задание 1. Карта тела', hint: 'Где в теле вы чувствуете тревогу?', options: BODY_ZONES, key: 'd3-body', other: true },
@@ -21535,6 +21596,7 @@
             { type: 'text', title: 'Итог дня', hint: 'Что я теперь знаю о своей тревоге.', key: 'd3-sum', big: true } ] },
         {
           n: 4, title: 'Проверка фактами', lead: 'Первый инструмент', minutes: 30,
+          video: 'nhgbvaEiSnDrh99eeSicXk',
           theory: ['1. Запишите мысль дословно', '2. Факт или интерпретация?', '3. Доказательства «за» — только факты', '4. Доказательства «против»', '5. Самый реалистичный исход'],
           blocks: [
             { type: 'items', title: 'Задание 1. Практика техники', items: [{ title: 'Мысль 1', fields: [
@@ -21557,6 +21619,7 @@
             { type: 'text', title: 'Итог дня', hint: 'Насколько изменилась вера в мысли после проверки.', key: 'd4-sum', big: true } ] },
         {
           n: 5, title: 'Вопросы-противоядия', lead: 'Арсенал для работы с ловушками', minutes: 25,
+          video: 'eTY8G3efWip6F4iXxisEjV',
           theory: ['Катастрофизация → «Какой реалистичный исход?»', 'Чтение мыслей → «Откуда я это знаю? Факты?»', 'Предсказание → «Я правда знаю будущее?»', 'Долженствование → «Кто это сказал?»', 'Эмоциональное обоснование → «Эмоция = факт?»', 'Персонализация → «Это точно про меня?»', 'Сверхобобщение → «Правда всегда? Есть исключения?»'],
           blocks: [
             { type: 'items', title: 'Задание 1. Вопросы к моим ловушкам', hint: 'Ваши главные ловушки из Дня 2 подставляются автоматически.', items: [1, 2, 3].map(i => ({ title: 'Ловушка ' + i, fields: [
@@ -21573,6 +21636,7 @@
             { type: 'text', title: 'Итог дня', hint: 'Какой вопрос оказался самым мощным.', key: 'd5-sum', big: true } ] },
         {
           n: 6, title: 'Альтернативная мысль', lead: 'Реалистичная замена', minutes: 25,
+          video: 'i6nypi4RqPfSCxqWBWxKaM',
           theory: ['• Добавить «может быть»', '• Признать неопределённость', '• Добавить копинг («справлюсь»)', '• Факты вместо интерпретаций', 'Критерий: вы можете в это поверить.'],
           blocks: [
             { type: 'items', title: 'Задание 1. Практика переформулирования', items: [1, 2, 3].map(i => ({ title: 'Мысль ' + i, fields: [
@@ -21590,6 +21654,7 @@
             { type: 'text', title: 'Итог дня', hint: 'Самая убедительная альтернатива.', key: 'd6-sum', big: true } ] },
         {
           n: 7, title: 'Тело и экстренные техники', lead: 'Когда накрывает сильно', minutes: 30,
+          video: 'vh6wNpJh6rLAkjDCvovUnQ',
           theory: ['Дыхание 4-7-8: вдох (4) → задержка (7) → выдох (8), четыре цикла', 'Заземление 5-4-3-2-1: пять вижу → четыре слышу → три ощущаю → два запаха → один вкус', 'Быстрое: стопы на полу, кулаки, холодная вода'],
           blocks: [
             { type: 'breath', title: 'Задание 1. Практика дыхания 4-7-8', hint: 'Сделайте четыре цикла. Круг поможет держать ритм.' },
@@ -21604,6 +21669,7 @@
             { type: 'text', title: 'Итог дня', hint: 'Самая эффективная техника для меня.', key: 'd7-sum', big: true } ] },
         {
           n: 8, title: 'Мой алгоритм', lead: 'Собираем инструменты в систему', minutes: 30,
+          video: 'tDATrPNCsWv9SiPHuB12RZ',
           theory: ['1. Заметить', '2. Тело — если тревога сильная', '3. Мысль — выловить', '4. Проверка: факт? ловушка? друг?', '5. Альтернатива', '6. Действие или отпускание'],
           blocks: [
             { type: 'inputs', title: 'Задание 1. Мой алгоритм', labels: ['Шаг 1', 'Шаг 2', 'Шаг 3', 'Шаг 4', 'Шаг 5', 'Шаг 6 (если нужен)'], key: 'd8-step' },
@@ -21618,6 +21684,7 @@
             { type: 'text', title: 'Итог дня', hint: 'Насколько алгоритм ощущается «моим».', key: 'd8-sum', big: true } ] },
         {
           n: 9, title: 'Практика в жизни', lead: 'Применяем в реальности', minutes: 25,
+          video: '4J5vZymRNa35BPQesmhzN8',
           theory: [],
           blocks: [
             { type: 'items', title: 'Задание 1. Практика в моменте', hint: 'Опишите ситуацию, где использовали алгоритм.', items: [{ fields: [
@@ -21640,6 +21707,7 @@
             { type: 'text', title: 'Итог дня', hint: 'Как ощущается использование инструментов в жизни.', key: 'd9-sum', big: true } ] },
         {
           n: 10, title: 'План на будущее', lead: 'Итоги и движение дальше', minutes: 30,
+          video: 'rANT6E3mbn7Dqe491AUBZR',
           theory: [],
           blocks: [
             { type: 'compare', title: 'Задание 1. Было — стало', hint: 'Оцените каждую строку: как было в Дне 1 и как сейчас.', head: ['День 1', 'День 10'], rows: [
@@ -21661,6 +21729,7 @@
 
       const ANXIETY_INTRO = {
         title: 'Как устроена программа', eyebrow: 'Введение', minutes: null,
+        video: '9vKJ4UPb8fPkKzoh2RYig6',
         blocks: [
           { type: 'note', text: 'Каждый день — короткое видео и задания. Ответы сохраняются только на этом устройстве: их не видит никто, кроме вас.' },
           { type: 'note', text: 'Рекомендуем проходить примерно по одному дню. Все дни открыты сразу — можно возвращаться к любому и идти в своём темпе.' },
@@ -21671,6 +21740,7 @@
 
       const ANXIETY_FINAL = {
         title: 'Финал', eyebrow: 'Программа завершена', minutes: null,
+        video: 'gU5jRHJz5rrUDvE9hnB6HH',
         blocks: [
           { type: 'note', text: 'Десять дней позади. Главное: мысль — это не факт. Вы не просто узнали это — вы проверяли это на своих мыслях.' },
           { type: 'note', text: 'Тревога — древняя система безопасности. Теперь у вас есть инструменты, чтобы с ней работать: проверка фактами, вопросы-противоядия, телесные техники и личный алгоритм.' },
@@ -22117,6 +22187,125 @@
         renderDayScreen();
       }
 
+      const KP_POSTER_BASE = 'https://edge-ams-1.kinescopecdn.net/33db6e0b-9ec9-46c3-932c-26f0eed5c348/posters/';
+      /* Афиши видео — кадры из Kinescope */
+      const KP_VIDEO_POSTERS = {
+    '9vKJ4UPb8fPkKzoh2RYig6':
+      '7121750f-30a4-4c93-8c2b-64f7873861c3/a4aedf6e-a82c-4e26-b87f-d1a2e67a5909',
+    'uVnqQn9UMr99uEoBWMmhXi':
+      '4e88cfb0-87ef-455a-8510-31e8f90f7998/9d336ff5-e32a-4bbd-ad1a-9f5237f93edf',
+    'kr2JLg6QNoPK9ZP7wFs6Gr':
+      'f603cc57-84be-4c8a-98a9-52ec016300bb/47bf2f0d-5696-481d-a66e-7ca23a8cd62d',
+    '6bmDBh6dS3yoBUCP4rzGTa':
+      'd5b67bbb-1856-44a3-9ecd-16b01e40baae/f4d276fc-61dd-42e4-9b8b-371ed1892ffa',
+    'nhgbvaEiSnDrh99eeSicXk':
+      'f3bec939-f6a2-4644-a5fd-ebf39e7b9065/a6ad91c1-89c8-4acf-8e03-76b0cbf5ffde',
+    'eTY8G3efWip6F4iXxisEjV':
+      'eee72dd2-ce32-4a94-889d-9b38fac2f2e2/ecac322f-9cd1-4eef-a3d7-505c36fc01f6',
+    'i6nypi4RqPfSCxqWBWxKaM':
+      '5c14826e-42aa-473d-9591-8a44be25c2bf/7b56879b-7013-4e4e-81b7-741ec84679c8',
+    'vh6wNpJh6rLAkjDCvovUnQ':
+      '45eb4fc3-2073-4a9d-8c24-14f2528a5448/1ab739fc-98c5-4bf1-a013-af7b77510d12',
+    'tDATrPNCsWv9SiPHuB12RZ':
+      'd1a2d7de-0c0f-4563-88a9-a51db3bae43e/0bf3fb0c-d89c-4dbf-98ee-1021c3e97872',
+    '4J5vZymRNa35BPQesmhzN8':
+      '53c4a01d-fdaf-4358-8856-ba403aad9290/b2749c9b-3715-4711-99a6-c828753bfbae',
+    'rANT6E3mbn7Dqe491AUBZR':
+      '3e81dca3-32cb-485a-b1b3-a9bba2ae5bda/184f9810-02db-45e4-9e99-e329a3f690c8',
+    'gU5jRHJz5rrUDvE9hnB6HH':
+      'b36eda7b-c343-475b-bd00-99d6716f788e/1e099fe5-41fb-4975-ae02-ebf29782135f'
+      };
+
+      function kpDayVideoForItem(item) {
+        if (item === 'intro') return ANXIETY_INTRO.video || null;
+        if (item === 'final') return ANXIETY_FINAL.video || null;
+        const entry = ANXIETY_DAYS.find(day => day.n === item);
+        return entry ? (entry.video || null) : null;
+      }
+
+      /* Афиша с кнопкой ▶: плеер грузится только по клику */
+      function renderDayVideo(host, videoId, label) {
+        if (!host) return;
+        host.setAttribute('aria-label', label);
+        const current = host.querySelector('iframe[data-kp-video]');
+        if (current && videoId && current.dataset.kpVideo === videoId) return;
+        host.replaceChildren();
+        if (!videoId) {
+          const span = kpEl('span');
+          const icon = kpEl('i');
+          icon.dataset.lucide = 'play';
+          icon.setAttribute('aria-hidden', 'true');
+          span.append(icon);
+          host.append(span);
+          if (globalThis.lucide) lucide.createIcons({ attrs: { width: 16, height: 16 } });
+          return;
+        }
+        const posterPath = KP_VIDEO_POSTERS[videoId];
+        if (posterPath) {
+          const img = kpEl('img', 'kp-video-poster');
+          img.src = KP_POSTER_BASE + posterPath + '.webp';
+          img.alt = '';
+          img.decoding = 'async';
+          img.addEventListener('error', () => img.remove());
+          img.style.cursor = 'pointer';
+          img.addEventListener('click', () => loadDayVideo(host, videoId, label));
+          host.append(img);
+        }
+        const play = kpEl('button', 'kp-video-play');
+        play.type = 'button';
+        play.setAttribute('aria-label', 'Смотреть видео');
+        const icon = kpEl('i');
+        icon.dataset.lucide = 'play';
+        icon.setAttribute('aria-hidden', 'true');
+        play.append(icon);
+        play.addEventListener('click', () => loadDayVideo(host, videoId, label));
+        host.append(play);
+        if (globalThis.lucide) lucide.createIcons({ attrs: { width: 16, height: 16 } });
+      }
+
+      /* Плеер по клику. Если среда запрещает чужие кадры (CSP) — запасная ссылка. */
+      function loadDayVideo(host, videoId, label) {
+        if (host.querySelector('iframe[data-kp-video]')) return;
+        host.replaceChildren();
+        const frame = kpEl('iframe');
+        frame.dataset.kpVideo = videoId;
+        frame.title = label;
+        frame.src = 'https://kinescope.io/embed/' + videoId + '?autoplay=1';
+        frame.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock;');
+        frame.setAttribute('allowfullscreen', '');
+        let loaded = false;
+        let settled = false;
+        const cleanup = () => document.removeEventListener('securitypolicyviolation', onViolation);
+        const showFallback = () => {
+          if (settled) return;
+          settled = true;
+          cleanup();
+          if (!host.contains(frame)) return;
+          const note = kpEl('div', 'kp-video-fallback');
+          note.append(kpEl('span', null, 'В этом режиме просмотра плеер недоступен — видео откроется в новой вкладке.'));
+          const link = kpEl('a', null, 'Открыть видео в Kinescope');
+          link.href = 'https://kinescope.io/' + videoId;
+          link.target = '_blank';
+          link.rel = 'noopener';
+          note.append(link);
+          host.replaceChildren(note);
+        };
+        const onViolation = event => {
+          const directive = String(event.violatedDirective || '');
+          const target = String(event.blockedURI || '');
+          if (directive.indexOf('frame-src') === 0 || target.indexOf('kinescope.io') !== -1) showFallback();
+        };
+        frame.addEventListener('load', () => { loaded = true; });
+        document.addEventListener('securitypolicyviolation', onViolation);
+        host.append(frame);
+        setTimeout(() => {
+          if (settled) return;
+          cleanup();
+          if (!loaded) { showFallback(); return; }
+          settled = true;
+        }, 8000);
+      }
+
       function renderDayScreen() {
         stopBreathTimer();
         const isIntro = kpOpenItem === 'intro';
@@ -22135,15 +22324,15 @@
         if (isIntro) {
           pill.textContent = 'Введение';
           eyebrow.textContent = 'Введение';
-          video.setAttribute('aria-label', 'Вводное видео');
+          renderDayVideo(video, content.video, 'Вводное видео');
         } else if (isFinal) {
           pill.textContent = 'Финал';
           eyebrow.textContent = 'Программа завершена';
-          video.setAttribute('aria-label', 'Заключительное видео');
+          renderDayVideo(video, content.video, 'Заключительное видео');
         } else {
           pill.textContent = 'День ' + day.n + ' из ' + ANXIETY_DAYS.length;
           eyebrow.textContent = 'Около ' + day.minutes + ' минут';
-          video.setAttribute('aria-label', 'Видео занятия, день ' + day.n);
+          renderDayVideo(video, day.video, 'Видео занятия, день ' + day.n);
         }
         title.textContent = content.title;
         theory.replaceChildren(...(content.theory || []).map(item => kpEl('li', null, item)));
@@ -22319,6 +22508,7 @@
   <aside class="showcase-notes">
     <p><b>Код блокировки</b> (история тестов, журнал) — подойдут любые четыре цифры.</p>
     <p><b>На что посмотреть:</b> рыжий градиентный фон, плотные карточки, стеклянные кнопки и нижняя панель. В Chrome и на Android у стекла лёгкое преломление по краю; на iPhone оно ровное — это ограничение движка, не ошибка.</p>
+    <p><b>Видео:</b> ролики в днях программы настоящие — нажмите ▶ на афише, плеер откроется прямо в макете.</p>
     <p>Ответы и прогресс сохраняются, пока страница открыта. Несколько второстепенных кнопок пока декоративные.</p>
   </aside>
   <p class="showcase-stamp">Демонстрационный макет — не финальная версия</p>
