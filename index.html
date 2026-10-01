@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Приложение «Карпавичус» — демо нового визуала</title>
 <meta property="og:title" content="Приложение «Карпавичус» — демо нового визуала">
-<meta property="og:description" content="Кликабельный макет: экраны, тесты, программа «Тревоги», дневник.">
+<meta property="og:description" content="Кликабельный макет: три программы на 10 дней, тесты, дневник.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://aleksandrgaripov.github.io/karpavichus-app-demo/">
 <meta property="og:image" content="https://aleksandrgaripov.github.io/karpavichus-app-demo/preview.png">
@@ -77,7 +77,7 @@
   <header class="showcase-head">
     <p class="showcase-eyebrow">Черновик макета · 1 октября 2026</p>
     <h1>Приложение «Карпавичус» — новый визуал</h1>
-    <p class="showcase-sub">Кликабельный макет: экраны, тесты, программа «Тревоги», дневник. Все переходы живые — ходите по кнопкам.</p>
+    <p class="showcase-sub">Кликабельный макет: экраны, тесты, три программы на 10 дней («Тревоги», «Внутренний критик», «Мои границы»), дневник. Все переходы живые — ходите по кнопкам.</p>
   </header>
   <div class="showcase-stage">
 <script>/**
@@ -19961,6 +19961,24 @@
       font-weight: 400;
       letter-spacing: .03em;
     }
+    #kp-prototype-v1 .kp-cover-kritik {
+      background:
+        linear-gradient(125deg, rgba(20, 24, 32, .30), rgba(9, 11, 15, .92)),
+        repeating-linear-gradient(90deg, #6f757f 0 2px, #4c525c 2px 23px);
+    }
+    #kp-prototype-v1 .kp-cover-kritik::after {
+      content: "ТЫ НЕДОСТАТОЧНО ХОРОШ   КТО ТЫ ТАКОЙ   ОПЯТЬ ВСЁ ИСПОРТИЛ";
+      color: rgba(126, 148, 199, .60);
+    }
+    #kp-prototype-v1 .kp-cover-granitsy {
+      background:
+        linear-gradient(125deg, rgba(34, 26, 16, .30), rgba(16, 11, 5, .92)),
+        repeating-linear-gradient(90deg, #7c7468 0 2px, #574f45 2px 23px);
+    }
+    #kp-prototype-v1 .kp-cover-granitsy::after {
+      content: "ДА, КОНЕЧНО   БЕЗ ПРОБЛЕМ   Я СДЕЛАЮ";
+      color: rgba(205, 132, 40, .60);
+    }
     #kp-prototype-v1 .kp-progress-row {
       display: flex;
       justify-content: space-between;
@@ -20725,7 +20743,21 @@
               <div class="kp-progress-row"><span id="kp-product-progress">Пройдено 2 из 10 дней</span><span id="kp-product-percent">20%</span></div>
               <div class="kp-track" id="kp-product-track" role="img" aria-label="Прогресс программы"><span id="kp-product-bar" style="width:20%"></span></div>
               <p class="kp-subtitle" id="kp-product-next">Рекомендуем продолжить: День 3 · Мой профайл тревоги</p>
-              <button class="kp-main-button cursor-interaction" type="button" data-go="program" style="margin-top:12px">Открыть программу</button>
+              <button class="kp-main-button cursor-interaction" type="button" data-go="program" data-open-program="anxiety" style="margin-top:12px">Открыть программу</button>
+            </article>
+            <article class="kp-card">
+              <div class="kp-cover kp-cover-kritik"><small>ПРОГРАММА НА 10 ДНЕЙ</small><strong>КРИТИК</strong></div>
+              <div class="kp-progress-row"><span id="kp-product-progress-kritik">Пройдено 0 из 10 дней</span><span id="kp-product-percent-kritik">0%</span></div>
+              <div class="kp-track" role="img" aria-label="Прогресс программы — Внутренний критик"><span id="kp-product-bar-kritik" style="width:0%"></span></div>
+              <p class="kp-subtitle" id="kp-product-next-kritik">Начните с первого дня: День 1 · Первая встреча</p>
+              <button class="kp-main-button cursor-interaction" type="button" data-go="program" data-open-program="kritik" style="margin-top:12px">Открыть программу</button>
+            </article>
+            <article class="kp-card">
+              <div class="kp-cover kp-cover-granitsy"><small>ПРОГРАММА НА 10 ДНЕЙ</small><strong>ГРАНИЦЫ</strong></div>
+              <div class="kp-progress-row"><span id="kp-product-progress-granitsy">Пройдено 0 из 10 дней</span><span id="kp-product-percent-granitsy">0%</span></div>
+              <div class="kp-track" role="img" aria-label="Прогресс программы — Мои границы"><span id="kp-product-bar-granitsy" style="width:0%"></span></div>
+              <p class="kp-subtitle" id="kp-product-next-granitsy">Начните с первого дня: День 1 · Диагностика</p>
+              <button class="kp-main-button cursor-interaction" type="button" data-go="program" data-open-program="granitsy" style="margin-top:12px">Открыть программу</button>
             </article>
             <p class="kp-note"><i data-lucide="calendar-heart" aria-hidden="true"></i><span>Все дни доступны сразу. Можно идти в своём темпе.</span></p>
           </main>
@@ -20844,7 +20876,7 @@
               <button class="kp-icon-button cursor-interaction" type="button" id="kp-program-help" aria-label="Как устроена программа"><i data-lucide="circle-help" aria-hidden="true"></i></button>
             </div>
             <p class="kp-eyebrow">Программа на 10 дней</p>
-            <h2 class="kp-title">Тревоги</h2>
+            <h2 class="kp-title" id="kp-program-title">Тревоги</h2>
             <p class="kp-subtitle" style="margin-bottom:14px">Рекомендуем проходить по одному дню, но выбирать темп можете вы.</p>
             <button class="kp-day cursor-interaction" type="button" id="kp-program-intro">
               <span class="kp-day-number"><i data-lucide="play" aria-hidden="true"></i></span>
@@ -21528,7 +21560,9 @@
 
       /* ——— Программа «Тревоги»: введение, все 10 дней, финал ——— */
       const kpState = {};
-      const completedDays = new Set([1, 2]);
+      /* Прогресс хранится отдельно по каждой программе */
+      const kpCompleted = { anxiety: new Set([1, 2]), kritik: new Set(), granitsy: new Set() };
+      let kpActiveProgram = 'anxiety';
       let kpOpenItem = 3;
 
       const LURES = ['Катастрофизация', 'Чтение мыслей', 'Предсказание будущего', 'Чёрно-белое мышление', 'Фильтрация негатива', 'Обесценивание позитива', 'Долженствование', 'Эмоциональное обоснование', 'Персонализация', 'Сверхобобщение'];
@@ -21747,6 +21781,452 @@
           { type: 'recap', title: 'Мой набор инструментов', hint: 'Подборка собрана локально из ваших ответов.', rows: RECAP_ROWS },
           { type: 'action', label: 'Экспорт записей', hint: 'Формат экспорта ещё согласуется с автором — в демонстрации функция не подключена.' }
         ]
+      };
+
+      /* ——— Практика «Внутренний критик»: введение, десять дней, финал ——— */
+      const KRITIK_LURES = ['Катастрофизация', 'Чтение мыслей', 'Долженствования', 'Обесценивание позитива', 'Наклеивание ярлыков'];
+      const KRITIK_TOPICS = ['Внешность, тело, вес', 'Ум, способности', 'Профессиональные достижения', 'Финансы, заработок', 'Отношения', 'Родительство', 'Социальные навыки', 'Сравнение с другими', 'Прошлые ошибки'];
+
+      const KRITIK_DAYS = [
+        {
+          n: 1, title: 'Первая встреча', lead: 'Знакомство с внутренним критиком', minutes: 20,
+          video: '0Ym5YPeXWLPkzabMMou1pL',
+          theory: ['Критик — это выученный голос, а не объективная правда о вас', 'Когда-то он пытался защищать; сейчас чаще мешает', 'Первый шаг — замечать его без борьбы и спора'],
+          blocks: [
+            { type: 'items', title: 'Задание 1. Три недавних встречи', hint: 'Вспомните три ситуации за последнюю неделю, когда вы себя ругали или обесценивали.', items: [1, 2, 3].map(i => ({ title: 'Ситуация ' + i, fields: [
+              { label: 'Что произошло', key: 'k1-s' + i + '-f', kind: 'area' },
+              { label: 'Что сказал критик (точные слова)', key: 'k1-s' + i + '-c', kind: 'text' },
+              { label: 'Что я почувствовал(а)', key: 'k1-s' + i + '-p', kind: 'text' } ] })) },
+            { type: 'items', title: 'Задание 2. Голос критика', items: [{ fields: [
+              { label: 'Какой у него тон', key: 'k1-voice-tone', kind: 'chips', other: true, options: ['Холодный, отстранённый', 'Злой, агрессивный', 'Презрительный', 'Разочарованный', 'Саркастичный', 'Уставший («ну сколько можно»)'] },
+              { label: 'Чей голос он напоминает', key: 'k1-voice-who', kind: 'text' },
+              { label: 'Если бы у критика было имя — какое', key: 'k1-voice-name', kind: 'text' } ] }] },
+            { type: 'inputs', title: 'Задание 3. Эксперимент на сегодня', hint: 'Три раза за день остановитесь и спросите себя: «Что сейчас говорит мой внутренний голос?»', labels: ['Момент 1', 'Момент 2', 'Момент 3'], key: 'k1-moment' },
+            { type: 'text', title: 'Итог дня', hint: 'Одно открытие о своём критике сегодня.', key: 'k1-sum', big: true } ] },
+        {
+          n: 2, title: 'Словарь и карта критика', lead: 'Фразы, темы и тело', minutes: 25,
+          video: 'wmJPBbZmPG2A2SmCCwp8Px',
+          theory: ['Фразы критика повторяются — их можно выучить и узнавать', 'Темы показывают, что для него «важно»', 'Тело подсказывает, когда критик включился'],
+          blocks: [
+            { type: 'inputs', title: 'Задание 1. Фразы моего критика', hint: 'Выпишите типичные фразы — 7–10 штук.', labels: ['Фраза 1', 'Фраза 2', 'Фраза 3', 'Фраза 4', 'Фраза 5', 'Фраза 6', 'Фраза 7', 'Фраза 8'], key: 'k2-phrase' },
+            { type: 'items', title: 'Фразы-рекордсмены', items: [{ fields: [
+              { label: 'Самая частая фраза', key: 'k2-freq', kind: 'text' },
+              { label: 'Самая болезненная фраза', key: 'k2-hurt', kind: 'text' } ] }] },
+            { type: 'chips', title: 'Задание 2. Любимые темы', hint: 'О чём критик говорит чаще всего?', options: KRITIK_TOPICS, key: 'k2-topic', other: true },
+            { type: 'top', title: 'Топ-3 любимых темы', options: KRITIK_TOPICS, count: 3, key: 'k2-top' },
+            { type: 'chips', title: 'Задание 3. Карта тела', hint: 'Где в теле вы чувствуете критика?', options: ['Голова (боль, давление)', 'Лицо (сжатая челюсть)', 'Горло (ком, сжатие)', 'Плечи и шея (напряжение)', 'Грудь (сжатие, тяжесть)', 'Живот (узел, тошнота)', 'Руки (сжатые кулаки)'], key: 'k2-body', other: true },
+            { type: 'top', title: 'Мои главные места-индикаторы', hint: 'Топ-3.', options: ['Голова (боль, давление)', 'Лицо (сжатая челюсть)', 'Горло (ком, сжатие)', 'Плечи и шея (напряжение)', 'Грудь (сжатие, тяжесть)', 'Живот (узел, тошнота)', 'Руки (сжатые кулаки)'], count: 3, key: 'k2-body-top' },
+            { type: 'text', title: 'Итог дня', hint: 'Что удивило в словаре критика? Есть ли фраза, которую раньше не осознавали как критику?', key: 'k2-sum', big: true } ] },
+        {
+          n: 3, title: 'Когда критик громче', lead: 'Усилители, глушители и профайл', minutes: 25,
+          video: 'd4pA46mg6NFtegMVhTFD7T',
+          theory: ['Усилители — состояния, ситуации и люди, которые делают критика громче', 'Глушители — то, что возвращает голос к нормальной громкости', 'Ловушки критика: катастрофизация, чтение мыслей, долженствования, обесценивание, ярлыки'],
+          blocks: [
+            { type: 'chips', title: 'Задание 1. Усилители', hint: 'Что делает критика громче? Отметьте всё, что подходит.', options: ['Недосып', 'Голод', 'Усталость', 'Стресс', 'Болезнь', 'Дедлайны', 'Публичные выступления', 'Новые люди', 'Оценивание', 'Соцсети', 'Новости'], key: 'k3-loud', other: true },
+            { type: 'inputs', title: 'Мой топ-5 усилителей', labels: ['Усилитель 1', 'Усилитель 2', 'Усилитель 3', 'Усилитель 4', 'Усилитель 5'], key: 'k3-top' },
+            { type: 'text', title: 'Что делает критика тише', hint: 'Вспомните, после чего голос критика слабеет.', key: 'k3-quiet', big: false },
+            { type: 'items', title: 'Задание 2. Ловушки в моих фразах', hint: 'У каждой фразы критика есть ловушка мышления.', items: [1, 2, 3].map(i => ({ title: 'Фраза ' + i, fields: [
+              { label: 'Фраза критика', key: 'k3-l' + i + '-f', kind: 'text' },
+              { label: 'Ловушка', key: 'k3-l' + i + '-t', kind: 'select', options: KRITIK_LURES } ] })) },
+            { type: 'text', title: 'Любимые ловушки моего критика', key: 'k3-lure-fav' },
+            { type: 'items', title: 'Задание 3. Профайл критика', items: [{ fields: [
+              { label: 'Имя критика', key: 'k3-prof-name', kind: 'text' },
+              { label: 'Как звучит (тон)', key: 'k3-prof-voice', kind: 'text' },
+              { label: 'Любимые темы', key: 'k3-prof-topics', kind: 'text' },
+              { label: 'Любимые ловушки', key: 'k3-prof-lures', kind: 'text' },
+              { label: 'Когда громче всего', key: 'k3-prof-when', kind: 'text' },
+              { label: 'Где живёт в теле', key: 'k3-prof-body', kind: 'text' } ] }] },
+            { type: 'text', title: 'Итог дня', hint: 'Что я теперь знаю о критике, чего не знал(а) три дня назад.', key: 'k3-sum', big: true } ] },
+        {
+          n: 4, title: 'Откуда пришёл критик', lead: 'Корни и история', minutes: 25,
+          video: 'oqftJiFAdy1h9s3ifG7eXP',
+          theory: ['Критик — выученный голос: чей-то тон, слова, интонации', 'Он усвоился в детстве, когда мы зависели от взрослых', 'Понимание корней ослабляет его власть'],
+          blocks: [
+            { type: 'items', title: 'Задание 1. Чьи это слова?', hint: 'Вернитесь к фразам критика. От кого вы могли их слышать?', items: [1, 2, 3, 4, 5].map(i => ({ title: 'Фраза ' + i, fields: [
+              { label: 'Что говорит критик', key: 'k4-w' + i + '-f', kind: 'text' },
+              { label: 'От кого мог(ла) слышать', key: 'k4-w' + i + '-who', kind: 'text' } ] })) },
+            { type: 'items', title: 'Задание 2. Что я усвоил(а)', hint: 'Какие выводы сделал ребёнок?', items: [{ fields: [
+              { label: 'Про себя я понял(а)', key: 'k4-learn-1', kind: 'area' },
+              { label: 'Чтобы меня любили, я должен(должна)', key: 'k4-learn-2', kind: 'area' },
+              { label: 'Ошибаться — это', key: 'k4-learn-3', kind: 'area' } ] }] },
+            { type: 'items', title: 'Задание 3. Линия времени', hint: 'Самое раннее воспоминание, связанное с самокритикой.', items: [{ fields: [
+              { label: 'Сколько мне было лет', key: 'k4-time-age', kind: 'text' },
+              { label: 'Что происходило', key: 'k4-time-what', kind: 'area' },
+              { label: 'Что я почувствовал(а) тогда', key: 'k4-time-feel', kind: 'area' } ] }] },
+            { type: 'text', title: 'Итог дня', hint: 'Одно осознание о связи прошлого и настоящего.', key: 'k4-sum', big: true },
+            { type: 'text', title: 'Что я чувствую сейчас', key: 'k4-now' } ] },
+        {
+          n: 5, title: 'Защитник в неуклюжей броне', lead: 'Намерение критика и цена защиты', minutes: 25,
+          video: 'oXZH14K1YCN42AuxBPX58k',
+          theory: ['Критик когда-то пытался защищать — от боли, стыда, отвержения', 'Признать намерение — не значит согласиться с методами', 'У защиты есть цена: из-за неё мы отказываемся от важного'],
+          blocks: [
+            { type: 'items', title: 'Задание 1. От чего защищает?', items: [1, 2, 3, 4].map(i => ({ title: 'Тема ' + i, fields: [
+              { label: 'Тема критика', key: 'k5-p' + i + '-t', kind: 'text' },
+              { label: 'От чего защищает', key: 'k5-p' + i + '-from', kind: 'text' },
+              { label: 'Чего боится', key: 'k5-p' + i + '-fear', kind: 'text' } ] })) },
+            { type: 'text', title: 'Задание 2. Послание критику', hint: 'Напишите послание. Можно начать так: «Я понимаю, что ты пытался…»', key: 'k5-letter', big: true },
+            { type: 'items', title: 'Задание 3. Цена защиты', hint: 'Что вы НЕ сделали из-за критика?', items: [{ fields: [
+              { label: 'В карьере', key: 'k5-cost-career', kind: 'area' },
+              { label: 'В отношениях', key: 'k5-cost-rel', kind: 'area' },
+              { label: 'В самовыражении', key: 'k5-cost-self', kind: 'area' },
+              { label: 'В заботе о себе', key: 'k5-cost-care', kind: 'area' } ] }] },
+            { type: 'text', title: 'Итог дня', hint: 'Как изменилось отношение к критику.', key: 'k5-sum', big: true } ] },
+        {
+          n: 6, title: 'Самосострадание', lead: 'Другой способ относиться к себе', minutes: 25,
+          video: 'tvLHhNzWGkDU6JLh8aPQLQ',
+          theory: ['Самосострадание — не жалость и не слабость, а навык', 'Три шага: осознанность, общность, доброта', 'Разговор с собой «как с другом» меняет тон'],
+          blocks: [
+            { type: 'items', title: 'Задание 1. Как другу', hint: 'Вспомните недавнюю ситуацию самокритики.', items: [{ fields: [
+              { label: 'Ситуация', key: 'k6-f-sit', kind: 'text' },
+              { label: 'Что сказал критик', key: 'k6-f-crit', kind: 'area' },
+              { label: 'Что бы я сказал(а) другу в такой ситуации', key: 'k6-f-friend', kind: 'area' } ] }] },
+            { type: 'items', title: 'Задание 2. Пауза самосострадания', hint: 'Выберите болезненную ситуацию и пройдите три шага.', items: [{ fields: [
+              { label: 'Осознанность — признаю, что мне трудно', key: 'k6-p-mind', kind: 'area' },
+              { label: 'Общность — я не один(одна)', key: 'k6-p-share', kind: 'area' },
+              { label: 'Доброта — что говорю себе', key: 'k6-p-kind', kind: 'area' },
+              { label: 'Как ощущения после', key: 'k6-p-after', kind: 'text' } ] }] },
+            { type: 'items', title: 'Задание 3. Рука на сердце', hint: 'Положите руку на сердце. Скажите фразу 3 раза.', items: [{ fields: [
+              { label: 'Моя фраза поддержки', key: 'k6-h-phrase', kind: 'text' },
+              { label: 'Что чувствую в теле', key: 'k6-h-body', kind: 'area' } ] }] },
+            { type: 'text', title: 'Итог дня', hint: 'Какой была реакция на сострадательные техники? Что было непривычно?', key: 'k6-sum', big: true } ] },
+        {
+          n: 7, title: 'Инструменты ответа', lead: 'Когнитивные техники', minutes: 30,
+          video: 'ssrfngXdvGrL5TxXZbJHo8',
+          theory: ['1. Проверка фактами: факт → интерпретация → другие объяснения', '2. Адвокат защиты: обвинение → доказательства против', '3. Через 5 лет: буду ли помнить? насколько это важно?'],
+          blocks: [
+            { type: 'items', title: 'Задание 1. Практика техник', items: [1, 2, 3].map(i => ({ title: 'Фраза ' + i, fields: [
+              { label: 'Фраза критика', key: 'k7-p' + i + '-f', kind: 'text' },
+              { label: 'Техника', key: 'k7-p' + i + '-t', kind: 'select', options: ['Проверка фактами', 'Адвокат защиты', 'Через 5 лет'] },
+              { label: 'Результат', key: 'k7-p' + i + '-r', kind: 'area' } ] })) },
+            { type: 'items', title: 'Задание 2. Выбери своё', items: [{ fields: [
+              { label: 'Самая эффективная техника для меня', key: 'k7-fav', kind: 'text' },
+              { label: 'Как буду использовать в жизни', key: 'k7-use', kind: 'area' } ] }] },
+            { type: 'text', title: 'Итог дня', hint: 'Что я теперь могу ответить критику.', key: 'k7-sum', big: true } ] },
+        {
+          n: 8, title: 'Голос внутреннего наставника', lead: 'Создаём другой внутренний голос', minutes: 25,
+          video: '8GtH51jvu7BQmAC6qrAshd',
+          theory: ['У каждого может быть другой внутренний голос — поддерживающий', 'Наставник говорит правду, но без унижения', 'Его голос можно выучить так же, как голос критика'],
+          blocks: [
+            { type: 'items', title: 'Задание 1. Портрет наставника', items: [{ fields: [
+              { label: 'Как звучит голос', key: 'k8-v-voice', kind: 'text' },
+              { label: 'Какой тон', key: 'k8-v-tone', kind: 'text' },
+              { label: 'Как обращается ко мне', key: 'k8-v-how', kind: 'text' },
+              { label: 'Кого напоминает', key: 'k8-v-who', kind: 'text' },
+              { label: 'Главная идея обо мне', key: 'k8-v-idea', kind: 'area' } ] }] },
+            { type: 'inputs', title: 'Задание 2. Словарь наставника', hint: 'Фразы, которые вы хотите слышать внутри.', labels: ['Фраза 1', 'Фраза 2', 'Фраза 3', 'Фраза 4', 'Фраза 5', 'Фраза 6', 'Фраза 7'], key: 'k8-words' },
+            { type: 'items', title: 'Задание 3. Перевод с языка критика', items: [1, 2, 3, 4].map(i => ({ title: 'Пара ' + i, fields: [
+              { label: 'Критик говорит', key: 'k8-t' + i + '-c', kind: 'text' },
+              { label: 'Наставник говорит', key: 'k8-t' + i + '-n', kind: 'text' } ] })) },
+            { type: 'text', title: 'Итог дня', hint: 'Как ощущается этот новый голос? Насколько он пока «свой»?', key: 'k8-sum', big: true } ] },
+        {
+          n: 9, title: 'Мой ритуал', lead: 'Собираем инструменты в систему', minutes: 30,
+          video: 'iThPz3SVFvHD56N4M5uNqQ',
+          theory: ['Ритуал собирает все инструменты в короткую последовательность', 'Четыре шага: заметить → тело → ум или сострадание → наставник', 'Важно, чтобы ритуал подходил именно вам'],
+          blocks: [
+            { type: 'items', title: 'Задание 1. Сборка ритуала', items: [{ fields: [
+              { label: 'Название ритуала', key: 'k9-r-name', kind: 'text' },
+              { label: 'Шаг 1 — заметить', key: 'k9-r-1', kind: 'text' },
+              { label: 'Шаг 2 — тело', key: 'k9-r-2', kind: 'text' },
+              { label: 'Шаг 3 — ум или сострадание', key: 'k9-r-3', kind: 'text' },
+              { label: 'Шаг 4 — наставник', key: 'k9-r-4', kind: 'text' } ] }] },
+            { type: 'items', title: 'Задание 2. Тест-драйв', hint: 'Проведите ритуал сейчас с недавней ситуацией.', items: [{ fields: [
+              { label: 'Как ощущения после', key: 'k9-t-after', kind: 'area' },
+              { label: 'Что хочется изменить в ритуале', key: 'k9-t-fix', kind: 'text' } ] }] },
+            { type: 'chips', title: 'Задание 3. Триггеры для запуска', hint: 'Когда буду использовать ритуал.', options: ['Замечаю знакомую фразу критика', 'Чувствую напряжение в теле', 'После ошибки или неудачи', 'Перед важным событием', 'Когда сравниваю себя с другими', 'Не могу уснуть из-за мыслей'], key: 'k9-trig', other: true },
+            { type: 'text', title: 'Итог дня', hint: 'Насколько ритуал ощущается «моим». Буду ли реально им пользоваться?', key: 'k9-sum', big: true } ] },
+        {
+          n: 10, title: 'План на будущее', lead: 'Итоги и движение дальше', minutes: 30,
+          video: 'tPjq34Vn7ZZ5cPnSL5egJc',
+          theory: [],
+          blocks: [
+            { type: 'compare', title: 'Задание 1. Было — стало', hint: 'Оцените каждую строку: как было в Дне 1 и как сейчас.', head: ['День 1', 'День 10'], rows: [
+              { label: 'Как часто замечаю критика', key: 'k10-c1' },
+              { label: 'Насколько верю его словам', key: 'k10-c2' },
+              { label: 'Как быстро восстанавливаюсь', key: 'k10-c3' },
+              { label: 'Есть инструменты для ответа', key: 'k10-c4' },
+              { label: 'Понимаю, откуда он и зачем', key: 'k10-c5' } ] },
+            { type: 'recap', title: 'Задание 2. Мои инструменты', hint: 'Подборка собирается автоматически из ваших ответов — на этом устройстве.', rows: [
+              { label: 'Моя техника ответа критику', keys: ['k7-fav'], fallback: 'Заполнится из Дня 7' },
+              { label: 'Моя фраза наставника', keys: ['k8-words-0'], fallback: 'Заполнится из Дня 8' },
+              { label: 'Моя фраза самоподдержки', keys: ['k6-h-phrase'], fallback: 'Заполнится из Дня 6' },
+              { label: 'Мой ритуал (кратко)', keys: ['k9-r-name', 'k9-r-1'], fallback: 'Заполнится из Дня 9' } ] },
+            { type: 'items', title: 'Задание 3. План реагирования', items: [{ fields: [
+              { label: 'Когда замечаю, что критик набирает силу, я', key: 'k10-plan-1', kind: 'area' },
+              { label: 'Если критик очень громкий, я', key: 'k10-plan-2', kind: 'area' },
+              { label: 'Если не справляюсь сам(а), я', key: 'k10-plan-3', kind: 'area' } ] }] },
+            { type: 'text', title: 'Задание 4. Письмо себе', hint: 'Послание себе — что важно помнить.', key: 'k10-letter', big: true },
+            { type: 'items', title: 'Итог практики', items: [{ fields: [
+              { label: 'Главное изменение за эти 10 дней', key: 'k10-chg', kind: 'area' },
+              { label: 'Одна фраза о моих новых отношениях с критиком', key: 'k10-phrase', kind: 'text' } ] }] } ] }
+      ];
+
+      const KRITIK_INTRO = {
+        title: 'Как устроена программа', eyebrow: 'Введение', minutes: null,
+        video: '8ajre2nn1rW8fmvKL2tTJH',
+        blocks: [
+          { type: 'note', text: 'Каждый день — короткое видео и задания. Ответы сохраняются только на этом устройстве: их не видит никто, кроме вас.' },
+          { type: 'note', text: 'Рекомендуем проходить примерно по одному дню. Все дни открыты сразу — можно возвращаться к любому и идти в своём темпе.' },
+          { type: 'note', text: 'Задания удобно выполнять прямо в приложении. Если привычнее на бумаге — распечатайте PDF дня или возьмите тетрадь.' },
+          { type: 'safe', text: 'Эта практика — не замена терапии. Если голос критика звучит невыносимо, если самокритика доводит до отчаяния или не отпускает ощущение «со мной что-то не так» — обратитесь к специалисту. Психолог или психотерапевт может дать поддержку, которую никакая практика не заменит.' }
+        ]
+      };
+
+      const KRITIK_FINAL = {
+        title: 'Финал', eyebrow: 'Практика завершена', minutes: null,
+        video: 'njqw6pu9niojWFpaUmWQXZ',
+        blocks: [
+          { type: 'note', text: 'Десять дней позади. Вы научились замечать голос критика, понимать, откуда он пришёл и что пытается защитить.' },
+          { type: 'note', text: 'Главное открытие практики: критик — это не вы. У вас теперь есть другой голос — наставника, и инструменты, чтобы его усиливать.' },
+          { type: 'recap', title: 'Мой набор инструментов', hint: 'Подборка собрана локально из ваших ответов.', rows: [
+            { label: 'Моя техника ответа критику', keys: ['k7-fav'], fallback: 'Заполнится из Дня 7' },
+            { label: 'Моя фраза наставника', keys: ['k8-words-0'], fallback: 'Заполнится из Дня 8' },
+            { label: 'Моя фраза самоподдержки', keys: ['k6-h-phrase'], fallback: 'Заполнится из Дня 6' },
+            { label: 'Мой ритуал (кратко)', keys: ['k9-r-name', 'k9-r-1'], fallback: 'Заполнится из Дня 9' } ] },
+          { type: 'action', label: 'Экспорт записей', hint: 'Формат экспорта ещё согласуется с автором — в демонстрации функция не подключена.' }
+        ]
+      };
+
+      /* ——— Практика «Мои границы»: введение, десять дней, финал ——— */
+      const GRANITSY_BODY = ['Голова (боль, давление)', 'Лицо (сжатая челюсть, напряжённый лоб)', 'Горло (ком, трудно говорить)', 'Плечи и шея (напряжение)', 'Грудь (сжатие, трудно дышать)', 'Живот (узел, тяжесть)', 'Руки (сжатые кулаки, холодеют)', 'Ноги (слабость, желание убежать)'];
+
+      const GRANITSY_DAYS = [
+        {
+          n: 1, title: 'Диагностика', lead: 'Где мои границы — и где их нет', minutes: 25,
+          video: 'nxwbCLSdwn3Ffwty5CdfgU',
+          theory: ['Границы — это понимание, где заканчиваюсь я и начинается другой', 'Трудности с «нет» — не слабость, а выученные привычки', 'Начнём с карты: где сейчас проходят мои границы'],
+          blocks: [
+            { type: 'items', title: 'Задание 1. Оценка по сферам', hint: 'Оцените границы в каждой сфере: 1 — границ нет совсем, 10 — железобетонная стена.', items: [
+              { title: 'Работа (начальство, коллеги)', fields: [ { label: 'Оценка (1–10)', key: 'g1-a1-n', kind: 'num' }, { label: 'Размытые или жёсткие?', key: 'g1-a1-t', kind: 'seg', options: ['Размытые', 'Жёсткие', 'По-разному'] } ] },
+              { title: 'Романтические отношения', fields: [ { label: 'Оценка (1–10)', key: 'g1-a2-n', kind: 'num' }, { label: 'Размытые или жёсткие?', key: 'g1-a2-t', kind: 'seg', options: ['Размытые', 'Жёсткие', 'По-разному'] } ] },
+              { title: 'Родительская семья', fields: [ { label: 'Оценка (1–10)', key: 'g1-a3-n', kind: 'num' }, { label: 'Размытые или жёсткие?', key: 'g1-a3-t', kind: 'seg', options: ['Размытые', 'Жёсткие', 'По-разному'] } ] },
+              { title: 'Друзья', fields: [ { label: 'Оценка (1–10)', key: 'g1-a4-n', kind: 'num' }, { label: 'Размытые или жёсткие?', key: 'g1-a4-t', kind: 'seg', options: ['Размытые', 'Жёсткие', 'По-разному'] } ] },
+              { title: 'Своё тело (сон, еда, отдых)', fields: [ { label: 'Оценка (1–10)', key: 'g1-a5-n', kind: 'num' }, { label: 'Размытые или жёсткие?', key: 'g1-a5-t', kind: 'seg', options: ['Размытые', 'Жёсткие', 'По-разному'] } ] },
+              { title: 'Своё время', fields: [ { label: 'Оценка (1–10)', key: 'g1-a6-n', kind: 'num' }, { label: 'Размытые или жёсткие?', key: 'g1-a6-t', kind: 'seg', options: ['Размытые', 'Жёсткие', 'По-разному'] } ] }
+            ] },
+            { type: 'items', title: 'Задание 2. Три недавних ситуации', hint: 'Вспомните три случая за последние две недели, когда границы нарушили.', items: [1, 2, 3].map(i => ({ title: 'Ситуация ' + i, fields: [
+              { label: 'Что произошло', key: 'g1-s' + i + '-w', kind: 'area' },
+              { label: 'С кем', key: 'g1-s' + i + '-who', kind: 'text' },
+              { label: 'Что почувствовал(а)', key: 'g1-s' + i + '-f', kind: 'text' },
+              { label: 'Что сделал(а) или не сделал(а)', key: 'g1-s' + i + '-d', kind: 'text' } ] })) },
+            { type: 'items', title: 'Задание 3. Первые паттерны', hint: 'Что общего у этих ситуаций?', items: [{ fields: [
+              { label: 'Повторяющиеся люди', key: 'g1-p-people', kind: 'text' },
+              { label: 'Повторяющиеся ситуации', key: 'g1-p-sit', kind: 'text' },
+              { label: 'Повторяющиеся чувства', key: 'g1-p-feel', kind: 'text' },
+              { label: 'Повторяющиеся реакции', key: 'g1-p-react', kind: 'text' } ] }] },
+            { type: 'text', title: 'Итог дня', hint: 'Одно открытие о своих границах сегодня.', key: 'g1-sum', big: true } ] },
+        {
+          n: 2, title: 'Карта сигналов', lead: 'Как тело и эмоции говорят о границах', minutes: 25,
+          video: 'i4Z6oinkjvicPtitUY2mC9',
+          theory: ['Тело — детектор нарушенных границ', 'Раздражение, злость, обида, вина — частые эмоции-маркеры', 'Замечая сигналы раньше, можно реагировать вовремя'],
+          blocks: [
+            { type: 'chips', title: 'Задание 1. Карта тела', hint: 'Где отзывается нарушение границ? Отметьте всё, что замечаете.', options: GRANITSY_BODY, key: 'g2-body', other: true },
+            { type: 'top', title: 'Мои главные места-индикаторы', hint: 'Топ-3.', options: GRANITSY_BODY, count: 3, key: 'g2-body-top' },
+            { type: 'items', title: 'Задание 2. Эмоции-маркеры', hint: 'Оцените, как часто чувствуете каждую эмоцию (1–10).', items: ['Раздражение', 'Злость', 'Обида', 'Вина'].map((emotion, i) => ({ title: emotion, fields: [
+              { label: 'Частота (1–10)', key: 'g2-e' + (i + 1) + '-n', kind: 'num' },
+              { label: 'В каких ситуациях обычно', key: 'g2-e' + (i + 1) + '-s', kind: 'text' } ] })) },
+            { type: 'text', title: 'Моя главная эмоция-маркер', key: 'g2-main' },
+            { type: 'items', title: 'Задание 3. Эксперимент на сегодня', hint: 'Замечайте сигналы тела в разговорах. Вечером запишите.', items: [1, 2].map(i => ({ title: 'Ситуация ' + i, fields: [
+              { label: 'Что происходило', key: 'g2-x' + i + '-w', kind: 'text' },
+              { label: 'Что заметил(а) в теле', key: 'g2-x' + i + '-b', kind: 'text' },
+              { label: 'Какая эмоция', key: 'g2-x' + i + '-e', kind: 'text' } ] })) },
+            { type: 'text', title: 'Итог дня', hint: 'Как теперь буду использовать тело и эмоции как детекторы.', key: 'g2-sum', big: true } ] },
+        {
+          n: 3, title: 'Откуда это', lead: 'Корни моих паттернов с границами', minutes: 25,
+          video: 'voZSGB4bzTA29wbPE3b73k',
+          theory: ['Границы формируются в детстве: как с нами обращались, когда мы говорили «нет»', 'Модели родителей: как обходились со своими границами мама и папа', 'Понять корни — не чтобы обвинить, а чтобы освободиться'],
+          blocks: [
+            { type: 'items', title: 'Задание 1. Как обращались с моими границами', hint: 'Вспомните детство.', items: [{ fields: [
+              { label: 'Уважались ли мои «нет»', key: 'g3-a-no', kind: 'area' },
+              { label: 'Что происходило, когда я отказывался(ась)', key: 'g3-a-when', kind: 'area' },
+              { label: 'Было ли личное пространство', key: 'g3-a-space', kind: 'area' },
+              { label: 'Считались ли с моим мнением', key: 'g3-a-opinion', kind: 'area' } ] }] },
+            { type: 'items', title: 'Задание 2. Модели родителей', items: [{ fields: [
+              { label: 'Мама: умела говорить «нет»?', key: 'g3-m-no', kind: 'text' },
+              { label: 'Как обращалась со своими границами', key: 'g3-m-how', kind: 'area' },
+              { label: 'Папа: умел говорить «нет»?', key: 'g3-f-no', kind: 'text' },
+              { label: 'Как обращался со своими границами', key: 'g3-f-how', kind: 'area' } ] }] },
+            { type: 'items', title: 'Задание 3. Что я усвоил(а)', hint: 'Какие выводы сделал ребёнок?', items: [{ fields: [
+              { label: 'Про свои потребности я понял(а)', key: 'g3-l-need', kind: 'area' },
+              { label: 'Про слово «нет» я понял(а)', key: 'g3-l-no', kind: 'area' },
+              { label: 'Чтобы меня любили, я должен(должна)', key: 'g3-l-love', kind: 'area' } ] }] },
+            { type: 'text', title: 'Итог дня', hint: 'Одно осознание о связи прошлого и настоящего. Что я чувствую сейчас?', key: 'g3-sum', big: true } ] },
+        {
+          n: 4, title: 'Страхи и вина', lead: 'Что блокирует мои границы', minutes: 30,
+          video: '8HBx32q1UuBeJn7SvwAwN3',
+          theory: ['За трудностью сказать «нет» стоят страхи: отвержения, конфликта, вины', 'Лестница «а что тогда?» доводит страх до конца — и он часто уменьшается', 'Вина бывает здоровая (сигнал) и токсичная (наказание)'],
+          blocks: [
+            { type: 'items', title: 'Задание 1. Мои страхи', hint: 'Оцените силу каждого страха (1–10).', items: ['Отвержение', 'Конфликт', 'Чувство вины', 'Быть плохим человеком', 'Потеря'].map((fear, i) => ({ title: fear, fields: [
+              { label: 'Сила (1–10)', key: 'g4-f' + (i + 1) + '-n', kind: 'num' },
+              { label: 'В каких ситуациях сильнее', key: 'g4-f' + (i + 1) + '-s', kind: 'text' } ] })) },
+            { type: 'text', title: 'Мой главный страх', key: 'g4-main' },
+            { type: 'items', title: 'Задание 2. А что тогда?', hint: 'Пройдите цепочку до конца.', items: [{ fields: [
+              { label: 'Если я скажу «нет», что самое страшное случится', key: 'g4-l-1', kind: 'area' },
+              { label: 'И что тогда', key: 'g4-l-2', kind: 'text' },
+              { label: 'И что тогда', key: 'g4-l-3', kind: 'text' },
+              { label: 'И что тогда — дойдите до конца', key: 'g4-l-4', kind: 'text' },
+              { label: 'Это действительно так страшно', key: 'g4-l-scary', kind: 'seg', options: ['Да', 'Нет', 'Частично'] },
+              { label: 'Это реально произойдёт', key: 'g4-l-real', kind: 'seg', options: ['Да', 'Нет', 'Возможно'] } ] }] },
+            { type: 'items', title: 'Задание 3. Вина — здоровая или токсичная?', hint: 'Вспомните ситуацию, когда чувствовали вину после границы.', items: [{ fields: [
+              { label: 'Что произошло', key: 'g4-g-what', kind: 'area' },
+              { label: 'Что я сделал(а)', key: 'g4-g-did', kind: 'area' },
+              { label: 'Я действительно сделал(а) что-то плохое?', key: 'g4-g-bad', kind: 'seg', options: ['Да', 'Нет', 'Не уверен(а)'] },
+              { label: 'Или просто защитил(а) себя?', key: 'g4-g-prot', kind: 'seg', options: ['Да', 'Нет', 'Не уверен(а)'] },
+              { label: 'Это здоровая вина или токсичная?', key: 'g4-g-kind', kind: 'seg', options: ['Здоровая', 'Токсичная', 'Обе'] },
+              { label: 'Чей голос говорит «ты виноват(а)»', key: 'g4-g-voice', kind: 'text' } ] }] },
+            { type: 'text', title: 'Итог дня', hint: 'Что я понял(а) о своих страхах и как теперь буду относиться к вине после границ.', key: 'g4-sum', big: true } ] },
+        {
+          n: 5, title: 'Мифы и права', lead: 'Что мешает и что разрешает', minutes: 25,
+          video: 'pXCWaAUUphKEuj3YRRYECu',
+          theory: ['Мифы о границах живут в нас как убеждения', 'Напротив каждого мифа — право', 'Присвоение права — это не «разрешение», а тренировка'],
+          blocks: [
+            { type: 'items', title: 'Задание 1. Мои мифы', hint: 'Насколько сильно каждое убеждение живёт в вас (1–10)?', items: ['«Границы — это эгоизм»', '«Хорошие люди не отказывают»', '«Если люблю — должен(на) терпеть»', '«Если скажу нет — отвергнут»', '«Мои потребности не так важны»', '«Конфликт — это плохо, надо избегать»'].map((myth, i) => ({ title: myth, fields: [
+              { label: 'Сила (1–10)', key: 'g5-m' + (i + 1) + '-n', kind: 'num' } ] })) },
+            { type: 'inputs', title: 'Мой топ-2 самых сильных мифа', labels: ['Миф 1', 'Миф 2'], key: 'g5-top' },
+            { type: 'text', title: 'Откуда они? Кто так говорил?', key: 'g5-from' },
+            { type: 'items', title: 'Задание 2. Билль о правах', hint: 'Отметьте, насколько легко даёте себе каждое право (1–10).', items: ['Сказать «нет» без оправданий', 'Изменить своё мнение', 'Не отвечать за чужие чувства', 'Просить о своём', 'Делать ошибки', 'Не соответствовать ожиданиям', 'Побыть одному', 'Ставить себя в приоритет'].map((right, i) => ({ title: right, fields: [
+              { label: 'Даю себе (1–10)', key: 'g5-r' + (i + 1) + '-n', kind: 'num' } ] })) },
+            { type: 'items', title: 'Задание 3. Присвоение', hint: 'Три права, которые даются сложнее всего.', items: [{ fields: [
+              { label: 'Право 1', key: 'g5-c1', kind: 'text' },
+              { label: 'Право 2', key: 'g5-c2', kind: 'text' },
+              { label: 'Право 3', key: 'g5-c3', kind: 'text' } ] }] },
+            { type: 'text', title: 'Произнесите вслух: «Я имею право на…»', hint: 'Что чувствуете в теле, когда произносите?', key: 'g5-body' },
+            { type: 'text', title: 'Какое право вызвало самое сильное сопротивление', key: 'g5-resist' },
+            { type: 'text', title: 'Итог дня', hint: 'Какой миф буду оспаривать. Какое право буду присваивать.', key: 'g5-sum', big: true } ] },
+        {
+          n: 6, title: 'Инструменты «Нет»', lead: 'Формулы для моих ситуаций', minutes: 30,
+          video: '3cqA2qWLZva7tmcVaLcEQR',
+          theory: ['Три типа «нет»: мягкое, прямое, жёсткое', 'Полезные формулы: «Мне нужно подумать», «Это не работает для меня», «Я могу X, но не Y»', 'Начинать можно с мягких формулировок — и тренировать их вслух'],
+          blocks: [
+            { type: 'items', title: 'Задание 1. Мои формулы', hint: 'Для каждого типа напишите свой вариант из своей жизни.', items: [
+              { title: 'Мягкое «нет»', fields: [ { label: 'Ситуация', key: 'g6-f1-s', kind: 'text' }, { label: 'Как скажу', key: 'g6-f1-say', kind: 'text' } ] },
+              { title: 'Прямое «нет»', fields: [ { label: 'Ситуация', key: 'g6-f2-s', kind: 'text' }, { label: 'Как скажу', key: 'g6-f2-say', kind: 'text' } ] },
+              { title: 'Жёсткое «нет»', fields: [ { label: 'Ситуация', key: 'g6-f3-s', kind: 'text' }, { label: 'Как скажу', key: 'g6-f3-say', kind: 'text' } ] } ] },
+            { type: 'items', title: 'Задание 2. Три проблемные ситуации', hint: 'Вернитесь к ситуациям из Дня 1 и напишите формулы.', items: [1, 2, 3].map(i => ({ title: 'Ситуация ' + i, fields: [
+              { label: 'Ситуация', key: 'g6-x' + i + '-s', kind: 'text' },
+              { label: 'Формула', key: 'g6-x' + i + '-f', kind: 'text' } ] })) },
+            { type: 'items', title: 'Задание 3. Практика вслух', hint: 'Встаньте перед зеркалом. Скажите вслух: «Нет», «Нет, я не смогу», «Нет, это мне не подходит».', items: [{ fields: [
+              { label: 'Как звучит голос', key: 'g6-v-voice', kind: 'area' },
+              { label: 'Что хочется изменить', key: 'g6-v-fix', kind: 'text' } ] }] },
+            { type: 'text', title: 'Итог дня', hint: 'Какая формула — моё открытие. Какую использую первой.', key: 'g6-sum', big: true } ] },
+        {
+          n: 7, title: 'Давление и просьбы', lead: 'Как выдерживать и как просить', minutes: 30,
+          video: 'pRxocN5Pc4Xn1q23Gn6JVU',
+          theory: ['При давлении: «заезженная пластинка», «признание + граница», выход из разговора', 'Формула просьбы DEAR: опиши факты → вырази чувства → попроси конкретно → объясни, почему важно', 'Просить — тоже граница'],
+          blocks: [
+            { type: 'items', title: 'Задание 1. Сценарий давления', hint: 'Выберите одну проблемную ситуацию и напишите сценарий.', items: [{ fields: [
+              { label: 'Ситуация', key: 'g7-s-sit', kind: 'text' },
+              { label: 'Как скажу «нет»', key: 'g7-s-no', kind: 'text' },
+              { label: 'Если начнёт давить, скажу', key: 'g7-s-1', kind: 'text' },
+              { label: 'Если продолжит, скажу', key: 'g7-s-2', kind: 'text' },
+              { label: 'Если не остановится, сделаю', key: 'g7-s-3', kind: 'text' } ] }] },
+            { type: 'inputs', title: 'Задание 2. Мои просьбы', hint: 'Что вам нужно, но вы не просите?', labels: ['Просьба 1', 'Просьба 2', 'Просьба 3'], key: 'g7-ask' },
+            { type: 'items', title: 'Задание 3. Формула просьбы (DEAR)', hint: 'Выберите одну просьбу и сформулируйте.', items: [{ fields: [
+              { label: 'Опиши ситуацию фактами', key: 'g7-d-d', kind: 'area' },
+              { label: 'Вырази чувства', key: 'g7-d-e', kind: 'area' },
+              { label: 'Попроси конкретно', key: 'g7-d-a', kind: 'area' },
+              { label: 'Объясни, почему важно', key: 'g7-d-r', kind: 'area' } ] }] },
+            { type: 'text', title: 'Итог дня', hint: 'Моя фраза для «заезженной пластинки». Какую просьбу готов(а) озвучить.', key: 'g7-sum', big: true } ] },
+        {
+          n: 8, title: 'Практика #1', lead: 'Первый эксперимент с границами', minutes: 30,
+          video: 's7yyzxS3TQ24sKuX6CU5at',
+          theory: ['Первый эксперимент — ситуация средней сложности (3–4 из 10)', 'Подготовка снижает тревогу: что скажу дословно, что может пойти не так', 'Страх всегда что-то говорит — ему можно ответить'],
+          blocks: [
+            { type: 'items', title: 'Задание 1. Выбор ситуации', hint: 'Ситуация средней сложности — 3–4 из 10.', items: [{ fields: [
+              { label: 'Ситуация', key: 'g8-c-sit', kind: 'area' },
+              { label: 'С кем', key: 'g8-c-who', kind: 'text' },
+              { label: 'Что хочу сказать или сделать', key: 'g8-c-wish', kind: 'area' } ] }] },
+            { type: 'items', title: 'Задание 2. Подготовка', items: [{ fields: [
+              { label: 'Что конкретно скажу — дословно', key: 'g8-p-say', kind: 'area' },
+              { label: 'Что может пойти не так', key: 'g8-p-risk', kind: 'area' },
+              { label: 'Как буду реагировать при давлении', key: 'g8-p-react', kind: 'text' } ] }] },
+            { type: 'items', title: 'Задание 3. Голос страха', items: [{ fields: [
+              { label: 'Страх говорит', key: 'g8-f-say', kind: 'area' },
+              { label: 'Я отвечаю', key: 'g8-f-answer', kind: 'area' } ] }] },
+            { type: 'items', title: 'Задание 4. После эксперимента', hint: 'Заполните после того, как попробуете.', items: [{ fields: [
+              { label: 'Что я сделал(а) или сказал(а)', key: 'g8-a-did', kind: 'area' },
+              { label: 'Как отреагировал человек', key: 'g8-a-who', kind: 'text' },
+              { label: 'Совпало ли с предсказанием страха', key: 'g8-a-match', kind: 'seg', options: ['Всё прошло лучше', 'Частично', 'Как и боялся(ась)'] },
+              { label: 'Что чувствовал(а) во время', key: 'g8-a-during', kind: 'text' },
+              { label: 'Что чувствую сейчас', key: 'g8-a-now', kind: 'text' } ] }] },
+            { type: 'text', title: 'Итог дня', hint: 'Главный вывод из эксперимента. Что сделаю по-другому в следующий раз.', key: 'g8-sum', big: true } ] },
+        {
+          n: 9, title: 'Практика #2 и последствия', lead: 'Второй эксперимент и работа с дискомфортом', minutes: 30,
+          video: 'sBbYYXupnpjaQYUJ8q2onw',
+          theory: ['После первого «нет» часто приходит дискомфорт и вина — это нормально', 'Дискомфорт — не доказательство, что вы неправы', 'Второй эксперимент — чуть сложнее (5–6 из 10)'],
+          blocks: [
+            { type: 'items', title: 'Часть 1. Работа с последствиями', items: [{ fields: [
+              { label: 'Как я чувствовал(а) себя после вчерашнего эксперимента', key: 'g9-c-feel', kind: 'area' },
+              { label: 'Хотелось ли отменить границу', key: 'g9-c-cancel', kind: 'seg', options: ['Да', 'Нет', 'Немного'] },
+              { label: 'Что помогло не отменить (или что бы помогло)', key: 'g9-c-helped', kind: 'area' } ] }] },
+            { type: 'chips', title: 'Мои фразы самоподдержки', hint: 'Выберите или напишите свои.', options: ['«Я имею право на свои границы»', '«Дискомфорт — не доказательство, что я неправ(а)»', '«Я позаботился(ась) о себе — это нормально»', '«Чувство вины пройдёт»', '«Я учусь — и у меня получается»'], key: 'g9-sup', other: true },
+            { type: 'items', title: 'Часть 2. Эксперимент #2', hint: 'Ситуация сложности 5–6 из 10.', items: [{ fields: [
+              { label: 'Ситуация', key: 'g9-x2-sit', kind: 'text' },
+              { label: 'С кем', key: 'g9-x2-who', kind: 'text' },
+              { label: 'Что скажу', key: 'g9-x2-say', kind: 'text' },
+              { label: 'При давлении', key: 'g9-x2-press', kind: 'text' } ] }] },
+            { type: 'items', title: 'После эксперимента', items: [{ fields: [
+              { label: 'Что произошло', key: 'g9-a-what', kind: 'area' },
+              { label: 'Как отреагировал человек', key: 'g9-a-who', kind: 'text' },
+              { label: 'Что чувствую', key: 'g9-a-feel', kind: 'text' },
+              { label: 'Что получилось хорошо', key: 'g9-a-good', kind: 'text' },
+              { label: 'Что стало легче по сравнению с первым разом', key: 'g9-a-easier', kind: 'text' } ] }] },
+            { type: 'text', title: 'Итог дня', hint: 'Прогресс, который замечаю.', key: 'g9-sum', big: true } ] },
+        {
+          n: 10, title: 'План на будущее', lead: 'Итоги и движение дальше', minutes: 30,
+          video: 'pJV7Q4szWi64PfwpAFVuYn',
+          theory: [],
+          blocks: [
+            { type: 'compare', title: 'Задание 1. Было — стало', hint: 'Оцените изменения (1–10).', head: ['День 1', 'День 10'], rows: [
+              { label: 'Понимание своих проблем', key: 'g10-c1' },
+              { label: 'Понимание корней', key: 'g10-c2' },
+              { label: 'Знание инструментов', key: 'g10-c3' },
+              { label: 'Реальный опыт границ', key: 'g10-c4' },
+              { label: 'Отношение к вине после', key: 'g10-c5' } ] },
+            { type: 'items', title: 'Задание 2. Мои инструменты', items: [{ fields: [
+              { label: 'Что работает лучше всего', key: 'g10-t-1', kind: 'area' },
+              { label: 'Моя формула для отказа', key: 'g10-t-2', kind: 'text' },
+              { label: 'Моя фраза при давлении', key: 'g10-t-3', kind: 'text' },
+              { label: 'Моя фраза самоподдержки', key: 'g10-t-4', kind: 'text' },
+              { label: 'Как буду тренировать границы в повседневности', key: 'g10-t-5', kind: 'area' },
+              { label: 'Ранние сигналы, что границы «плывут»', key: 'g10-t-6', kind: 'area' },
+              { label: 'Что сделаю, если откачусь', key: 'g10-t-7', kind: 'area' } ] }] },
+            { type: 'text', title: 'Задание 4. Письмо себе', hint: 'Послание себе — что важно помнить.', key: 'g10-letter', big: true },
+            { type: 'items', title: 'Итог практики', items: [{ fields: [
+              { label: 'Главное изменение за эти 10 дней', key: 'g10-chg', kind: 'area' },
+              { label: 'Одна фраза, которая описывает мои новые границы', key: 'g10-phrase', kind: 'text' } ] }] } ] }
+      ];
+
+      const GRANITSY_INTRO = {
+        title: 'Как устроена программа', eyebrow: 'Введение', minutes: null,
+        video: '7Q4cnpFPcCYwvsAvP5XTJi',
+        blocks: [
+          { type: 'note', text: 'Каждый день — короткое видео и задания. Ответы сохраняются только на этом устройстве: их не видит никто, кроме вас.' },
+          { type: 'note', text: 'Рекомендуем проходить примерно по одному дню. Все дни открыты сразу — можно возвращаться к любому и идти в своём темпе.' },
+          { type: 'note', text: 'Задания удобно выполнять прямо в приложении. Если привычнее на бумаге — распечатайте PDF дня или возьмите тетрадь.' },
+          { type: 'safe', text: 'Эта практика — не замена терапии. Если рядом есть человек, который не принимает ваше «нет», контролирует, угрожает или применяет силу, — сначала подумайте о своей безопасности и обратитесь за поддержкой. Практика границ не заменяет реальную помощь.' }
+        ]
+      };
+
+      const GRANITSY_FINAL = {
+        title: 'Финал', eyebrow: 'Практика завершена', minutes: null,
+        video: 'oVHmP2FF7baKVozkGa1vep',
+        blocks: [
+          { type: 'note', text: 'Десять дней позади. Вы увидели, где теряете свои границы, откуда это пришло и как говорить «нет» без войны и оправданий.' },
+          { type: 'note', text: 'Главное — у вас есть опыт: вы реально попробовали. Границы тренируются, как навык, и с каждым разом будет легче.' },
+          { type: 'recap', title: 'Мой набор инструментов', hint: 'Подборка собрана локально из ваших ответов.', rows: [
+            { label: 'Моя формула отказа', keys: ['g10-t-2', 'g6-f2-say'], fallback: 'Заполнится из Дня 6 или 10' },
+            { label: 'Моя фраза при давлении', keys: ['g10-t-3', 'g7-s-1'], fallback: 'Заполнится из Дня 7 или 10' },
+            { label: 'Моя фраза самоподдержки', keys: ['g10-t-4', 'g9-sup-other'], fallback: 'Заполнится из Дней 9–10' },
+            { label: 'Письмо себе', keys: ['g10-letter'], fallback: 'Заполнится из Дня 10' } ] },
+          { type: 'action', label: 'Экспорт записей', hint: 'Формат экспорта ещё согласуется с автором — в демонстрации функция не подключена.' }
+        ]
+      };
+
+      /* ——— Реестр программ: единая модель контента ——— */
+      const KP_PROGRAMS = {
+        anxiety: { title: 'Тревоги', days: ANXIETY_DAYS, intro: ANXIETY_INTRO, final: ANXIETY_FINAL },
+        kritik: { title: 'Внутренний критик', days: KRITIK_DAYS, intro: KRITIK_INTRO, final: KRITIK_FINAL },
+        granitsy: { title: 'Мои границы', days: GRANITSY_DAYS, intro: GRANITSY_INTRO, final: GRANITSY_FINAL }
       };
 
       function kpEl(tag, cls, text) {
@@ -22095,11 +22575,36 @@
         blocks.forEach(block => renderKpBlock(host, block));
       }
 
-      function nextUncompletedDay() {
-        for (let i = 1; i <= ANXIETY_DAYS.length; i += 1) {
-          if (!completedDays.has(i)) return i;
+      function kpProgramData(key) {
+        return KP_PROGRAMS[key || kpActiveProgram] || KP_PROGRAMS.anxiety;
+      }
+
+      function kpDaysDone(key) {
+        const id = key || kpActiveProgram;
+        if (!kpCompleted[id]) kpCompleted[id] = new Set();
+        return kpCompleted[id];
+      }
+
+      function nextUncompletedDayIn(key) {
+        const days = kpProgramData(key).days;
+        const done = kpDaysDone(key);
+        for (let i = 1; i <= days.length; i += 1) {
+          if (!done.has(i)) return i;
         }
         return 0;
+      }
+
+      /* Переключение активной программы на экране «Программы» */
+      function kpSetProgram(key) {
+        if (!KP_PROGRAMS[key] || key === kpActiveProgram) return;
+        kpActiveProgram = key;
+        kpOpenItem = 1;
+        renderProgram();
+        updateProductCard();
+      }
+
+      function nextUncompletedDay() {
+        return nextUncompletedDayIn(kpActiveProgram);
       }
 
       function showProgramToast(text) {
@@ -22123,9 +22628,10 @@
       function renderProgram() {
         const host = document.getElementById('kp-program-days');
         if (!host) return;
+        const program = kpProgramData();
         const next = nextUncompletedDay();
-        const rows = ANXIETY_DAYS.map(day => {
-          const done = completedDays.has(day.n);
+        const rows = program.days.map(day => {
+          const done = kpDaysDone().has(day.n);
           const button = kpEl('button', 'kp-day cursor-interaction');
           button.type = 'button';
           button.dataset.open = String(day.n);
@@ -22160,26 +22666,40 @@
           return button;
         });
         host.replaceChildren(...rows);
+        const titleNode = document.getElementById('kp-program-title');
+        if (titleNode) titleNode.textContent = program.title;
         if (globalThis.lucide) lucide.createIcons({ attrs: { width: 16, height: 16 } });
       }
 
+      /* Карточки программ на экране «Программы» */
+      const KP_PRODUCT_CARDS = [
+        { key: 'anxiety', suffix: '' },
+        { key: 'kritik', suffix: '-kritik' },
+        { key: 'granitsy', suffix: '-granitsy' }
+      ];
+
       function updateProductCard() {
-        const total = ANXIETY_DAYS.length;
-        const done = completedDays.size;
-        const percent = Math.round(done / total * 100);
-        const progress = document.getElementById('kp-product-progress');
-        if (progress) progress.textContent = 'Пройдено ' + done + ' из ' + total + ' дней';
-        const percentNode = document.getElementById('kp-product-percent');
-        if (percentNode) percentNode.textContent = percent + '%';
-        const bar = document.getElementById('kp-product-bar');
-        if (bar) bar.style.width = percent + '%';
-        const next = nextUncompletedDay();
-        const nextNode = document.getElementById('kp-product-next');
-        if (nextNode) {
-          nextNode.textContent = next
-            ? 'Рекомендуем продолжить: День ' + next + ' · ' + ANXIETY_DAYS[next - 1].title
-            : 'Все дни завершены — откройте финал программы.';
-        }
+        KP_PRODUCT_CARDS.forEach(card => {
+          const program = KP_PROGRAMS[card.key];
+          const done = kpDaysDone(card.key);
+          const total = program.days.length;
+          const percent = Math.round(done.size / total * 100);
+          const progress = document.getElementById('kp-product-progress' + card.suffix);
+          if (progress) progress.textContent = 'Пройдено ' + done.size + ' из ' + total + ' дней';
+          const percentNode = document.getElementById('kp-product-percent' + card.suffix);
+          if (percentNode) percentNode.textContent = percent + '%';
+          const bar = document.getElementById('kp-product-bar' + card.suffix);
+          if (bar) bar.style.width = percent + '%';
+          const next = nextUncompletedDayIn(card.key);
+          const nextNode = document.getElementById('kp-product-next' + card.suffix);
+          if (nextNode) {
+            nextNode.textContent = done.size === 0
+              ? 'Начните с первого дня: День 1 · ' + program.days[0].title
+              : next
+                ? 'Рекомендуем продолжить: День ' + next + ' · ' + program.days[next - 1].title
+                : 'Все дни завершены — откройте финал программы.';
+          }
+        });
       }
 
       function openProgramItem(value) {
@@ -22213,13 +22733,62 @@
     'rANT6E3mbn7Dqe491AUBZR':
       '3e81dca3-32cb-485a-b1b3-a9bba2ae5bda/184f9810-02db-45e4-9e99-e329a3f690c8',
     'gU5jRHJz5rrUDvE9hnB6HH':
-      'b36eda7b-c343-475b-bd00-99d6716f788e/1e099fe5-41fb-4975-ae02-ebf29782135f'
+      'b36eda7b-c343-475b-bd00-99d6716f788e/1e099fe5-41fb-4975-ae02-ebf29782135f',
+    '7Q4cnpFPcCYwvsAvP5XTJi':
+      'b118709e-c287-48f9-91fe-46253d1c97eb/f430d46a-48d2-4033-9da4-4ca5be8788ea',
+    '8ajre2nn1rW8fmvKL2tTJH':
+      'a30b7897-2730-4457-a551-5d82c3fa8362/74a846b4-3544-45a9-88a2-89e35bf96ed3',
+    'nxwbCLSdwn3Ffwty5CdfgU':
+      'ae19954e-a310-47f5-8ad0-6e9f2f0a4eb9/e81cf13d-27e7-4ae8-ac9a-2c54775d802d',
+    '0Ym5YPeXWLPkzabMMou1pL':
+      '36997ab8-3f11-4f53-bd86-c8071c94c534/c8ab64d1-ab75-47bb-86dc-6f097ee08f96',
+    'i4Z6oinkjvicPtitUY2mC9':
+      '962ef017-58f5-47f9-b573-205bde43c7df/434ca825-62c1-48e0-931c-a67da8024e74',
+    'wmJPBbZmPG2A2SmCCwp8Px':
+      'd22a3812-e077-4228-92ed-b4e16506109a/24e7d03c-241f-4c2a-8170-54432d2e7446',
+    'voZSGB4bzTA29wbPE3b73k':
+      'bf322558-c3ed-4e05-9fd6-26ef8b901579/ba7ba99d-c41c-411f-a936-3d4789838c97',
+    'd4pA46mg6NFtegMVhTFD7T':
+      'd035aa67-58ee-45d4-a5b0-c13b65de2ed2/c2fdbc08-855d-4158-9cd5-c23689264fb9',
+    '8HBx32q1UuBeJn7SvwAwN3':
+      '465f6c91-de1d-4e57-90d7-873dddbd8232/34e039c7-72b9-4705-9907-10f56d409f4c',
+    'oqftJiFAdy1h9s3ifG7eXP':
+      'a314980d-106a-4a9b-84eb-2bc5d7e19624/966e0afa-2907-4d1b-ad73-4cd619f4d461',
+    'pXCWaAUUphKEuj3YRRYECu':
+      '2c541cf5-e322-47ea-84bc-dd607a5a6d44/7104163a-620b-4992-9558-912b60445787',
+    'oXZH14K1YCN42AuxBPX58k':
+      'cc7aaede-abff-4ff1-90d0-5f8e223394c5/02fe4337-98af-47d1-827c-68e8c2cde351',
+    '3cqA2qWLZva7tmcVaLcEQR':
+      '52b19453-d262-47e0-9f72-da07660ca137/67c33c88-bc95-4e4e-b977-fdd9849df87d',
+    'tvLHhNzWGkDU6JLh8aPQLQ':
+      'c04e86e8-1a2b-4caa-8e6c-234421aaee97/b2bb9025-e1a9-4937-9a97-6b1ead8e8c8b',
+    'pRxocN5Pc4Xn1q23Gn6JVU':
+      'e0dbf8a2-bd69-41c4-b683-83996c21fe65/ccce1e3c-bea6-4e35-abac-dff329e7c6a0',
+    'ssrfngXdvGrL5TxXZbJHo8':
+      '93d111f8-6c11-4b76-b354-c0a32a865a64/6b0650e0-52f8-44b5-b02a-82875bcda0f5',
+    's7yyzxS3TQ24sKuX6CU5at':
+      '1bd6beeb-9a9d-4f4c-a636-ae70b1be606d/35c63784-284d-47de-8bf4-4be815fa0570',
+    '8GtH51jvu7BQmAC6qrAshd':
+      '3ed8bcfc-26cd-49d0-88c6-dc405b0ffa89/1dc0b767-5c5e-4bda-90a4-13f052000385',
+    'sBbYYXupnpjaQYUJ8q2onw':
+      'b5b0bdd5-a7ec-4730-b19a-ee08dc528b43/095337a0-7d21-432c-a937-7ca72ec9eaca',
+    'iThPz3SVFvHD56N4M5uNqQ':
+      '6e66d7e5-6f88-45e3-8aa3-e37850d64227/71721e60-42f4-495f-91fb-416201b15126',
+    'pJV7Q4szWi64PfwpAFVuYn':
+      'e22747a1-d0dc-4559-a562-2570120e8b46/e9dc6dd5-4fde-4be2-a024-791c8c0056c0',
+    'tPjq34Vn7ZZ5cPnSL5egJc':
+      '9f46984d-3ba8-4bc0-9ffb-1dc29face584/76c7c07d-1b82-4e8e-8837-91e1773966b4',
+    'oVHmP2FF7baKVozkGa1vep':
+      '9f4927f8-f0f6-4d09-bdaf-2383ff38d8d0/3f1a8a69-f66f-4f8a-a4ad-70c05a0c8dc1',
+    'njqw6pu9niojWFpaUmWQXZ':
+      '4865e825-417a-465b-a4de-517d6c9b381d/b39777c6-2b47-4beb-98c3-89581418cdce'
       };
 
       function kpDayVideoForItem(item) {
-        if (item === 'intro') return ANXIETY_INTRO.video || null;
-        if (item === 'final') return ANXIETY_FINAL.video || null;
-        const entry = ANXIETY_DAYS.find(day => day.n === item);
+        const program = kpProgramData();
+        if (item === 'intro') return program.intro.video || null;
+        if (item === 'final') return program.final.video || null;
+        const entry = program.days.find(day => day.n === item);
         return entry ? (entry.video || null) : null;
       }
 
@@ -22308,10 +22877,12 @@
 
       function renderDayScreen() {
         stopBreathTimer();
+        const program = kpProgramData();
+        const days = program.days;
         const isIntro = kpOpenItem === 'intro';
         const isFinal = kpOpenItem === 'final';
-        const day = (!isIntro && !isFinal) ? (ANXIETY_DAYS.find(item => item.n === kpOpenItem) || ANXIETY_DAYS[0]) : null;
-        const content = isIntro ? ANXIETY_INTRO : isFinal ? ANXIETY_FINAL : day;
+        const day = (!isIntro && !isFinal) ? (days.find(item => item.n === kpOpenItem) || days[0]) : null;
+        const content = isIntro ? program.intro : isFinal ? program.final : day;
         const pill = cardsPhone.querySelector('#kp-day-pill');
         const eyebrow = cardsPhone.querySelector('#kp-day-eyebrow');
         const title = cardsPhone.querySelector('#kp-day-title');
@@ -22330,7 +22901,7 @@
           eyebrow.textContent = 'Программа завершена';
           renderDayVideo(video, content.video, 'Заключительное видео');
         } else {
-          pill.textContent = 'День ' + day.n + ' из ' + ANXIETY_DAYS.length;
+          pill.textContent = 'День ' + day.n + ' из ' + days.length;
           eyebrow.textContent = 'Около ' + day.minutes + ' минут';
           renderDayVideo(video, day.video, 'Видео занятия, день ' + day.n);
         }
@@ -22347,14 +22918,15 @@
           nextB.disabled = false;
         } else if (isFinal) {
           finish.textContent = 'Вернуться к программе';
-          prevB.textContent = '← День 10';
+          prevB.textContent = '← День ' + days.length;
           prevB.disabled = false;
           nextB.textContent = 'Дальше →';
           nextB.disabled = true;
         } else {
-          finish.textContent = completedDays.has(day.n) ? 'День завершён' : 'Завершить день';
+          const dayDone = kpDaysDone();
+          finish.textContent = dayDone.has(day.n) ? 'День завершён' : 'Завершить день';
           const prevItem = day.n === 1 ? 'Введение' : 'День ' + (day.n - 1);
-          const nextItem = day.n === ANXIETY_DAYS.length ? 'Финал' : 'День ' + (day.n + 1);
+          const nextItem = day.n === days.length ? 'Финал' : 'День ' + (day.n + 1);
           prevB.textContent = '← ' + prevItem;
           prevB.disabled = false;
           nextB.textContent = nextItem + ' →';
@@ -22369,8 +22941,9 @@
         if (kpOpenItem === 'intro') { kpOpenItem = 1; renderDayScreen(); return; }
         if (kpOpenItem === 'final') { showScreen(cardsPhone, 'program'); return; }
         const n = kpOpenItem;
-        if (!completedDays.has(n)) {
-          completedDays.add(n);
+        const done = kpDaysDone();
+        if (!done.has(n)) {
+          done.add(n);
           renderProgram();
           updateProductCard();
           showProgramToast('День ' + n + ' завершён — прогресс обновлён');
@@ -22378,14 +22951,20 @@
         showScreen(cardsPhone, 'program');
       });
       cardsPhone.querySelector('#kp-day-prev').addEventListener('click', () => {
-        if (kpOpenItem === 'final') kpOpenItem = ANXIETY_DAYS.length;
+        if (kpOpenItem === 'final') kpOpenItem = kpProgramData().days.length;
         else if (typeof kpOpenItem === 'number') kpOpenItem = kpOpenItem === 1 ? 'intro' : kpOpenItem - 1;
         renderDayScreen();
       });
       cardsPhone.querySelector('#kp-day-next').addEventListener('click', () => {
         if (kpOpenItem === 'intro') kpOpenItem = 1;
-        else if (typeof kpOpenItem === 'number') kpOpenItem = kpOpenItem === ANXIETY_DAYS.length ? 'final' : kpOpenItem + 1;
+        else if (typeof kpOpenItem === 'number') kpOpenItem = kpOpenItem === kpProgramData().days.length ? 'final' : kpOpenItem + 1;
         renderDayScreen();
+      });
+
+      /* Клик по карточке программы переключает активную практику */
+      cardsPhone.addEventListener('click', event => {
+        const openButton = event.target.closest('[data-open-program]');
+        if (openButton) kpSetProgram(openButton.dataset.openProgram);
       });
 
       renderProgram();
@@ -22507,8 +23086,8 @@
   </div>
   <aside class="showcase-notes">
     <p><b>Код блокировки</b> (история тестов, журнал) — подойдут любые четыре цифры.</p>
-    <p><b>На что посмотреть:</b> рыжий градиентный фон, плотные карточки, стеклянные кнопки и нижняя панель. В Chrome и на Android у стекла лёгкое преломление по краю; на iPhone оно ровное — это ограничение движка, не ошибка.</p>
-    <p><b>Видео:</b> ролики в днях программы настоящие — нажмите ▶ на афише, плеер откроется прямо в макете.</p>
+    <p><b>На что посмотреть:</b> рыжий градиентный фон, плотные карточки, стеклянные кнопки и нижняя панель. На экране «Программы» — три практики на 10 дней; у каждой свои дни и видео. В Chrome и на Android у стекла лёгкое преломление по краю; на iPhone оно ровное — это ограничение движка, не ошибка.</p>
+    <p><b>Видео:</b> ролики в днях программ настоящие — нажмите ▶ на афише, плеер откроется прямо в макете.</p>
     <p>Ответы и прогресс сохраняются, пока страница открыта. Несколько второстепенных кнопок пока декоративные.</p>
   </aside>
   <p class="showcase-stamp">Демонстрационный макет — не финальная версия</p>
