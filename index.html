@@ -75,7 +75,7 @@
 <body>
 <div class="showcase">
   <header class="showcase-head">
-    <p class="showcase-eyebrow">Черновик макета · 1 октября 2026</p>
+    <p class="showcase-eyebrow">Черновик макета · 3 октября 2026</p>
     <h1>Приложение «Карпавичус» — новый визуал</h1>
     <p class="showcase-sub">Кликабельный макет: экраны, тесты, три программы на 10 дней («Тревоги», «Внутренний критик», «Мои границы»), дневник. Все переходы живые — ходите по кнопкам.</p>
   </header>
@@ -20228,6 +20228,13 @@
       color: var(--kp-text);
     }
     #kp-prototype-v1 .kp-journal-nav > button:disabled { opacity: .35; }
+    #kp-prototype-v1 .kp-journal-filters {
+      margin: 12px 0 6px;
+    }
+    #kp-prototype-v1 .kp-journal-filters .kp-segment {
+      min-height: 38px;
+      font-size: 11px;
+    }
     #kp-prototype-v1 .kp-journal-period {
       display: grid;
       grid-template-columns: 1fr 82px;
@@ -20468,6 +20475,179 @@
     }
     #kp-prototype-v1 .kp-week-nav button:disabled { opacity: .28; }
     #kp-prototype-v1 .kp-week-nav strong { text-align: center; font-size: 12px; font-weight: 500; }
+    #kp-prototype-v1 .kp-metric + .kp-metric {
+      margin-top: 17px;
+      padding-top: 16px;
+      border-top: 1px solid var(--kp-line);
+    }
+    #kp-prototype-v1 .kp-metric-question {
+      margin: 0;
+      text-align: center;
+      font-size: 13px;
+      line-height: 1.4;
+      font-weight: 500;
+    }
+    #kp-prototype-v1 .kp-checkin-help {
+      margin: 2px 10px 14px;
+      color: var(--kp-muted);
+      font-size: 11px;
+      line-height: 1.4;
+      text-align: center;
+    }
+    #kp-prototype-v1 .kp-emotion-hint {
+      margin: 15px 0 2px;
+      color: var(--kp-muted);
+      font-size: 11px;
+      line-height: 1.35;
+      text-align: center;
+    }
+    #kp-prototype-v1 .kp-contexts {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 8px;
+    }
+    #kp-prototype-v1 .kp-context {
+      min-height: 38px;
+      padding: 8px 11px;
+      border: 1px solid var(--kp-line);
+      border-radius: 99px;
+      background: transparent;
+      color: var(--kp-muted);
+      font: inherit;
+      font-size: 10px;
+    }
+    #kp-prototype-v1 .kp-context.is-selected {
+      border-color: var(--kp-primary);
+      color: var(--kp-primary);
+      background: color-mix(in srgb, var(--kp-primary) 10%, transparent);
+    }
+    #kp-prototype-v1 .kp-checkin-save { margin-top: 16px; }
+    #kp-prototype-v1 .kp-checkin-status {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 10px;
+      color: var(--kp-muted);
+      font-size: 10px;
+      text-align: center;
+    }
+    #kp-prototype-v1 .kp-checkin-status svg { width: 14px; height: 14px; }
+    #kp-prototype-v1 .kp-week-summary {
+      margin: -5px 0 12px;
+      color: var(--kp-muted);
+      font-size: 11px;
+      line-height: 1.4;
+      text-align: center;
+    }
+    #kp-prototype-v1 .kp-calendar-day {
+      position: relative;
+      min-width: 0;
+      padding: 5px 2px 4px;
+      border: 1px solid transparent;
+      font: inherit;
+      overflow: hidden;
+    }
+    #kp-prototype-v1 .kp-calendar-day strong {
+      position: relative;
+      z-index: 2;
+      font-size: 11px;
+      font-weight: 500;
+    }
+    #kp-prototype-v1 .kp-calendar-day .kp-day-fill {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 0;
+      background: color-mix(in srgb, var(--kp-primary) 14%, transparent);
+      transition: height .18s ease;
+    }
+    #kp-prototype-v1 .kp-calendar-day[data-valence="1"] .kp-day-fill { height: 18%; }
+    #kp-prototype-v1 .kp-calendar-day[data-valence="2"] .kp-day-fill { height: 34%; }
+    #kp-prototype-v1 .kp-calendar-day[data-valence="3"] .kp-day-fill { height: 50%; }
+    #kp-prototype-v1 .kp-calendar-day[data-valence="4"] .kp-day-fill { height: 68%; }
+    #kp-prototype-v1 .kp-calendar-day[data-valence="5"] .kp-day-fill { height: 86%; }
+    #kp-prototype-v1 .kp-calendar-day .kp-tension-mark {
+      position: absolute;
+      z-index: 3;
+      top: 3px;
+      right: 3px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--kp-primary);
+      opacity: 0;
+    }
+    #kp-prototype-v1 .kp-calendar-day[data-tension="1"] .kp-tension-mark { opacity: .25; transform: scale(.7); }
+    #kp-prototype-v1 .kp-calendar-day[data-tension="2"] .kp-tension-mark { opacity: .42; transform: scale(.8); }
+    #kp-prototype-v1 .kp-calendar-day[data-tension="3"] .kp-tension-mark { opacity: .62; transform: scale(.9); }
+    #kp-prototype-v1 .kp-calendar-day[data-tension="4"] .kp-tension-mark { opacity: .82; transform: scale(1); }
+    #kp-prototype-v1 .kp-calendar-day[data-tension="5"] .kp-tension-mark { opacity: 1; transform: scale(1.15); }
+    #kp-prototype-v1 .kp-calendar-day .kp-checkin-dots {
+      position: absolute;
+      z-index: 3;
+      left: 0;
+      right: 0;
+      bottom: 3px;
+      display: flex;
+      justify-content: center;
+      gap: 2px;
+    }
+    #kp-prototype-v1 .kp-calendar-day .kp-checkin-dots i {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+    #kp-prototype-v1 .kp-calendar-day.is-selected {
+      border-color: var(--kp-primary);
+      color: var(--kp-text);
+    }
+    #kp-prototype-v1 .kp-calendar-day.is-today { color: var(--kp-brand-ink); }
+    #kp-prototype-v1 .kp-calendar-day.is-today .kp-day-fill { background: transparent; }
+    #kp-prototype-v1 .kp-calendar-day.is-today .kp-tension-mark { background: var(--kp-brand-ink); }
+    #kp-prototype-v1 .kp-calendar-legend {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px 12px;
+      margin: 2px 0 12px;
+      color: var(--kp-muted);
+      font-size: 9px;
+    }
+    #kp-prototype-v1 .kp-calendar-legend span { display: inline-flex; align-items: center; gap: 5px; }
+    #kp-prototype-v1 .kp-legend-fill { width: 15px; height: 7px; border-radius: 3px; background: color-mix(in srgb, var(--kp-primary) 24%, transparent); }
+    #kp-prototype-v1 .kp-legend-tension { width: 6px; height: 6px; border-radius: 50%; background: var(--kp-primary); }
+    #kp-prototype-v1 .kp-legend-count { letter-spacing: 1px; color: var(--kp-text); }
+    #kp-prototype-v1 .kp-selected-day {
+      padding: 11px 12px;
+      border-radius: 13px;
+      background: var(--kp-surface-2);
+    }
+    #kp-prototype-v1 .kp-selected-day-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+      font-size: 11px;
+    }
+    #kp-prototype-v1 .kp-selected-day-head strong { font-weight: 600; }
+    #kp-prototype-v1 .kp-selected-day-head span { color: var(--kp-muted); }
+    #kp-prototype-v1 .kp-selected-checkin {
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 8px;
+      padding: 7px 0;
+      border-top: 1px solid var(--kp-line);
+      font-size: 10px;
+      line-height: 1.35;
+    }
+    #kp-prototype-v1 .kp-selected-checkin time { color: var(--kp-primary); font-variant-numeric: tabular-nums; }
+    #kp-prototype-v1 .kp-selected-checkin strong { display: block; font-size: 11px; font-weight: 500; }
+    #kp-prototype-v1 .kp-selected-checkin small { color: var(--kp-muted); font-size: 10px; }
 
     /* ——— Программа «Тревоги»: введение, дни, задания ——— */
     #kp-prototype-v1 .kp-theory { list-style: none; margin: 4px 0 14px; padding: 0; display: grid; gap: 7px; }
@@ -20717,7 +20897,7 @@
               <h2 class="kp-title">Войдите в свой аккаунт</h2>
               <p class="kp-subtitle">Введите email, который использовали при покупке на сайте.</p>
               <label class="kp-field-label" for="kp-email-cards">Email</label>
-              <input class="kp-input" id="kp-email-cards" type="email" value="demo@example.com">
+              <input class="kp-input" id="kp-email-cards" type="email" value="kardertk@gmail.com">
               <button class="kp-main-button cursor-interaction" type="button" data-go="code" style="margin-top:12px">Получить код</button>
               <p class="kp-note"><i data-lucide="shield-check" aria-hidden="true"></i><span>Личные ответы и записи остаются только на этом устройстве.</span></p>
               <p class="kp-note"><i data-lucide="sparkles" aria-hidden="true"></i><span>Бесплатные тесты доступны без входа.</span></p>
@@ -20729,7 +20909,7 @@
               <button class="kp-back cursor-interaction" type="button" data-go="login"><i data-lucide="arrow-left" aria-hidden="true"></i><span class="sr-only">Назад</span></button>
               <p class="kp-eyebrow">Проверка email</p>
               <h2 class="kp-title">Введите код из письма</h2>
-              <p class="kp-subtitle">Мы отправили шестизначный код на demo@example.com.</p>
+              <p class="kp-subtitle">Мы отправили шестизначный код на kardertk@gmail.com.</p>
               <label class="kp-field-label" for="kp-code-cards">Одноразовый код</label>
               <input class="kp-input" id="kp-code-cards" inputmode="numeric" value="321 604">
               <button class="kp-main-button cursor-interaction" type="button" data-go="products" style="margin-top:12px">Войти</button>
@@ -20917,18 +21097,38 @@
           <main class="kp-screen" data-screen="diary">
             <div class="kp-head kp-diary-head"><div><p class="kp-eyebrow">Только на устройстве</p><h2 class="kp-title">Дневник</h2></div><i data-lucide="lock-keyhole" aria-hidden="true"></i></div>
             <section class="kp-checkin" aria-labelledby="kp-checkin-title">
-              <h3 class="kp-section-title kp-center-title" id="kp-checkin-title">Как вы сегодня?</h3>
-              <div class="kp-mood-value"><strong id="kp-mood-label">Неоднозначно</strong><small id="kp-mood-count">3 из 5</small></div>
-              <input class="kp-mood-slider cursor-interaction" id="kp-mood-range" type="range" min="1" max="5" step="1" value="3" aria-label="Общее состояние от очень тяжёлого до лёгкого">
-              <div class="kp-mood-scale" aria-hidden="true"><span>Очень тяжело</span><span>Легко</span></div>
-              <p class="kp-eyebrow kp-center-title">Что ближе всего?</p>
-              <div class="kp-emotions" role="group" aria-label="Выберите состояние, которое ближе всего">
+              <h3 class="kp-section-title kp-center-title" id="kp-checkin-title">Как вы сейчас?</h3>
+              <p class="kp-checkin-help">Короткая отметка о текущем состоянии, а не психологический тест.</p>
+              <div class="kp-metric">
+                <p class="kp-metric-question">Насколько приятным или неприятным кажется ваше состояние?</p>
+                <div class="kp-mood-value"><strong id="kp-mood-label">Нейтрально</strong><small id="kp-mood-count">3 из 5</small></div>
+                <input class="kp-mood-slider cursor-interaction" id="kp-mood-range" type="range" min="1" max="5" step="1" value="3" aria-label="Приятность текущего состояния от очень неприятного до очень приятного">
+                <div class="kp-mood-scale" aria-hidden="true"><span>Очень неприятно</span><span>Очень приятно</span></div>
+              </div>
+              <div class="kp-metric">
+                <p class="kp-metric-question">Насколько сильное сейчас внутреннее напряжение?</p>
+                <div class="kp-mood-value"><strong id="kp-tension-label">Умеренное</strong><small id="kp-tension-count">3 из 5</small></div>
+                <input class="kp-mood-slider cursor-interaction" id="kp-tension-range" type="range" min="1" max="5" step="1" value="3" aria-label="Внутреннее напряжение от почти отсутствующего до очень сильного">
+                <div class="kp-mood-scale" aria-hidden="true"><span>Почти нет</span><span>Очень сильное</span></div>
+              </div>
+              <p class="kp-emotion-hint">Что вы замечаете? Можно выбрать до трёх состояний.</p>
+              <div class="kp-emotions" role="group" aria-label="Отметьте до трёх состояний">
                 <button class="kp-emotion cursor-interaction" type="button" aria-pressed="false">Тревога</button>
                 <button class="kp-emotion cursor-interaction" type="button" aria-pressed="false">Раздражение</button>
-                <button class="kp-emotion is-selected cursor-interaction" type="button" aria-pressed="true">Усталость</button>
+                <button class="kp-emotion cursor-interaction" type="button" aria-pressed="false">Усталость</button>
                 <button class="kp-emotion cursor-interaction" type="button" aria-pressed="false">Грусть</button>
                 <button class="kp-emotion cursor-interaction" type="button" aria-pressed="false">Спокойствие</button>
+                <button class="kp-emotion cursor-interaction" type="button" aria-pressed="false">Радость</button>
               </div>
+              <p class="kp-emotion-hint">С чем это может быть связано? Необязательно.</p>
+              <div class="kp-contexts" role="group" aria-label="Необязательный контекст состояния">
+                <button class="kp-context cursor-interaction" type="button" aria-pressed="false">Работа или учёба</button>
+                <button class="kp-context cursor-interaction" type="button" aria-pressed="false">Отношения</button>
+                <button class="kp-context cursor-interaction" type="button" aria-pressed="false">Здоровье или тело</button>
+                <button class="kp-context cursor-interaction" type="button" aria-pressed="false">Сон или отдых</button>
+              </div>
+              <button class="kp-main-button kp-checkin-save cursor-interaction" type="button" id="kp-checkin-save">Сохранить чек-ин</button>
+              <div class="kp-checkin-status" id="kp-checkin-status" aria-live="polite"><i data-lucide="smartphone" aria-hidden="true"></i><span>Сохранится только на этом устройстве</span></div>
             </section>
             <button class="kp-diary-link cursor-interaction" type="button" data-go="diary-entry">
               <span class="kp-record-icon"><i data-lucide="notebook-pen" aria-hidden="true"></i></span>
@@ -20937,21 +21137,33 @@
             </button>
             <button class="kp-diary-link cursor-interaction" type="button" data-go="journal-lock">
               <span class="kp-record-icon"><i data-lucide="history" aria-hidden="true"></i></span>
-              <span><strong>Журнал записей</strong><small>Все записи в хронологическом порядке</small></span>
+              <span><strong>История дневника</strong><small>Чек-ины и записи по дням</small></span>
               <i data-lucide="chevron-right" aria-hidden="true"></i>
             </button>
             <section class="kp-week-card" aria-labelledby="kp-calendar-title">
-              <h3 class="kp-section-title kp-center-title" id="kp-calendar-title" style="margin-bottom:0">Календарь</h3>
+              <h3 class="kp-section-title kp-center-title" id="kp-calendar-title" style="margin-bottom:8px">Эта неделя</h3>
+              <p class="kp-week-summary" id="kp-week-summary">6 заполненных дней · 8 чек-инов</p>
               <div class="kp-week-nav">
                 <button class="cursor-interaction" type="button" id="kp-week-prev" aria-label="Предыдущая неделя"><i data-lucide="chevron-left" aria-hidden="true"></i></button>
                 <strong id="kp-week-range">22–28 сентября</strong>
                 <button class="cursor-interaction" type="button" id="kp-week-next" aria-label="Следующая неделя" disabled><i data-lucide="chevron-right" aria-hidden="true"></i></button>
               </div>
               <div class="kp-calendar-head" aria-hidden="true"><span>пн</span><span>вт</span><span>ср</span><span>чт</span><span>пт</span><span>сб</span><span>вс</span></div>
-              <div class="kp-week-days" aria-label="Записи за неделю"><span class="kp-calendar-day has-entry">22</span><span class="kp-calendar-day has-entry">23</span><span class="kp-calendar-day">24</span><span class="kp-calendar-day has-entry">25</span><span class="kp-calendar-day has-entry">26</span><span class="kp-calendar-day has-entry">27</span><span class="kp-calendar-day is-today">28</span></div>
-              <p class="kp-eyebrow">Динамика внутреннего напряжения</p>
-              <div class="kp-week-chart" role="img" aria-label="Внутреннее напряжение постепенно снижалось в течение недели"><span style="height:84%"></span><span style="height:70%"></span><span style="height:64%"></span><span style="height:73%"></span><span style="height:52%"></span><span style="height:43%"></span><span style="height:34%"></span></div>
-              <div class="kp-week-labels" aria-hidden="true"><span>пн</span><span>вт</span><span>ср</span><span>чт</span><span>пт</span><span>сб</span><span>вс</span></div>
+              <div class="kp-week-days" aria-label="Состояние за неделю">
+                <button class="kp-calendar-day cursor-interaction" type="button"><span class="kp-day-fill"></span><strong>22</strong><span class="kp-tension-mark"></span><span class="kp-checkin-dots"></span></button>
+                <button class="kp-calendar-day cursor-interaction" type="button"><span class="kp-day-fill"></span><strong>23</strong><span class="kp-tension-mark"></span><span class="kp-checkin-dots"></span></button>
+                <button class="kp-calendar-day cursor-interaction" type="button"><span class="kp-day-fill"></span><strong>24</strong><span class="kp-tension-mark"></span><span class="kp-checkin-dots"></span></button>
+                <button class="kp-calendar-day cursor-interaction" type="button"><span class="kp-day-fill"></span><strong>25</strong><span class="kp-tension-mark"></span><span class="kp-checkin-dots"></span></button>
+                <button class="kp-calendar-day cursor-interaction" type="button"><span class="kp-day-fill"></span><strong>26</strong><span class="kp-tension-mark"></span><span class="kp-checkin-dots"></span></button>
+                <button class="kp-calendar-day cursor-interaction" type="button"><span class="kp-day-fill"></span><strong>27</strong><span class="kp-tension-mark"></span><span class="kp-checkin-dots"></span></button>
+                <button class="kp-calendar-day cursor-interaction" type="button"><span class="kp-day-fill"></span><strong>28</strong><span class="kp-tension-mark"></span><span class="kp-checkin-dots"></span></button>
+              </div>
+              <div class="kp-calendar-legend" aria-label="Обозначения календаря">
+                <span><i class="kp-legend-fill" aria-hidden="true"></i>общее состояние</span>
+                <span><i class="kp-legend-tension" aria-hidden="true"></i>напряжение</span>
+                <span><i class="kp-legend-count" aria-hidden="true">••</i>число чек-инов</span>
+              </div>
+              <div class="kp-selected-day" id="kp-selected-day" aria-live="polite"></div>
             </section>
           </main>
 
@@ -20970,20 +21182,20 @@
             <div class="kp-head"><button class="kp-back cursor-interaction" type="button" data-go="diary"><i data-lucide="arrow-left" aria-hidden="true"></i><span class="sr-only">К дневнику</span></button></div>
             <div class="kp-history-lock">
               <div class="kp-history-lock-icon"><i data-lucide="lock-keyhole" aria-hidden="true"></i></div>
-              <p class="kp-eyebrow">Приватные записи</p>
-              <h2 class="kp-title">Журнал под защитой</h2>
-              <p class="kp-subtitle">Введите код блокировки приложения, чтобы открыть личные записи.</p>
+              <p class="kp-eyebrow">Приватная история</p>
+              <h2 class="kp-title">История под защитой</h2>
+              <p class="kp-subtitle">Введите код блокировки приложения, чтобы открыть чек-ины и личные записи.</p>
               <label class="kp-field-label" for="kp-journal-code">Код блокировки</label>
               <input class="kp-input kp-history-code" id="kp-journal-code" type="password" inputmode="numeric" maxlength="4" autocomplete="off" placeholder="••••">
               <p class="kp-history-error" id="kp-journal-lock-error" aria-live="polite"></p>
-              <button class="kp-main-button cursor-interaction" type="button" id="kp-journal-unlock">Открыть журнал</button>
-              <p class="kp-note"><i data-lucide="smartphone" aria-hidden="true"></i><span>Записи хранятся только на этом устройстве.</span></p>
+              <button class="kp-main-button cursor-interaction" type="button" id="kp-journal-unlock">Открыть историю</button>
+              <p class="kp-note"><i data-lucide="smartphone" aria-hidden="true"></i><span>Чек-ины и записи хранятся только на этом устройстве.</span></p>
             </div>
           </main>
 
           <main class="kp-screen" data-screen="journal">
             <div class="kp-head"><button class="kp-back cursor-interaction" type="button" data-go="diary"><i data-lucide="arrow-left" aria-hidden="true"></i><span class="sr-only">К дневнику</span></button><span class="kp-pill">Сначала новые</span></div>
-            <p class="kp-eyebrow">Только на устройстве</p><h2 class="kp-title">Журнал</h2>
+            <p class="kp-eyebrow">Только на устройстве</p><h2 class="kp-title">История дневника</h2>
             <div class="kp-journal-nav" aria-label="Период журнала">
               <button class="cursor-interaction" type="button" id="kp-journal-prev" aria-label="Предыдущий месяц"><i data-lucide="chevron-left" aria-hidden="true"></i></button>
               <div class="kp-journal-period">
@@ -20994,20 +21206,25 @@
               </div>
               <button class="cursor-interaction" type="button" id="kp-journal-next" aria-label="Следующий месяц" disabled><i data-lucide="chevron-right" aria-hidden="true"></i></button>
             </div>
+            <div class="kp-segments kp-journal-filters" role="group" aria-label="Что показывать в истории">
+              <button class="kp-segment cursor-interaction is-on" type="button" aria-pressed="true" data-journal-filter="all">Все</button>
+              <button class="kp-segment cursor-interaction" type="button" aria-pressed="false" data-journal-filter="checkin">Чек-ины</button>
+              <button class="kp-segment cursor-interaction" type="button" aria-pressed="false" data-journal-filter="entry">Записи</button>
+            </div>
             <div id="kp-journal-list" aria-live="polite"></div>
-            <p class="kp-journal-empty" id="kp-journal-empty" hidden>В этом месяце записей пока нет.</p>
+            <p class="kp-journal-empty" id="kp-journal-empty" hidden>В этом месяце чек-инов и записей пока нет.</p>
           </main>
 
           <main class="kp-screen" data-screen="journal-entry">
             <div class="kp-head"><button class="kp-back cursor-interaction" type="button" data-go="journal"><i data-lucide="arrow-left" aria-hidden="true"></i><span class="sr-only">К журналу</span></button><span class="kp-pill" id="kp-journal-detail-date">Сегодня · 10:24</span></div>
-            <p class="kp-eyebrow">Запись в журнале</p><h2 class="kp-title" id="kp-journal-detail-title">Запись об эмоциях</h2>
-            <section class="kp-journal-detail"><h3>Что произошло?</h3><p id="kp-journal-detail-situation"></p></section>
-            <section class="kp-journal-detail"><h3>Что вы почувствовали?</h3><p id="kp-journal-detail-feelings"></p></section>
-            <section class="kp-journal-detail"><h3>Что вам было нужно?</h3><p id="kp-journal-detail-need"></p></section>
+            <p class="kp-eyebrow" id="kp-journal-detail-kind">Развёрнутая запись</p><h2 class="kp-title" id="kp-journal-detail-title">Запись об эмоциях</h2>
+            <section class="kp-journal-detail"><h3 id="kp-journal-detail-situation-label">Что произошло?</h3><p id="kp-journal-detail-situation"></p></section>
+            <section class="kp-journal-detail"><h3 id="kp-journal-detail-feelings-label">Что вы почувствовали?</h3><p id="kp-journal-detail-feelings"></p></section>
+            <section class="kp-journal-detail"><h3 id="kp-journal-detail-need-label">Что вам было нужно?</h3><p id="kp-journal-detail-need"></p></section>
           </main>
 
           <main class="kp-screen" data-screen="profile">
-            <div class="kp-head"><div><p class="kp-eyebrow">demo@example.com</p><h2 class="kp-title">Профиль</h2></div></div>
+            <div class="kp-head"><div><p class="kp-eyebrow">kardertk@gmail.com</p><h2 class="kp-title">Профиль</h2></div></div>
             <div class="kp-setting kp-setting-stack"><span><strong>Оформление</strong><small id="kp-theme-note">Как в системе</small></span><div class="kp-segments kp-theme" role="radiogroup" aria-label="Тема оформления"><button class="kp-segment cursor-interaction is-on" type="button" role="radio" aria-checked="true" data-theme-choice="auto">Авто</button><button class="kp-segment cursor-interaction" type="button" role="radio" aria-checked="false" data-theme-choice="light">Светлая</button><button class="kp-segment cursor-interaction" type="button" role="radio" aria-checked="false" data-theme-choice="dark">Тёмная</button></div></div>
             <div class="kp-setting"><span><strong>Защита приложения</strong><small>Face ID или код устройства</small></span><button class="kp-toggle cursor-interaction" type="button" aria-label="Защита включена"></button></div>
             <div class="kp-setting"><span><strong>Напоминания</strong><small>Мягкое ежедневное напоминание</small></span><i data-lucide="chevron-right" aria-hidden="true"></i></div>
@@ -21040,14 +21257,14 @@
           <main class="kp-screen" data-screen="login">
             <div class="kp-auth">
               <div class="kp-mark">АК</div><p class="kp-eyebrow">Личное пространство</p><h2 class="kp-title">Вход в приложение</h2><p class="kp-subtitle">Используйте email, указанный при покупке.</p>
-              <label class="kp-field-label" for="kp-email-list">Email</label><input class="kp-input" id="kp-email-list" type="email" value="demo@example.com">
+              <label class="kp-field-label" for="kp-email-list">Email</label><input class="kp-input" id="kp-email-list" type="email" value="kardertk@gmail.com">
               <button class="kp-main-button cursor-interaction" type="button" data-go="code" style="margin-top:12px">Получить код</button>
               <p class="kp-note"><i data-lucide="shield-check" aria-hidden="true"></i><span>Ответы хранятся только на телефоне.</span></p>
             </div>
           </main>
           <main class="kp-screen" data-screen="code">
             <div class="kp-auth">
-              <button class="kp-back cursor-interaction" type="button" data-go="login"><i data-lucide="arrow-left" aria-hidden="true"></i><span class="sr-only">Назад</span></button><p class="kp-eyebrow">Проверка email</p><h2 class="kp-title">Код из письма</h2><p class="kp-subtitle">Отправлен на demo@example.com</p>
+              <button class="kp-back cursor-interaction" type="button" data-go="login"><i data-lucide="arrow-left" aria-hidden="true"></i><span class="sr-only">Назад</span></button><p class="kp-eyebrow">Проверка email</p><h2 class="kp-title">Код из письма</h2><p class="kp-subtitle">Отправлен на kardertk@gmail.com</p>
               <label class="kp-field-label" for="kp-code-list">Одноразовый код</label><input class="kp-input" id="kp-code-list" inputmode="numeric" value="321 604"><button class="kp-main-button cursor-interaction" type="button" data-go="products" style="margin-top:12px">Войти</button>
             </div>
           </main>
@@ -21067,7 +21284,7 @@
             <div class="kp-head"><div><p class="kp-eyebrow">Локальное хранение</p><h2 class="kp-title">Записи</h2></div><i data-lucide="lock-keyhole" aria-hidden="true"></i></div><div class="kp-record"><span class="kp-record-icon"><i data-lucide="notebook-pen" aria-hidden="true"></i></span><span><strong>Где живёт тревога</strong><small>День 3 · сегодня</small></span><i data-lucide="chevron-right" aria-hidden="true"></i></div><div class="kp-record"><span class="kp-record-icon"><i data-lucide="brain" aria-hidden="true"></i></span><span><strong>Мои ловушки мышления</strong><small>День 2 · вчера</small></span><i data-lucide="chevron-right" aria-hidden="true"></i></div><div class="kp-record"><span class="kp-record-icon"><i data-lucide="messages-square" aria-hidden="true"></i></span><span><strong>Три недавних тревоги</strong><small>День 1 · 26 сентября</small></span><i data-lucide="chevron-right" aria-hidden="true"></i></div><p class="kp-note"><i data-lucide="cloud-off" aria-hidden="true"></i><span>Нет отправки на сервер и облачной синхронизации.</span></p>
           </main>
           <main class="kp-screen" data-screen="profile">
-            <div class="kp-head"><div><p class="kp-eyebrow">demo@example.com</p><h2 class="kp-title">Профиль</h2></div></div><div class="kp-setting"><span><strong>Защита приложения</strong><small>Включена</small></span><button class="kp-toggle cursor-interaction" type="button" aria-label="Защита включена"></button></div><div class="kp-setting"><span><strong>Напоминания</strong><small>Ежедневно</small></span><i data-lucide="chevron-right" aria-hidden="true"></i></div><div class="kp-setting"><span><strong>Экспорт</strong><small>Формат ещё не выбран</small></span><i data-lucide="chevron-right" aria-hidden="true"></i></div><div class="kp-setting"><span><strong>Приватность</strong><small>Хранение и удаление данных</small></span><i data-lucide="chevron-right" aria-hidden="true"></i></div><button class="kp-soft-button cursor-interaction" type="button" style="margin-top:20px">Выйти</button>
+            <div class="kp-head"><div><p class="kp-eyebrow">kardertk@gmail.com</p><h2 class="kp-title">Профиль</h2></div></div><div class="kp-setting"><span><strong>Защита приложения</strong><small>Включена</small></span><button class="kp-toggle cursor-interaction" type="button" aria-label="Защита включена"></button></div><div class="kp-setting"><span><strong>Напоминания</strong><small>Ежедневно</small></span><i data-lucide="chevron-right" aria-hidden="true"></i></div><div class="kp-setting"><span><strong>Экспорт</strong><small>Формат ещё не выбран</small></span><i data-lucide="chevron-right" aria-hidden="true"></i></div><div class="kp-setting"><span><strong>Приватность</strong><small>Хранение и удаление данных</small></span><i data-lucide="chevron-right" aria-hidden="true"></i></div><button class="kp-soft-button cursor-interaction" type="button" style="margin-top:20px">Выйти</button>
           </main>
           <nav class="kp-bottom" aria-label="Основная навигация"><button class="cursor-interaction" type="button" data-go="products"><i data-lucide="sun" aria-hidden="true"></i><span>Сегодня</span></button><button class="cursor-interaction is-active" type="button" data-go="products"><i data-lucide="library" aria-hidden="true"></i><span>Продукты</span></button><button class="cursor-interaction" type="button" data-go="program"><i data-lucide="wrench" aria-hidden="true"></i><span>Инструменты</span></button><button class="cursor-interaction" type="button" data-go="notes"><i data-lucide="notebook-pen" aria-hidden="true"></i><span>Записи</span></button><button class="cursor-interaction" type="button" data-go="profile"><i data-lucide="user-round" aria-hidden="true"></i><span>Профиль</span></button></nav>
         </div>
@@ -21387,26 +21604,47 @@
       });
       cardsPhone.querySelector('#kp-journal-unlock').addEventListener('click', unlockJournal);
 
-      const moodLabels = ['Очень тяжело', 'Тяжело', 'Неоднозначно', 'Спокойно', 'Легко'];
+      const moodLabels = ['Очень неприятно', 'Неприятно', 'Нейтрально', 'Приятно', 'Очень приятно'];
+      const tensionLabels = ['Почти нет', 'Слабое', 'Умеренное', 'Сильное', 'Очень сильное'];
       const moodRange = cardsPhone.querySelector('#kp-mood-range');
+      const tensionRange = cardsPhone.querySelector('#kp-tension-range');
       moodRange.addEventListener('input', () => {
         const index = Number(moodRange.value) - 1;
         cardsPhone.querySelector('#kp-mood-label').textContent = moodLabels[index];
         cardsPhone.querySelector('#kp-mood-count').textContent = `${index + 1} из 5`;
       });
+      tensionRange.addEventListener('input', () => {
+        const index = Number(tensionRange.value) - 1;
+        cardsPhone.querySelector('#kp-tension-label').textContent = tensionLabels[index];
+        cardsPhone.querySelector('#kp-tension-count').textContent = `${index + 1} из 5`;
+      });
       cardsPhone.querySelectorAll('.kp-emotion').forEach((button) => {
         button.addEventListener('click', () => {
-          cardsPhone.querySelectorAll('.kp-emotion').forEach((item) => {
-            const selected = item === button;
-            item.classList.toggle('is-selected', selected);
-            item.setAttribute('aria-pressed', String(selected));
-          });
+          const selected = button.classList.contains('is-selected');
+          const selectedCount = cardsPhone.querySelectorAll('.kp-emotion.is-selected').length;
+          if (!selected && selectedCount >= 3) {
+            cardsPhone.querySelector('#kp-checkin-status').querySelector('span').textContent = 'Можно выбрать не больше трёх состояний';
+            return;
+          }
+          button.classList.toggle('is-selected', !selected);
+          button.setAttribute('aria-pressed', String(!selected));
+          cardsPhone.querySelector('#kp-checkin-status').querySelector('span').textContent = 'Сохранится только на этом устройстве';
+        });
+      });
+      cardsPhone.querySelectorAll('.kp-context').forEach((button) => {
+        button.addEventListener('click', () => {
+          const selected = !button.classList.contains('is-selected');
+          button.classList.toggle('is-selected', selected);
+          button.setAttribute('aria-pressed', String(selected));
         });
       });
 
       const journalEntries = [
+        { id: 'checkin-today-late', kind: 'checkin', date: '2026-09-28', time: '10:24', title: 'Чек-ин состояния', situation: 'Приятно · 4 из 5', feelings: 'Слабое · 2 из 5', need: 'Спокойствие · Сон или отдых' },
         { id: 'today-late', date: '2026-09-28', time: '10:24', title: 'Запись об эмоциях', situation: 'Сегодня было много задач, и к вечеру я почувствовал(а) сильную усталость.', feelings: 'Усталость, раздражение и напряжение в плечах.', need: 'Пауза, тишина и немного времени без телефона.' },
+        { id: 'checkin-today-early', kind: 'checkin', date: '2026-09-28', time: '08:15', title: 'Чек-ин состояния', situation: 'Неприятно · 2 из 5', feelings: 'Сильное · 4 из 5', need: 'Тревога · Работа или учёба' },
         { id: 'today-early', date: '2026-09-28', time: '08:15', title: 'Утро перед рабочим днём', situation: 'Проснулся(ась) раньше будильника и сразу начал(а) думать о задачах.', feelings: 'Тревога и напряжение в животе.', need: 'Спокойно составить план и начать с одного небольшого дела.' },
+        { id: 'checkin-23-evening', kind: 'checkin', date: '2026-09-23', time: '20:30', title: 'Чек-ин состояния', situation: 'Приятно · 4 из 5', feelings: 'Умеренное · 3 из 5', need: 'Спокойствие' },
         { id: 'talk', date: '2026-09-27', time: '21:10', title: 'После сложного разговора', situation: 'Разговор закончился раньше, чем удалось объяснить, что для меня важно.', feelings: 'Тревога, растерянность и тяжесть в груди.', need: 'Немного времени успокоиться, а затем вернуться к разговору.' },
         { id: 'meeting', date: '2026-09-25', time: '09:15', title: 'Перед важной встречей', situation: 'Утром я готовился(ась) к встрече и снова прокручивал(а) возможные ошибки.', feelings: 'Напряжение, неуверенность и холод в руках.', need: 'Поддержка и напоминание, что не обязательно всё сделать идеально.' },
         { id: 'january-evening', date: '2025-01-18', time: '22:05', title: 'Мысли перед сном', situation: 'Долго не получалось отпустить события дня.', feelings: 'Беспокойство и усталость.', need: 'Записать мысли и разрешить себе вернуться к ним завтра.' },
@@ -21419,6 +21657,8 @@
       const journalEmpty = cardsPhone.querySelector('#kp-journal-empty');
       const journalPrev = cardsPhone.querySelector('#kp-journal-prev');
       const journalNext = cardsPhone.querySelector('#kp-journal-next');
+      const journalFilterButtons = [...cardsPhone.querySelectorAll('[data-journal-filter]')];
+      let journalFilter = 'all';
       let journalSaveCounter = 0;
       const openJournalEntry = (key) => {
         const entry = journalEntries.find(item => item.id === key) || journalEntries[0];
@@ -21426,6 +21666,11 @@
         const dayLabel = entry.date === '2026-09-28' ? 'Сегодня' : `${day} ${monthNamesGenitive[month - 1]} ${year}`;
         cardsPhone.querySelector('#kp-journal-detail-date').textContent = `${dayLabel} · ${entry.time}`;
         cardsPhone.querySelector('#kp-journal-detail-title').textContent = entry.title;
+        const isCheckin = entry.kind === 'checkin';
+        cardsPhone.querySelector('#kp-journal-detail-kind').textContent = isCheckin ? 'Чек-ин состояния' : 'Развёрнутая запись';
+        cardsPhone.querySelector('#kp-journal-detail-situation-label').textContent = isCheckin ? 'Общее состояние' : 'Что произошло?';
+        cardsPhone.querySelector('#kp-journal-detail-feelings-label').textContent = isCheckin ? 'Внутреннее напряжение' : 'Что вы почувствовали?';
+        cardsPhone.querySelector('#kp-journal-detail-need-label').textContent = isCheckin ? 'Состояния и контекст' : 'Что вам было нужно?';
         cardsPhone.querySelector('#kp-journal-detail-situation').textContent = entry.situation;
         cardsPhone.querySelector('#kp-journal-detail-feelings').textContent = entry.feelings;
         cardsPhone.querySelector('#kp-journal-detail-need').textContent = entry.need;
@@ -21436,11 +21681,20 @@
         const entries = journalEntries
           .filter(entry => {
             const [entryYear, entryMonth] = entry.date.split('-').map(Number);
-            return entryYear === year && entryMonth === month + 1;
+            const matchesPeriod = entryYear === year && entryMonth === month + 1;
+            const matchesType = journalFilter === 'all'
+              || (journalFilter === 'checkin' && entry.kind === 'checkin')
+              || (journalFilter === 'entry' && entry.kind !== 'checkin');
+            return matchesPeriod && matchesType;
           })
           .sort((a, b) => `${b.date}T${b.time}`.localeCompare(`${a.date}T${a.time}`));
         journalList.replaceChildren();
         journalEmpty.hidden = entries.length > 0;
+        journalEmpty.textContent = journalFilter === 'checkin'
+          ? 'В этом месяце коротких чек-инов пока нет.'
+          : journalFilter === 'entry'
+            ? 'В этом месяце развёрнутых записей пока нет.'
+            : 'В этом месяце чек-инов и записей пока нет.';
         let previousDate = '';
         entries.forEach(entry => {
           if (entry.date !== previousDate) {
@@ -21464,7 +21718,7 @@
           const title = document.createElement('strong');
           title.textContent = entry.title;
           const snippet = document.createElement('small');
-          snippet.textContent = entry.feelings;
+          snippet.textContent = entry.kind === 'checkin' ? `${entry.situation} · напряжение ${entry.feelings}` : entry.feelings;
           copy.append(title, snippet);
           const icon = document.createElement('i');
           icon.dataset.lucide = 'chevron-right';
@@ -21492,6 +21746,17 @@
       };
       journalPrev.addEventListener('click', () => changeJournalMonth(-1));
       journalNext.addEventListener('click', () => changeJournalMonth(1));
+      journalFilterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          journalFilter = button.dataset.journalFilter;
+          journalFilterButtons.forEach(item => {
+            const selected = item === button;
+            item.classList.toggle('is-on', selected);
+            item.setAttribute('aria-pressed', String(selected));
+          });
+          renderJournal();
+        });
+      });
       journalMonth.addEventListener('change', renderJournal);
       journalYear.addEventListener('change', () => {
         if (Number(journalYear.value) === 2026 && Number(journalMonth.value) > 8) journalMonth.value = '8';
@@ -21524,41 +21789,183 @@
       renderJournal();
 
       const weeks = [
-        { range: '8–14 сентября', days: [8, 9, 10, 11, 12, 13, 14], entries: [1, 1, 0, 1, 0, 1, 1], bars: [72, 66, 78, 63, 69, 58, 61], label: 'В течение недели напряжение менялось неравномерно' },
-        { range: '15–21 сентября', days: [15, 16, 17, 18, 19, 20, 21], entries: [1, 0, 1, 1, 1, 0, 1], bars: [67, 74, 62, 55, 59, 48, 46], label: 'К концу недели напряжение стало ниже' },
-        { range: '22–28 сентября', days: [22, 23, 24, 25, 26, 27, 28], entries: [1, 1, 0, 1, 1, 1, 1], bars: [84, 70, 64, 73, 52, 43, 34], label: 'Внутреннее напряжение постепенно снижалось в течение недели', today: 6 }
+        {
+          range: '8–14 сентября',
+          days: [
+            { day: 8, valence: 2, tension: 4, checkins: [{ time: '20:10', valence: 2, tension: 4, states: ['Тревога'] }] },
+            { day: 9, valence: 3, tension: 4, checkins: [{ time: '09:25', valence: 3, tension: 4, states: ['Усталость'] }] },
+            { day: 10, checkins: [] },
+            { day: 11, valence: 2, tension: 3, checkins: [{ time: '18:40', valence: 2, tension: 3, states: ['Раздражение'] }] },
+            { day: 12, checkins: [] },
+            { day: 13, valence: 3, tension: 3, checkins: [{ time: '12:05', valence: 3, tension: 3, states: ['Усталость'] }] },
+            { day: 14, valence: 3, tension: 3, checkins: [{ time: '21:15', valence: 3, tension: 3, states: ['Спокойствие'] }] }
+          ]
+        },
+        {
+          range: '15–21 сентября',
+          days: [
+            { day: 15, valence: 2, tension: 4, checkins: [{ time: '08:50', valence: 2, tension: 4, states: ['Тревога'] }] },
+            { day: 16, checkins: [] },
+            { day: 17, valence: 3, tension: 3, checkins: [{ time: '13:20', valence: 3, tension: 3, states: ['Усталость'] }] },
+            { day: 18, valence: 3, tension: 3, checkins: [{ time: '19:05', valence: 3, tension: 3, states: ['Грусть'] }] },
+            { day: 19, valence: 4, tension: 2, checkins: [{ time: '17:45', valence: 4, tension: 2, states: ['Спокойствие'] }] },
+            { day: 20, checkins: [] },
+            { day: 21, valence: 4, tension: 2, checkins: [{ time: '21:30', valence: 4, tension: 2, states: ['Спокойствие'] }] }
+          ]
+        },
+        {
+          range: '22–28 сентября',
+          today: 6,
+          days: [
+            { day: 22, valence: 2, tension: 5, checkins: [{ time: '08:40', valence: 2, tension: 5, states: ['Тревога'], contexts: ['Работа или учёба'] }] },
+            { day: 23, valence: 3, tension: 4, checkins: [{ time: '09:15', valence: 2, tension: 4, states: ['Тревога'] }, { time: '20:30', valence: 4, tension: 3, states: ['Спокойствие'] }] },
+            { day: 24, checkins: [] },
+            { day: 25, valence: 2, tension: 4, checkins: [{ time: '18:20', valence: 2, tension: 4, states: ['Раздражение'], contexts: ['Отношения'] }] },
+            { day: 26, valence: 3, tension: 3, checkins: [{ time: '12:10', valence: 3, tension: 3, states: ['Усталость'], contexts: ['Сон или отдых'] }] },
+            { day: 27, valence: 4, tension: 2, checkins: [{ time: '16:45', valence: 4, tension: 2, states: ['Спокойствие'] }] },
+            { day: 28, valence: 3, tension: 3, checkins: [{ time: '08:15', valence: 2, tension: 4, states: ['Тревога'], contexts: ['Работа или учёба'] }, { time: '10:24', valence: 4, tension: 2, states: ['Спокойствие'], contexts: ['Сон или отдых'] }] }
+          ]
+        }
       ];
       let weekIndex = weeks.length - 1;
+      let selectedDayIndex = weeks[weekIndex].today;
       const weekCard = cardsPhone.querySelector('.kp-week-card');
       const weekDays = [...weekCard.querySelectorAll('.kp-calendar-day')];
-      const weekBars = [...weekCard.querySelectorAll('.kp-week-chart span')];
-      const weekChart = weekCard.querySelector('.kp-week-chart');
       const weekPrev = cardsPhone.querySelector('#kp-week-prev');
       const weekNext = cardsPhone.querySelector('#kp-week-next');
+      const selectedDay = cardsPhone.querySelector('#kp-selected-day');
+      const checkinWord = count => {
+        const mod100 = count % 100;
+        const mod10 = count % 10;
+        if (mod100 >= 11 && mod100 <= 14) return 'чек-инов';
+        if (mod10 === 1) return 'чек-ин';
+        if (mod10 >= 2 && mod10 <= 4) return 'чек-ина';
+        return 'чек-инов';
+      };
+      const aggregateLevel = (checkins, key) => {
+        const values = checkins.map(item => item[key]).filter(Number.isFinite).sort((a, b) => a - b);
+        if (!values.length) return null;
+        const middle = Math.floor(values.length / 2);
+        return values.length % 2 ? values[middle] : Math.round((values[middle - 1] + values[middle]) / 2);
+      };
+      const renderSelectedDay = () => {
+        const week = weeks[weekIndex];
+        const day = week.days[selectedDayIndex];
+        weekDays.forEach((button, index) => button.classList.toggle('is-selected', index === selectedDayIndex));
+        selectedDay.replaceChildren();
+        const head = document.createElement('div');
+        head.className = 'kp-selected-day-head';
+        const title = document.createElement('strong');
+        title.textContent = `${day.day} сентября`;
+        const count = document.createElement('span');
+        count.textContent = day.checkins.length ? `${day.checkins.length} ${checkinWord(day.checkins.length)}` : 'Нет отметок';
+        head.append(title, count);
+        selectedDay.append(head);
+        if (!day.checkins.length) {
+          const empty = document.createElement('p');
+          empty.className = 'kp-checkin-help';
+          empty.style.margin = '4px 0 2px';
+          empty.textContent = 'Пустой день остаётся пустым — приложение не подставляет значения.';
+          selectedDay.append(empty);
+          return;
+        }
+        day.checkins.forEach(checkin => {
+          const row = document.createElement('div');
+          row.className = 'kp-selected-checkin';
+          const time = document.createElement('time');
+          time.textContent = checkin.time;
+          const copy = document.createElement('span');
+          const values = document.createElement('strong');
+          values.textContent = `${moodLabels[checkin.valence - 1]} · напряжение ${checkin.tension} из 5`;
+          const details = document.createElement('small');
+          const tags = [...(checkin.states || []), ...(checkin.contexts || [])];
+          details.textContent = tags.length ? tags.join(' · ') : 'Без дополнительных отметок';
+          copy.append(values, details);
+          row.append(time, copy);
+          selectedDay.append(row);
+        });
+      };
       const renderWeek = () => {
         const week = weeks[weekIndex];
         cardsPhone.querySelector('#kp-week-range').textContent = week.range;
-        weekDays.forEach((day, index) => {
-          day.textContent = week.days[index];
-          day.classList.toggle('has-entry', Boolean(week.entries[index]));
-          day.classList.toggle('is-today', week.today === index);
+        const totalCheckins = week.days.reduce((sum, day) => sum + day.checkins.length, 0);
+        const filledDays = week.days.filter(day => day.checkins.length).length;
+        cardsPhone.querySelector('#kp-week-summary').textContent = `${filledDays} заполненных ${filledDays === 1 ? 'день' : filledDays < 5 ? 'дня' : 'дней'} · ${totalCheckins} ${checkinWord(totalCheckins)}`;
+        weekDays.forEach((button, index) => {
+          const day = week.days[index];
+          const valence = day.checkins.length ? (day.valence || aggregateLevel(day.checkins, 'valence')) : null;
+          const tension = day.checkins.length ? (day.tension || aggregateLevel(day.checkins, 'tension')) : null;
+          button.querySelector('strong').textContent = day.day;
+          button.dataset.valence = valence || '';
+          button.dataset.tension = tension || '';
+          button.classList.toggle('has-entry', day.checkins.length > 0);
+          button.classList.toggle('is-today', week.today === index);
+          const dots = button.querySelector('.kp-checkin-dots');
+          dots.replaceChildren();
+          day.checkins.slice(0, 3).forEach(() => dots.append(document.createElement('i')));
+          button.setAttribute('aria-label', day.checkins.length
+            ? `${day.day} сентября: ${day.checkins.length} ${checkinWord(day.checkins.length)}, общее состояние ${valence} из 5, напряжение ${tension} из 5`
+            : `${day.day} сентября: нет отметок`);
         });
-        weekBars.forEach((bar, index) => { bar.style.height = `${week.bars[index]}%`; });
-        weekChart.setAttribute('aria-label', week.label);
         weekPrev.disabled = weekIndex === 0;
         weekNext.disabled = weekIndex === weeks.length - 1;
+        if (!Number.isInteger(selectedDayIndex) || selectedDayIndex < 0 || selectedDayIndex > 6) {
+          selectedDayIndex = week.today ?? week.days.findIndex(day => day.checkins.length);
+        }
+        renderSelectedDay();
       };
+      weekDays.forEach((button, index) => {
+        button.addEventListener('click', () => {
+          selectedDayIndex = index;
+          renderSelectedDay();
+        });
+      });
       weekPrev.addEventListener('click', () => {
         if (weekIndex > 0) {
           weekIndex -= 1;
+          selectedDayIndex = weeks[weekIndex].days.findIndex(day => day.checkins.length);
           renderWeek();
         }
       });
       weekNext.addEventListener('click', () => {
         if (weekIndex < weeks.length - 1) {
           weekIndex += 1;
+          selectedDayIndex = weeks[weekIndex].today ?? weeks[weekIndex].days.findIndex(day => day.checkins.length);
           renderWeek();
         }
+      });
+      cardsPhone.querySelector('#kp-checkin-save').addEventListener('click', () => {
+        weekIndex = weeks.length - 1;
+        selectedDayIndex = weeks[weekIndex].today;
+        const now = new Date();
+        const time = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+        const states = [...cardsPhone.querySelectorAll('.kp-emotion.is-selected')].map(button => button.textContent.trim());
+        const contexts = [...cardsPhone.querySelectorAll('.kp-context.is-selected')].map(button => button.textContent.trim());
+        const day = weeks[weekIndex].days[selectedDayIndex];
+        day.checkins.push({
+          time,
+          valence: Number(moodRange.value),
+          tension: Number(tensionRange.value),
+          states,
+          contexts
+        });
+        journalEntries.unshift({
+          id: `checkin-${Date.now()}`,
+          kind: 'checkin',
+          date: '2026-09-28',
+          time,
+          title: 'Чек-ин состояния',
+          situation: `${moodLabels[Number(moodRange.value) - 1]} · ${moodRange.value} из 5`,
+          feelings: `${tensionLabels[Number(tensionRange.value) - 1]} · ${tensionRange.value} из 5`,
+          need: [...states, ...contexts].join(' · ') || 'Без дополнительных отметок'
+        });
+        journalMonth.value = '8';
+        journalYear.value = '2026';
+        renderJournal();
+        day.valence = aggregateLevel(day.checkins, 'valence');
+        day.tension = aggregateLevel(day.checkins, 'tension');
+        renderWeek();
+        cardsPhone.querySelector('#kp-checkin-status').querySelector('span').textContent = `Чек-ин сохранён · ${time}. Сегодня ${day.checkins.length} отметки`;
       });
       renderWeek();
 
