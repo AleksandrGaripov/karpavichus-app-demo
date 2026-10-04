@@ -19656,6 +19656,7 @@
       width: min(390px, 100%);
       min-height: 0;
       aspect-ratio: 390 / 760;
+      position: relative;
       overflow: hidden;
       display: flex;
       flex-direction: column;
@@ -19744,6 +19745,146 @@
       padding: 16px;
       margin-bottom: 12px;
     }
+    #kp-prototype-v1 .kp-onboarding,
+    #kp-prototype-v1 .kp-launch {
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    #kp-prototype-v1 .kp-onboarding { justify-content: center; }
+    #kp-prototype-v1 .kp-onboarding .kp-mark { margin-bottom: 20px; }
+    #kp-prototype-v1 .kp-onboarding-points {
+      display: grid;
+      gap: 10px;
+      margin: 22px 0;
+    }
+    #kp-prototype-v1 .kp-onboarding-point {
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      align-items: center;
+      gap: 11px;
+      padding: 12px;
+      border: 1px solid var(--kp-line);
+      border-radius: 16px;
+      background: var(--kp-surface);
+    }
+    #kp-prototype-v1 .kp-onboarding-point > span:first-child {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      color: var(--kp-primary);
+      background: var(--kp-surface-2);
+    }
+    #kp-prototype-v1 .kp-onboarding-point strong,
+    #kp-prototype-v1 .kp-onboarding-point small { display: block; }
+    #kp-prototype-v1 .kp-onboarding-point strong { font-size: 13px; }
+    #kp-prototype-v1 .kp-onboarding-point small { margin-top: 3px; color: var(--kp-muted); font-size: 11px; line-height: 1.35; }
+    #kp-prototype-v1 .kp-launch { justify-content: space-between; padding-bottom: 4px; }
+    #kp-prototype-v1 .kp-launch-hero {
+      padding: 18px;
+      border-radius: 22px;
+      background: var(--kp-surface);
+      margin: 14px 0 12px;
+    }
+    #kp-prototype-v1 .kp-launch-hero .kp-title { font-size: 24px; }
+    #kp-prototype-v1 .kp-launch-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    #kp-prototype-v1 .kp-launch-action {
+      min-height: 104px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px;
+      border: 1px solid var(--kp-line);
+      border-radius: 18px;
+      background: var(--kp-surface);
+      color: var(--kp-text);
+      text-align: left;
+    }
+    #kp-prototype-v1 .kp-launch-action svg { color: var(--kp-primary); }
+    #kp-prototype-v1 .kp-launch-action strong { font-size: 13px; line-height: 1.25; }
+    #kp-prototype-v1 .kp-account-note {
+      padding: 14px;
+      margin-bottom: 12px;
+      border: 1px solid var(--kp-line);
+      border-radius: 16px;
+      background: var(--kp-surface);
+    }
+    #kp-prototype-v1 .kp-account-note strong { display: block; font-size: 13px; }
+    #kp-prototype-v1 .kp-account-note p { margin: 5px 0 0; color: var(--kp-muted); font-size: 12px; line-height: 1.4; }
+    #kp-prototype-v1 .kp-account-note .kp-soft-button { min-height: 42px; margin-top: 10px; font-size: 13px; }
+    #kp-prototype-v1 .kp-card.kp-program-locked .kp-progress-row,
+    #kp-prototype-v1 .kp-card.kp-program-locked .kp-track { display: none; }
+    #kp-prototype-v1 .kp-card.kp-program-locked .kp-subtitle { margin-top: 12px; }
+    #kp-prototype-v1 .kp-detail-screen.is-active {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      padding: 0;
+    }
+    #kp-prototype-v1 .kp-detail-scroll {
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+      scrollbar-width: none;
+      padding: 14px 18px 116px;
+    }
+    #kp-prototype-v1 .kp-detail-scroll::-webkit-scrollbar { display: none; }
+    #kp-prototype-v1 .kp-program-detail-copy { color: var(--kp-muted); font-size: 13px; line-height: 1.55; }
+    #kp-prototype-v1 .kp-program-detail-list { margin: 16px 0; padding-left: 20px; color: var(--kp-text); }
+    #kp-prototype-v1 .kp-program-detail-list li { margin: 8px 0; font-size: 13px; line-height: 1.4; }
+    #kp-prototype-v1 .kp-detail-sticky {
+      position: absolute;
+      z-index: 4;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 30px 18px 14px;
+      background: linear-gradient(to bottom, transparent, var(--kp-bg) 30%, var(--kp-bg));
+    }
+    #kp-prototype-v1 .kp-setting-button {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      color: var(--kp-text);
+      text-align: left;
+      font: inherit;
+    }
+    #kp-prototype-v1 .kp-transfer-card {
+      padding: 15px;
+      margin-bottom: 12px;
+      border: 1px solid var(--kp-line);
+      border-radius: 18px;
+      background: var(--kp-surface);
+    }
+    #kp-prototype-v1 .kp-transfer-card h3 { margin: 0 0 6px; font-size: 16px; }
+    #kp-prototype-v1 .kp-transfer-card p { margin: 0 0 12px; color: var(--kp-muted); font-size: 12px; line-height: 1.45; }
+    #kp-prototype-v1 .kp-transfer-list { display: grid; gap: 7px; margin: 12px 0; color: var(--kp-muted); font-size: 12px; }
+    #kp-prototype-v1 .kp-toast {
+      position: absolute;
+      z-index: 20;
+      left: 18px;
+      right: 18px;
+      bottom: 82px;
+      padding: 12px 14px;
+      border: 1px solid var(--kp-line);
+      border-radius: 15px;
+      background: var(--kp-surface);
+      color: var(--kp-text);
+      box-shadow: 0 12px 32px rgba(0,0,0,.22);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+    #kp-prototype-v1 .kp-toast[hidden],
+    #kp-prototype-v1 .kp-bottom[hidden] { display: none !important; }
     #kp-prototype-v1 .kp-test-card {
       width: 100%;
       display: grid;
@@ -21045,7 +21186,9 @@
     <section data-variant="Спокойные карточки" aria-label="Спокойный карточный интерфейс">
       <div class="kp-preview">
         <div class="viz-controls kp-flow" aria-label="Карта экранов">
-          <button class="btn" type="button" data-jump="products" aria-pressed="true">Программы</button>
+          <button class="btn" type="button" data-jump="onboarding" aria-pressed="true">Первый запуск</button>
+          <button class="btn btn-ghost" type="button" data-jump="home">Старт</button>
+          <button class="btn btn-ghost" type="button" data-jump="products">Программы</button>
           <button class="btn btn-ghost" type="button" data-jump="tests">Тесты</button>
           <button class="btn btn-ghost" type="button" data-jump="program">Программа</button>
           <button class="btn btn-ghost" type="button" data-jump="day">День</button>
@@ -21055,17 +21198,55 @@
         <div class="kp-phone" id="kp-phone-cards" aria-label="Прототип приложения, спокойные карточки">
           <div class="kp-status"><span>10:24</span><span>● Wi‑Fi 89%</span></div>
 
+          <main class="kp-screen is-active" data-screen="onboarding">
+            <div class="kp-onboarding">
+              <div>
+                <div class="kp-mark">АК</div>
+                <p class="kp-eyebrow">Личное пространство</p>
+                <h2 class="kp-title">Поддержка и практики всегда рядом</h2>
+                <p class="kp-subtitle">Программы Артёма, психологические тесты и приватный дневник в одном приложении.</p>
+                <div class="kp-onboarding-points">
+                  <div class="kp-onboarding-point"><span><i data-lucide="notebook-pen" aria-hidden="true"></i></span><span><strong>Дневник без регистрации</strong><small>Записи остаются только на этом устройстве.</small></span></div>
+                  <div class="kp-onboarding-point"><span><i data-lucide="library" aria-hidden="true"></i></span><span><strong>Ваши программы</strong><small>Доступы с сайта подключаются по той же почте.</small></span></div>
+                  <div class="kp-onboarding-point"><span><i data-lucide="shield-check" aria-hidden="true"></i></span><span><strong>Без облака для личного</strong><small>Ответы, тесты и записи не отправляются команде.</small></span></div>
+                </div>
+              </div>
+              <button class="kp-main-button cursor-interaction" type="button" data-go="login">Продолжить</button>
+            </div>
+          </main>
+
+          <main class="kp-screen" data-screen="home">
+            <div class="kp-launch">
+              <div>
+                <div class="kp-head"><div><p class="kp-eyebrow" id="kp-home-account">Гостевой режим</p><h2 class="kp-title">Добрый вечер</h2></div><button class="kp-icon-button cursor-interaction" type="button" data-go="profile" aria-label="Открыть профиль"><i data-lucide="user-round" aria-hidden="true"></i></button></div>
+                <article class="kp-launch-hero">
+                  <p class="kp-eyebrow">Ежедневный чек-ин</p>
+                  <h3 class="kp-title">Как вы сегодня?</h3>
+                  <p class="kp-subtitle">Отметьте состояние и напряжение. Это займёт меньше минуты.</p>
+                  <button class="kp-main-button cursor-interaction" type="button" data-go="diary" style="margin-top:14px">Отметить состояние</button>
+                </article>
+                <div class="kp-launch-grid">
+                  <button class="kp-launch-action cursor-interaction" type="button" data-go="products"><i data-lucide="library" aria-hidden="true"></i><strong>Программы</strong></button>
+                  <button class="kp-launch-action cursor-interaction" type="button" data-go="tests"><i data-lucide="clipboard-check" aria-hidden="true"></i><strong>Тесты</strong></button>
+                  <button class="kp-launch-action cursor-interaction" type="button" data-go="journal-lock"><i data-lucide="book-open" aria-hidden="true"></i><strong>История дневника</strong></button>
+                  <button class="kp-launch-action cursor-interaction" type="button" data-go="consultation"><i data-lucide="calendar-check" aria-hidden="true"></i><strong>Консультация</strong></button>
+                </div>
+              </div>
+              <p class="kp-note"><i data-lucide="lock-keyhole" aria-hidden="true"></i><span>Личные записи хранятся только на вашем устройстве.</span></p>
+            </div>
+          </main>
+
           <main class="kp-screen" data-screen="login">
             <div class="kp-auth">
               <div class="kp-mark">АК</div>
-              <p class="kp-eyebrow">Доступ к приобретённым программам</p>
-              <h2 class="kp-title">Войдите в свой аккаунт</h2>
-              <p class="kp-subtitle">Введите email, который использовали при покупке на сайте.</p>
+              <p class="kp-eyebrow">Вход или регистрация</p>
+              <h2 class="kp-title">Продолжить по почте</h2>
+              <p class="kp-subtitle">Если вы покупали программы на karpavichus.com, укажите ту же почту. Доступы подключатся автоматически.</p>
               <label class="kp-field-label" for="kp-email-cards">Email</label>
-              <input class="kp-input" id="kp-email-cards" type="email" value="kardertk@gmail.com">
+              <input class="kp-input" id="kp-email-cards" type="email" value="user@example.com">
               <button class="kp-main-button cursor-interaction" type="button" data-go="code" style="margin-top:12px">Получить код</button>
+              <button class="kp-soft-button cursor-interaction" id="kp-skip-login" type="button" data-go="home" style="margin-top:10px">Продолжить без регистрации</button>
               <p class="kp-note"><i data-lucide="shield-check" aria-hidden="true"></i><span>Личные ответы и записи остаются только на этом устройстве.</span></p>
-              <p class="kp-note"><i data-lucide="sparkles" aria-hidden="true"></i><span>Бесплатные тесты доступны без входа.</span></p>
             </div>
           </main>
 
@@ -21074,40 +21255,64 @@
               <button class="kp-back cursor-interaction" type="button" data-go="login"><i data-lucide="arrow-left" aria-hidden="true"></i><span class="sr-only">Назад</span></button>
               <p class="kp-eyebrow">Проверка email</p>
               <h2 class="kp-title">Введите код из письма</h2>
-              <p class="kp-subtitle">Мы отправили шестизначный код на kardertk@gmail.com.</p>
+              <p class="kp-subtitle">Мы отправили шестизначный код на user@example.com.</p>
               <label class="kp-field-label" for="kp-code-cards">Одноразовый код</label>
               <input class="kp-input" id="kp-code-cards" inputmode="numeric" value="321 604">
-              <button class="kp-main-button cursor-interaction" type="button" data-go="products" style="margin-top:12px">Войти</button>
+              <button class="kp-main-button cursor-interaction" id="kp-code-submit" type="button" data-go="home" style="margin-top:12px">Войти</button>
             </div>
           </main>
 
-          <main class="kp-screen is-active" data-screen="products">
+          <main class="kp-screen" data-screen="products">
             <div class="kp-head">
-              <div><p class="kp-eyebrow">Добрый вечер, Олег</p><h2 class="kp-title">Программы</h2></div>
+              <div><p class="kp-eyebrow" id="kp-products-account">Каталог</p><h2 class="kp-title">Программы</h2></div>
               <button class="kp-icon-button cursor-interaction" type="button" data-go="profile" aria-label="Открыть профиль"><i data-lucide="user-round" aria-hidden="true"></i></button>
             </div>
-            <article class="kp-card">
+            <div class="kp-account-note" id="kp-program-sync-note">
+              <strong>Доступы синхронизируются с сайтом</strong>
+              <p>Если программа уже доступна вам на karpavichus.com, войдите с той же почтой — она появится здесь автоматически.</p>
+              <button class="kp-soft-button cursor-interaction" id="kp-program-login" type="button" data-go="login">Войти по почте</button>
+            </div>
+            <article class="kp-card" data-program-card="anxiety">
               <div class="kp-cover"><small>ПРОГРАММА НА 10 ДНЕЙ</small><strong>ТРЕВОГИ</strong></div>
-              <div class="kp-progress-row"><span id="kp-product-progress">Пройдено 2 из 10 дней</span><span id="kp-product-percent">20%</span></div>
-              <div class="kp-track" id="kp-product-track" role="img" aria-label="Прогресс программы"><span id="kp-product-bar" style="width:20%"></span></div>
+              <div class="kp-progress-row" data-program-progress><span id="kp-product-progress">Пройдено 2 из 10 дней</span><span id="kp-product-percent">20%</span></div>
+              <div class="kp-track" data-program-progress id="kp-product-track" role="img" aria-label="Прогресс программы"><span id="kp-product-bar" style="width:20%"></span></div>
               <p class="kp-subtitle" id="kp-product-next">Рекомендуем продолжить: День 3 · Мой профайл тревоги</p>
-              <button class="kp-main-button cursor-interaction" type="button" data-go="program" data-open-program="anxiety" style="margin-top:12px">Открыть программу</button>
+              <button class="kp-main-button cursor-interaction" type="button" data-program-action="anxiety" style="margin-top:12px">Открыть программу</button>
             </article>
-            <article class="kp-card">
+            <article class="kp-card" data-program-card="kritik">
               <div class="kp-cover kp-cover-kritik"><small>ПРОГРАММА НА 10 ДНЕЙ</small><strong>КРИТИК</strong></div>
-              <div class="kp-progress-row"><span id="kp-product-progress-kritik">Пройдено 0 из 10 дней</span><span id="kp-product-percent-kritik">0%</span></div>
-              <div class="kp-track" role="img" aria-label="Прогресс программы — Внутренний критик"><span id="kp-product-bar-kritik" style="width:0%"></span></div>
+              <div class="kp-progress-row" data-program-progress><span id="kp-product-progress-kritik">Пройдено 0 из 10 дней</span><span id="kp-product-percent-kritik">0%</span></div>
+              <div class="kp-track" data-program-progress role="img" aria-label="Прогресс программы — Внутренний критик"><span id="kp-product-bar-kritik" style="width:0%"></span></div>
               <p class="kp-subtitle" id="kp-product-next-kritik">Начните с первого дня: День 1 · Первая встреча</p>
-              <button class="kp-main-button cursor-interaction" type="button" data-go="program" data-open-program="kritik" style="margin-top:12px">Открыть программу</button>
+              <button class="kp-main-button cursor-interaction" type="button" data-program-action="kritik" style="margin-top:12px">Подробнее</button>
             </article>
-            <article class="kp-card">
+            <article class="kp-card" data-program-card="granitsy">
               <div class="kp-cover kp-cover-granitsy"><small>ПРОГРАММА НА 10 ДНЕЙ</small><strong>ГРАНИЦЫ</strong></div>
-              <div class="kp-progress-row"><span id="kp-product-progress-granitsy">Пройдено 0 из 10 дней</span><span id="kp-product-percent-granitsy">0%</span></div>
-              <div class="kp-track" role="img" aria-label="Прогресс программы — Мои границы"><span id="kp-product-bar-granitsy" style="width:0%"></span></div>
+              <div class="kp-progress-row" data-program-progress><span id="kp-product-progress-granitsy">Пройдено 0 из 10 дней</span><span id="kp-product-percent-granitsy">0%</span></div>
+              <div class="kp-track" data-program-progress role="img" aria-label="Прогресс программы — Мои границы"><span id="kp-product-bar-granitsy" style="width:0%"></span></div>
               <p class="kp-subtitle" id="kp-product-next-granitsy">Начните с первого дня: День 1 · Диагностика</p>
-              <button class="kp-main-button cursor-interaction" type="button" data-go="program" data-open-program="granitsy" style="margin-top:12px">Открыть программу</button>
+              <button class="kp-main-button cursor-interaction" type="button" data-program-action="granitsy" style="margin-top:12px">Подробнее</button>
             </article>
             <p class="kp-note"><i data-lucide="calendar-heart" aria-hidden="true"></i><span>Все дни доступны сразу. Можно идти в своём темпе.</span></p>
+          </main>
+
+          <main class="kp-screen kp-detail-screen" data-screen="program-detail">
+            <div class="kp-detail-scroll">
+              <div class="kp-head">
+                <button class="kp-back cursor-interaction" type="button" data-go="products"><i data-lucide="arrow-left" aria-hidden="true"></i><span class="sr-only">К программам</span></button>
+                <span class="kp-pill">О программе</span>
+              </div>
+              <div class="kp-cover" id="kp-program-detail-cover"><small>ПРОГРАММА НА 10 ДНЕЙ</small><strong id="kp-program-detail-cover-title">ТРЕВОГИ</strong></div>
+              <p class="kp-eyebrow" style="margin-top:18px">Авторская программа Артёма Карпавичуса</p>
+              <h2 class="kp-title" id="kp-program-detail-title">Тревоги</h2>
+              <p class="kp-program-detail-copy" id="kp-program-detail-copy"></p>
+              <ul class="kp-program-detail-list" id="kp-program-detail-list"></ul>
+              <div class="kp-account-note">
+                <strong>Доступ связан с вашей почтой</strong>
+                <p>Если программа уже доступна на karpavichus.com, войдите с той же почтой. Покупка и оплата внутри приложения не выполняются.</p>
+              </div>
+            </div>
+            <div class="kp-detail-sticky"><button class="kp-main-button cursor-interaction" id="kp-program-detail-action" type="button">Войти по почте</button></div>
           </main>
 
           <main class="kp-screen" data-screen="tests">
@@ -21115,7 +21320,7 @@
               <div><p class="kp-eyebrow">Открыто для всех</p><h2 class="kp-title">Тесты</h2></div>
               <span class="kp-test-icon"><i data-lucide="sparkles" aria-hidden="true"></i></span>
             </div>
-            <p class="kp-subtitle" style="margin-bottom:18px">Покупка и вход не нужны. Результаты сохраняются только на этом устройстве.</p>
+            <p class="kp-subtitle" style="margin-bottom:18px">Результаты сохраняются только на этом устройстве.</p>
             <button class="kp-test-card cursor-interaction" type="button" data-go="test-intro">
               <span class="kp-test-icon"><i data-lucide="clipboard-check" aria-hidden="true"></i></span>
               <span><strong>Эмоциональная безопасность в отношениях</strong><small>12 вопросов · около 3 минут</small></span>
@@ -21134,7 +21339,7 @@
               <button class="kp-back cursor-interaction" type="button" data-go="tests"><i data-lucide="arrow-left" aria-hidden="true"></i><span class="sr-only">К тестам</span></button>
               <span class="kp-pill">2–3 минуты</span>
             </div>
-            <p class="kp-eyebrow">Бесплатная самопроверка</p>
+            <p class="kp-eyebrow">Самопроверка</p>
             <h2 class="kp-title">Насколько эмоционально безопасно вам в этих отношениях?</h2>
             <p class="kp-subtitle">Отвечайте, опираясь на ощущения за последние 2–3 месяца.</p>
             <div class="kp-info">Это образовательная самопроверка, а не клинический тест и не диагноз отношений. Она помогает заметить паттерны поддержки, уважения и общения.</div>
@@ -21262,7 +21467,7 @@
           <main class="kp-screen" data-screen="diary">
             <div class="kp-head kp-diary-head"><div><p class="kp-eyebrow">Только на устройстве</p><h2 class="kp-title">Дневник</h2></div><i data-lucide="lock-keyhole" aria-hidden="true"></i></div>
             <section class="kp-checkin" aria-labelledby="kp-checkin-title">
-              <h3 class="kp-section-title kp-center-title" id="kp-checkin-title">Как вы сейчас?</h3>
+              <h3 class="kp-section-title kp-center-title" id="kp-checkin-title">Как вы сегодня?</h3>
               <p class="kp-checkin-help">Короткая отметка о текущем состоянии, а не психологический тест.</p>
               <div class="kp-metric">
                 <p class="kp-metric-question">Насколько приятным или неприятным кажется ваше состояние?</p>
@@ -21293,7 +21498,6 @@
                 <button class="kp-context cursor-interaction" type="button" aria-pressed="false">Сон или отдых</button>
               </div>
               <button class="kp-main-button kp-checkin-save cursor-interaction" type="button" id="kp-checkin-save">Сохранить чек-ин</button>
-              <div class="kp-checkin-status" id="kp-checkin-status" aria-live="polite"><i data-lucide="smartphone" aria-hidden="true"></i><span>Сохранится только на этом устройстве</span></div>
             </section>
             <button class="kp-diary-link cursor-interaction" type="button" data-go="diary-entry">
               <span class="kp-record-icon"><i data-lucide="notebook-pen" aria-hidden="true"></i></span>
@@ -21454,13 +21658,35 @@
           </main>
 
           <main class="kp-screen" data-screen="profile">
-            <div class="kp-head"><div><p class="kp-eyebrow">kardertk@gmail.com</p><h2 class="kp-title">Профиль</h2></div></div>
+            <div class="kp-head"><div><p class="kp-eyebrow" id="kp-profile-account">Без регистрации</p><h2 class="kp-title">Профиль</h2></div></div>
+            <div class="kp-account-note" id="kp-profile-login-card"><strong>Подключите доступы к программам</strong><p>Если вы покупали программы на сайте, войдите с той же почтой.</p><button class="kp-soft-button cursor-interaction" type="button" data-go="login">Войти или зарегистрироваться</button></div>
             <div class="kp-setting kp-setting-stack"><span><strong>Оформление</strong><small id="kp-theme-note">Как в системе</small></span><div class="kp-segments kp-theme" role="radiogroup" aria-label="Тема оформления"><button class="kp-segment cursor-interaction is-on" type="button" role="radio" aria-checked="true" data-theme-choice="auto">Авто</button><button class="kp-segment cursor-interaction" type="button" role="radio" aria-checked="false" data-theme-choice="light">Светлая</button><button class="kp-segment cursor-interaction" type="button" role="radio" aria-checked="false" data-theme-choice="dark">Тёмная</button></div></div>
             <div class="kp-setting"><span><strong>Защита приложения</strong><small>Face ID или код устройства</small></span><button class="kp-toggle cursor-interaction" type="button" aria-label="Защита включена"></button></div>
             <div class="kp-setting"><span><strong>Напоминания</strong><small>Мягкое ежедневное напоминание</small></span><i data-lucide="chevron-right" aria-hidden="true"></i></div>
-            <div class="kp-setting"><span><strong>Экспорт записей</strong><small>Формат ещё предстоит выбрать</small></span><i data-lucide="chevron-right" aria-hidden="true"></i></div>
+            <button class="kp-setting kp-setting-button cursor-interaction" type="button" data-go="transfer"><span><strong>Перенос данных</strong><small>Зашифрованный экспорт и импорт</small></span><i data-lucide="chevron-right" aria-hidden="true"></i></button>
             <div class="kp-setting"><span><strong>Приватность</strong><small>Как хранятся ваши данные</small></span><i data-lucide="chevron-right" aria-hidden="true"></i></div>
-            <button class="kp-soft-button cursor-interaction" type="button" style="margin-top:20px">Выйти из аккаунта</button>
+            <button class="kp-soft-button cursor-interaction" id="kp-account-action" type="button" data-go="login" style="margin-top:20px">Войти по почте</button>
+          </main>
+
+          <main class="kp-screen" data-screen="transfer">
+            <div class="kp-head"><button class="kp-back cursor-interaction" type="button" data-go="profile"><i data-lucide="arrow-left" aria-hidden="true"></i><span class="sr-only">К профилю</span></button><span class="kp-pill">Только вручную</span></div>
+            <p class="kp-eyebrow">Локальные данные</p>
+            <h2 class="kp-title">Перенос на другой телефон</h2>
+            <p class="kp-subtitle" style="margin-bottom:16px">Автоматической облачной синхронизации нет. Для переноса понадобится зашифрованный файл и парольная фраза.</p>
+            <section class="kp-transfer-card">
+              <h3>Создать резервную копию</h3>
+              <p>В архив можно включить дневник, чек-ины, историю тестов, ответы на упражнения и прогресс программ.</p>
+              <div class="kp-transfer-list"><span>✓ Файл шифруется на устройстве</span><span>✓ Пароль не передаётся команде</span><span>✓ Сервер не получает содержимое</span></div>
+              <label class="kp-field-label" for="kp-export-password">Парольная фраза</label>
+              <input class="kp-input" id="kp-export-password" type="password" placeholder="Не менее 10 символов">
+              <button class="kp-main-button cursor-interaction" id="kp-export-demo" type="button" style="margin-top:10px">Создать файл</button>
+            </section>
+            <section class="kp-transfer-card">
+              <h3>Импортировать копию</h3>
+              <p>Перед восстановлением приложение покажет состав архива и предложит объединить данные либо заменить локальную базу.</p>
+              <button class="kp-soft-button cursor-interaction" id="kp-import-demo" type="button">Выбрать зашифрованный файл</button>
+            </section>
+            <p class="kp-note"><i data-lucide="triangle-alert" aria-hidden="true"></i><span>Без файла и парольной фразы восстановить данные невозможно. Команда проекта не сможет сбросить этот пароль.</span></p>
           </main>
 
           <nav class="kp-bottom" aria-label="Основная навигация">
@@ -21470,6 +21696,7 @@
             <button class="cursor-interaction" type="button" data-go="consultation" data-nav="consultation"><i data-lucide="calendar-check" aria-hidden="true"></i><span>Запись</span></button>
             <button class="cursor-interaction" type="button" data-go="profile" data-nav="profile"><i data-lucide="user-round" aria-hidden="true"></i><span>Профиль</span></button>
           </nav>
+          <div class="kp-toast" id="kp-toast" role="status" aria-live="polite" hidden></div>
         </div>
       </div>
     </section>
@@ -21488,19 +21715,19 @@
           <main class="kp-screen" data-screen="login">
             <div class="kp-auth">
               <div class="kp-mark">АК</div><p class="kp-eyebrow">Личное пространство</p><h2 class="kp-title">Вход в приложение</h2><p class="kp-subtitle">Используйте email, указанный при покупке.</p>
-              <label class="kp-field-label" for="kp-email-list">Email</label><input class="kp-input" id="kp-email-list" type="email" value="kardertk@gmail.com">
+              <label class="kp-field-label" for="kp-email-list">Email</label><input class="kp-input" id="kp-email-list" type="email" value="user@example.com">
               <button class="kp-main-button cursor-interaction" type="button" data-go="code" style="margin-top:12px">Получить код</button>
               <p class="kp-note"><i data-lucide="shield-check" aria-hidden="true"></i><span>Ответы хранятся только на телефоне.</span></p>
             </div>
           </main>
           <main class="kp-screen" data-screen="code">
             <div class="kp-auth">
-              <button class="kp-back cursor-interaction" type="button" data-go="login"><i data-lucide="arrow-left" aria-hidden="true"></i><span class="sr-only">Назад</span></button><p class="kp-eyebrow">Проверка email</p><h2 class="kp-title">Код из письма</h2><p class="kp-subtitle">Отправлен на kardertk@gmail.com</p>
+              <button class="kp-back cursor-interaction" type="button" data-go="login"><i data-lucide="arrow-left" aria-hidden="true"></i><span class="sr-only">Назад</span></button><p class="kp-eyebrow">Проверка email</p><h2 class="kp-title">Код из письма</h2><p class="kp-subtitle">Отправлен на user@example.com</p>
               <label class="kp-field-label" for="kp-code-list">Одноразовый код</label><input class="kp-input" id="kp-code-list" inputmode="numeric" value="321 604"><button class="kp-main-button cursor-interaction" type="button" data-go="products" style="margin-top:12px">Войти</button>
             </div>
           </main>
           <main class="kp-screen is-active" data-screen="products">
-            <div class="kp-head"><div><p class="kp-eyebrow">Добрый вечер, Олег</p><h2 class="kp-title">Мои продукты</h2></div><button class="kp-icon-button cursor-interaction" type="button" data-go="profile" aria-label="Открыть профиль"><i data-lucide="user-round" aria-hidden="true"></i></button></div>
+            <div class="kp-head"><div><p class="kp-eyebrow">Добрый вечер</p><h2 class="kp-title">Мои продукты</h2></div><button class="kp-icon-button cursor-interaction" type="button" data-go="profile" aria-label="Открыть профиль"><i data-lucide="user-round" aria-hidden="true"></i></button></div>
             <article class="kp-card"><div class="kp-cover"><small>ПРОГРАММА НА 10 ДНЕЙ</small><strong>ТРЕВОГИ</strong></div><div class="kp-progress-row"><span>2 из 10 дней</span><span>20%</span></div><div class="kp-track"><span></span></div><h3 style="font-size:16px;font-weight:500;margin:16px 0 4px">Продолжить с третьего дня</h3><p class="kp-subtitle">Тело и триггеры · около 25 минут</p><button class="kp-main-button cursor-interaction" type="button" data-go="program" style="margin-top:14px">К программе</button></article>
             <p class="kp-note"><i data-lucide="calendar-heart" aria-hidden="true"></i><span>Все дни открыты. Рекомендация не ограничивает выбор.</span></p>
           </main>
@@ -21515,7 +21742,7 @@
             <div class="kp-head"><div><p class="kp-eyebrow">Локальное хранение</p><h2 class="kp-title">Записи</h2></div><i data-lucide="lock-keyhole" aria-hidden="true"></i></div><div class="kp-record"><span class="kp-record-icon"><i data-lucide="notebook-pen" aria-hidden="true"></i></span><span><strong>Где живёт тревога</strong><small>День 3 · сегодня</small></span><i data-lucide="chevron-right" aria-hidden="true"></i></div><div class="kp-record"><span class="kp-record-icon"><i data-lucide="brain" aria-hidden="true"></i></span><span><strong>Мои ловушки мышления</strong><small>День 2 · вчера</small></span><i data-lucide="chevron-right" aria-hidden="true"></i></div><div class="kp-record"><span class="kp-record-icon"><i data-lucide="messages-square" aria-hidden="true"></i></span><span><strong>Три недавних тревоги</strong><small>День 1 · 26 сентября</small></span><i data-lucide="chevron-right" aria-hidden="true"></i></div><p class="kp-note"><i data-lucide="cloud-off" aria-hidden="true"></i><span>Нет отправки на сервер и облачной синхронизации.</span></p>
           </main>
           <main class="kp-screen" data-screen="profile">
-            <div class="kp-head"><div><p class="kp-eyebrow">kardertk@gmail.com</p><h2 class="kp-title">Профиль</h2></div></div><div class="kp-setting"><span><strong>Защита приложения</strong><small>Включена</small></span><button class="kp-toggle cursor-interaction" type="button" aria-label="Защита включена"></button></div><div class="kp-setting"><span><strong>Напоминания</strong><small>Ежедневно</small></span><i data-lucide="chevron-right" aria-hidden="true"></i></div><div class="kp-setting"><span><strong>Экспорт</strong><small>Формат ещё не выбран</small></span><i data-lucide="chevron-right" aria-hidden="true"></i></div><div class="kp-setting"><span><strong>Приватность</strong><small>Хранение и удаление данных</small></span><i data-lucide="chevron-right" aria-hidden="true"></i></div><button class="kp-soft-button cursor-interaction" type="button" style="margin-top:20px">Выйти</button>
+            <div class="kp-head"><div><p class="kp-eyebrow">user@example.com</p><h2 class="kp-title">Профиль</h2></div></div><div class="kp-setting"><span><strong>Защита приложения</strong><small>Включена</small></span><button class="kp-toggle cursor-interaction" type="button" aria-label="Защита включена"></button></div><div class="kp-setting"><span><strong>Напоминания</strong><small>Ежедневно</small></span><i data-lucide="chevron-right" aria-hidden="true"></i></div><div class="kp-setting"><span><strong>Экспорт</strong><small>Формат ещё не выбран</small></span><i data-lucide="chevron-right" aria-hidden="true"></i></div><div class="kp-setting"><span><strong>Приватность</strong><small>Хранение и удаление данных</small></span><i data-lucide="chevron-right" aria-hidden="true"></i></div><button class="kp-soft-button cursor-interaction" type="button" style="margin-top:20px">Выйти</button>
           </main>
           <nav class="kp-bottom" aria-label="Основная навигация"><button class="cursor-interaction" type="button" data-go="products"><i data-lucide="sun" aria-hidden="true"></i><span>Сегодня</span></button><button class="cursor-interaction is-active" type="button" data-go="products"><i data-lucide="library" aria-hidden="true"></i><span>Продукты</span></button><button class="cursor-interaction" type="button" data-go="program"><i data-lucide="wrench" aria-hidden="true"></i><span>Инструменты</span></button><button class="cursor-interaction" type="button" data-go="notes"><i data-lucide="notebook-pen" aria-hidden="true"></i><span>Записи</span></button><button class="cursor-interaction" type="button" data-go="profile"><i data-lucide="user-round" aria-hidden="true"></i><span>Профиль</span></button></nav>
         </div>
@@ -21529,7 +21756,7 @@
     (() => {
       const root = document.getElementById('kp-prototype-v1');
       if (!root) return;
-      const allowedScreens = ['login', 'code', 'products', 'tests', 'test-intro', 'test-run', 'test-result', 'test-history-lock', 'test-history', 'program', 'day', 'diary', 'diary-entry', 'journal-lock', 'journal', 'journal-entry', 'consultation', 'consultation-detail', 'profile'];
+      const allowedScreens = ['onboarding', 'home', 'login', 'code', 'products', 'program-detail', 'tests', 'test-intro', 'test-run', 'test-result', 'test-history-lock', 'test-history', 'program', 'day', 'diary', 'diary-entry', 'journal-lock', 'journal', 'journal-entry', 'consultation', 'consultation-detail', 'profile', 'transfer'];
       const saved = window.openai?.widgetState?.privateContent || {};
 
       /* ——— Материалы переноса «гибрида»: тёплое зерно и линза по кромке стекла ——— */
@@ -21655,7 +21882,9 @@
         preview.querySelectorAll('[data-jump]').forEach(button => {
           const topSection = ['test-intro', 'test-run', 'test-result', 'test-history-lock', 'test-history'].includes(target) ? 'tests' :
             ['diary-entry', 'journal-lock', 'journal', 'journal-entry'].includes(target) ? 'diary' :
-            target === 'consultation-detail' ? 'consultation' : target;
+            target === 'consultation-detail' ? 'consultation' :
+            target === 'program-detail' ? 'products' :
+            target === 'transfer' ? 'profile' : target;
           const active = button.dataset.jump === topSection || (target === 'code' && button.dataset.jump === 'login');
           button.setAttribute('aria-pressed', active ? 'true' : 'false');
           button.classList.toggle('btn-ghost', !active);
@@ -21664,9 +21893,11 @@
           const activeSection = ['tests', 'test-intro', 'test-run', 'test-result', 'test-history-lock', 'test-history'].includes(target) ? 'tests' :
             ['diary', 'diary-entry', 'journal-lock', 'journal', 'journal-entry'].includes(target) ? 'diary' :
             ['consultation', 'consultation-detail'].includes(target) ? 'consultation' :
-            target === 'profile' ? 'profile' : 'programs';
+            ['profile', 'transfer'].includes(target) ? 'profile' : 'programs';
           button.classList.toggle('is-active', button.dataset.nav === activeSection);
         });
+        const bottom = phone.querySelector('.kp-bottom');
+        if (bottom) bottom.hidden = ['onboarding', 'home', 'login', 'code', 'program-detail'].includes(target);
         phone.dataset.activeScreen = target;
         if (phone.id === 'kp-phone-cards' && target !== 'day') {
           const dayVideoBox = phone.querySelector('#kp-day-video');
@@ -21705,6 +21936,85 @@
       let testIndex = 0;
       const testAnswers = Array(testQuestions.length).fill(null);
       const cardsPhone = document.getElementById('kp-phone-cards');
+      let kpAuthenticated = false;
+      let kpOnboarded = false;
+      try {
+        kpAuthenticated = localStorage.getItem('kp-demo-authenticated') === 'true';
+        kpOnboarded = localStorage.getItem('kp-demo-onboarded') === 'true';
+      } catch (error) { /* локальное хранилище недоступно — остаётся гостевой деморежим */ }
+
+      let kpToastTimer = 0;
+      function kpShowNotice(message) {
+        const toast = cardsPhone.querySelector('#kp-toast');
+        if (!toast) return;
+        toast.textContent = message;
+        toast.hidden = false;
+        clearTimeout(kpToastTimer);
+        kpToastTimer = setTimeout(() => { toast.hidden = true; }, 3200);
+      }
+
+      function kpStoreSession() {
+        try {
+          localStorage.setItem('kp-demo-authenticated', kpAuthenticated ? 'true' : 'false');
+          localStorage.setItem('kp-demo-onboarded', kpOnboarded ? 'true' : 'false');
+        } catch (error) { /* для демонстрации сохранение необязательно */ }
+      }
+
+      function kpRenderAccount() {
+        const email = 'user@example.com';
+        const homeAccount = cardsPhone.querySelector('#kp-home-account');
+        const productsAccount = cardsPhone.querySelector('#kp-products-account');
+        const profileAccount = cardsPhone.querySelector('#kp-profile-account');
+        const profileLoginCard = cardsPhone.querySelector('#kp-profile-login-card');
+        const accountAction = cardsPhone.querySelector('#kp-account-action');
+        const syncNote = cardsPhone.querySelector('#kp-program-sync-note');
+        const syncButton = cardsPhone.querySelector('#kp-program-login');
+        if (homeAccount) homeAccount.textContent = kpAuthenticated ? email : 'Гостевой режим';
+        if (productsAccount) productsAccount.textContent = kpAuthenticated ? 'Доступы аккаунта' : 'Каталог · без регистрации';
+        if (profileAccount) profileAccount.textContent = kpAuthenticated ? email : 'Без регистрации';
+        if (profileLoginCard) profileLoginCard.hidden = kpAuthenticated;
+        if (accountAction) accountAction.textContent = kpAuthenticated ? 'Выйти из аккаунта' : 'Войти по почте';
+        if (syncNote) {
+          syncNote.querySelector('strong').textContent = kpAuthenticated ? 'Доступы синхронизированы' : 'Доступы синхронизируются с сайтом';
+          syncNote.querySelector('p').textContent = kpAuthenticated
+            ? 'Вы вошли как ' + email + '. Если программа не появилась, проверьте почту, указанную при оформлении доступа.'
+            : 'Если программа уже доступна вам на karpavichus.com, войдите с той же почтой — она появится здесь автоматически.';
+        }
+        if (syncButton) syncButton.textContent = kpAuthenticated ? 'Обновить доступы' : 'Войти по почте';
+        if (typeof renderProductAccess === 'function') renderProductAccess();
+      }
+
+      function kpSetAccount(authenticated) {
+        kpAuthenticated = authenticated;
+        kpOnboarded = true;
+        kpStoreSession();
+        kpRenderAccount();
+      }
+
+      cardsPhone.querySelector('#kp-skip-login')?.addEventListener('click', () => kpSetAccount(false));
+      cardsPhone.querySelector('#kp-code-submit')?.addEventListener('click', () => kpSetAccount(true));
+      cardsPhone.querySelector('#kp-program-login')?.addEventListener('click', event => {
+        if (!kpAuthenticated) return;
+        event.preventDefault();
+        event.stopPropagation();
+        kpShowNotice('Доступы обновлены. Если программа не появилась, проверьте почту аккаунта.');
+      });
+      cardsPhone.querySelector('#kp-account-action')?.addEventListener('click', event => {
+        if (!kpAuthenticated) return;
+        event.preventDefault();
+        event.stopPropagation();
+        kpSetAccount(false);
+        showScreen(cardsPhone, 'login');
+      });
+      cardsPhone.querySelector('#kp-export-demo')?.addEventListener('click', () => {
+        const phrase = cardsPhone.querySelector('#kp-export-password')?.value || '';
+        kpShowNotice(phrase.length >= 10
+          ? 'В боевом приложении здесь будет создан зашифрованный файл. Сейчас это демонстрация сценария.'
+          : 'Для надёжной защиты используйте парольную фразу не короче 10 символов.');
+      });
+      cardsPhone.querySelector('#kp-import-demo')?.addEventListener('click', () => {
+        kpShowNotice('После выбора файла приложение покажет его состав и варианты «Объединить» или «Заменить».');
+      });
 
       const consultationSpecialists = {
         artem: {
@@ -21961,12 +22271,11 @@
           const selected = button.classList.contains('is-selected');
           const selectedCount = cardsPhone.querySelectorAll('.kp-emotion.is-selected').length;
           if (!selected && selectedCount >= 3) {
-            cardsPhone.querySelector('#kp-checkin-status').querySelector('span').textContent = 'Можно выбрать не больше трёх состояний';
+            kpShowNotice('Можно выбрать не больше трёх состояний.');
             return;
           }
           button.classList.toggle('is-selected', !selected);
           button.setAttribute('aria-pressed', String(!selected));
-          cardsPhone.querySelector('#kp-checkin-status').querySelector('span').textContent = 'Сохранится только на этом устройстве';
         });
       });
       cardsPhone.querySelectorAll('.kp-context').forEach((button) => {
@@ -22303,7 +22612,7 @@
         day.valence = aggregateLevel(day.checkins, 'valence');
         day.tension = aggregateLevel(day.checkins, 'tension');
         renderWeek();
-        cardsPhone.querySelector('#kp-checkin-status').querySelector('span').textContent = `Чек-ин сохранён · ${time}. Сегодня ${day.checkins.length} отметки`;
+        kpShowNotice(`Чек-ин сохранён в истории · ${time}. Сегодня ${day.checkins.length} отметки.`);
       });
       renderWeek();
 
@@ -22977,6 +23286,24 @@
         kritik: { title: 'Внутренний критик', days: KRITIK_DAYS, intro: KRITIK_INTRO, final: KRITIK_FINAL },
         granitsy: { title: 'Мои границы', days: GRANITSY_DAYS, intro: GRANITSY_INTRO, final: GRANITSY_FINAL }
       };
+      const KP_PROGRAM_INFO = {
+        anxiety: {
+          cover: '', coverTitle: 'ТРЕВОГИ',
+          short: 'Практика для наблюдения за тревожными мыслями, телесными реакциями и привычными способами отвечать на напряжение.',
+          points: ['10 самостоятельных дней в удобном темпе', 'Видео и интерактивные упражнения', 'Личные ответы сохраняются только на устройстве']
+        },
+        kritik: {
+          cover: 'kp-cover-kritik', coverTitle: 'КРИТИК',
+          short: 'Практика помогает замечать внутреннюю критику, отделять её голос от фактов и формировать более поддерживающее отношение к себе.',
+          points: ['Наблюдение за критическими мыслями', 'Разбор их происхождения и влияния', 'Личные формулировки самоподдержки']
+        },
+        granitsy: {
+          cover: 'kp-cover-granitsy', coverTitle: 'ГРАНИЦЫ',
+          short: 'Практика о личных границах: как распознавать давление, понимать свои потребности и говорить «нет» без лишних оправданий.',
+          points: ['Диагностика привычных реакций', 'Готовые схемы спокойного отказа', 'Тренировка собственных формулировок']
+        }
+      };
+      const KP_OWNED_PROGRAMS = new Set(['anxiety']);
 
       function kpEl(tag, cls, text) {
         const node = document.createElement(tag);
@@ -22995,6 +23322,7 @@
         input.min = String(min);
         input.max = String(max);
         input.step = '1';
+        input.setAttribute('aria-label', config.label);
         input.dataset.kp = config.key;
         input.value = kpState[config.key] != null ? kpState[config.key] : String(Math.round((min + max) / 2));
         const value = kpEl('span', 'kp-scale-value', String(input.value));
@@ -23015,6 +23343,7 @@
         if (!field.kind || field.kind === 'area') {
           const area = kpEl('textarea', 'kp-textarea' + (field.big ? ' kp-textarea-big' : ''));
           area.placeholder = field.placeholder || 'Запишите всё, что замечаете…';
+          area.setAttribute('aria-label', field.label);
           area.dataset.kp = field.key;
           area.value = stored;
           parts.push(area);
@@ -23022,6 +23351,7 @@
           const input = kpEl('input', 'kp-input');
           input.type = 'text';
           input.placeholder = field.placeholder || '';
+          input.setAttribute('aria-label', field.label);
           input.dataset.kp = field.key;
           input.value = stored;
           parts.push(input);
@@ -23030,6 +23360,7 @@
           input.type = 'text';
           input.inputMode = 'numeric';
           input.placeholder = field.placeholder || '0–100';
+          input.setAttribute('aria-label', field.label);
           input.dataset.kp = field.key;
           input.value = stored;
           parts.push(input);
@@ -23048,6 +23379,7 @@
           parts.push(wrap);
         } else if (field.kind === 'select') {
           const select = kpEl('select', 'kp-select cursor-interaction');
+          select.setAttribute('aria-label', field.label);
           select.dataset.kp = field.key;
           const empty = kpEl('option', null, '— выберите —');
           empty.value = '';
@@ -23077,6 +23409,7 @@
             const input = kpEl('input', 'kp-input kp-other');
             input.type = 'text';
             input.placeholder = 'Другое';
+            input.setAttribute('aria-label', `${field.label}: другое`);
             input.dataset.kp = field.key + '-other';
             input.value = kpState[input.dataset.kp] || '';
             parts.push(input);
@@ -23108,7 +23441,7 @@
         if (block.title) card.append(kpEl('h3', 'kp-task-title', block.title));
         if (block.hint) card.append(kpEl('p', 'kp-task-hint', block.hint));
         if (block.type === 'text') {
-          const parts = renderFieldParts({ label: '\u00a0', key: block.key, kind: 'area', big: block.big });
+          const parts = renderFieldParts({ label: block.title || 'Ответ', key: block.key, kind: 'area', big: block.big });
           parts.shift();
           card.append(...parts);
         } else if (block.type === 'inputs') {
@@ -23116,6 +23449,7 @@
             card.append(kpEl('div', 'kp-field-label', label));
             const input = kpEl('input', 'kp-input');
             input.type = 'text';
+            input.setAttribute('aria-label', label);
             input.dataset.kp = block.key + '-' + index;
             input.value = kpState[input.dataset.kp] || '';
             card.append(input);
@@ -23130,6 +23464,7 @@
             const row = kpEl('div', 'kp-top-row');
             row.append(kpEl('span', null, String(i + 1)));
             const select = kpEl('select', 'kp-select cursor-interaction');
+            select.setAttribute('aria-label', `${block.title || 'Выбор'}, место ${i + 1}`);
             select.dataset.kp = block.key + '-' + i;
             const empty = kpEl('option', null, '— выберите —');
             empty.value = '';
@@ -23152,6 +23487,7 @@
             const input = kpEl('input', 'kp-input');
             input.type = 'text';
             input.placeholder = block.placeholder || 'Тема';
+            input.setAttribute('aria-label', `${block.title || 'Тема'}, строка ${i + 1}`);
             input.dataset.kp = block.key + '-t' + i;
             input.value = kpState[input.dataset.kp] || '';
             row.append(input);
@@ -23192,6 +23528,7 @@
               const input = kpEl('input', 'kp-input');
               input.type = 'text';
               input.inputMode = 'numeric';
+              input.setAttribute('aria-label', `${row.label}, ${column === 'd1' ? block.head[0] : block.head[1]}`);
               input.dataset.kp = row.key + '-' + column;
               input.value = kpState[input.dataset.kp] || '';
               line.append(input);
@@ -23225,6 +23562,7 @@
           card.append(kpEl('div', 'kp-field-label', 'Что заметили'));
           const note = kpEl('textarea', 'kp-textarea');
           note.placeholder = 'Запишите всё, что замечаете…';
+          note.setAttribute('aria-label', 'Что заметили');
           note.dataset.kp = 'd7-note';
           note.value = kpState['d7-note'] || '';
           card.append(note);
@@ -23449,6 +23787,46 @@
                 : 'Все дни завершены — откройте финал программы.';
           }
         });
+      }
+
+      function kpHasProgramAccess(key) {
+        return kpAuthenticated && KP_OWNED_PROGRAMS.has(key);
+      }
+
+      function renderProductAccess() {
+        updateProductCard();
+        KP_PRODUCT_CARDS.forEach(card => {
+          const host = cardsPhone.querySelector('[data-program-card="' + card.key + '"]');
+          if (!host) return;
+          const owned = kpHasProgramAccess(card.key);
+          const action = host.querySelector('[data-program-action]');
+          const next = host.querySelector('#kp-product-next' + card.suffix);
+          host.classList.toggle('kp-program-locked', !owned);
+          if (action) action.textContent = owned ? 'Открыть программу' : 'Подробнее';
+          if (!owned && next) next.textContent = KP_PROGRAM_INFO[card.key].short;
+        });
+      }
+
+      function openProgramDetail(key) {
+        const program = KP_PROGRAMS[key];
+        const info = KP_PROGRAM_INFO[key];
+        if (!program || !info) return;
+        const cover = cardsPhone.querySelector('#kp-program-detail-cover');
+        cover.className = 'kp-cover' + (info.cover ? ' ' + info.cover : '');
+        cardsPhone.querySelector('#kp-program-detail-cover-title').textContent = info.coverTitle;
+        cardsPhone.querySelector('#kp-program-detail-title').textContent = program.title;
+        cardsPhone.querySelector('#kp-program-detail-copy').textContent = info.short;
+        const list = cardsPhone.querySelector('#kp-program-detail-list');
+        list.replaceChildren(...info.points.map(text => {
+          const item = document.createElement('li');
+          item.textContent = text;
+          return item;
+        }));
+        const action = cardsPhone.querySelector('#kp-program-detail-action');
+        action.dataset.programDetailAction = key;
+        action.textContent = kpHasProgramAccess(key) ? 'Открыть программу' : kpAuthenticated ? 'Обновить доступы' : 'Войти по почте';
+        cardsPhone.querySelector('.kp-detail-scroll').scrollTop = 0;
+        showScreen(cardsPhone, 'program-detail');
       }
 
       function openProgramItem(value) {
@@ -23712,12 +24090,35 @@
 
       /* Клик по карточке программы переключает активную практику */
       cardsPhone.addEventListener('click', event => {
+        const productAction = event.target.closest('[data-program-action]');
+        if (productAction) {
+          const key = productAction.dataset.programAction;
+          if (kpHasProgramAccess(key)) {
+            kpSetProgram(key);
+            showScreen(cardsPhone, 'program');
+          } else {
+            openProgramDetail(key);
+          }
+          return;
+        }
         const openButton = event.target.closest('[data-open-program]');
         if (openButton) kpSetProgram(openButton.dataset.openProgram);
+      });
+      cardsPhone.querySelector('#kp-program-detail-action')?.addEventListener('click', event => {
+        const key = event.currentTarget.dataset.programDetailAction;
+        if (kpHasProgramAccess(key)) {
+          kpSetProgram(key);
+          showScreen(cardsPhone, 'program');
+        } else if (kpAuthenticated) {
+          kpShowNotice('Доступ не найден. Проверьте, что вошли с почтой, указанной на сайте.');
+        } else {
+          showScreen(cardsPhone, 'login');
+        }
       });
 
       renderProgram();
       updateProductCard();
+      renderProductAccess();
       renderDayScreen();
 
       const kpDayBody = cardsPhone.querySelector('#kp-day-body');
@@ -23820,10 +24221,14 @@
         });
       });
       kpApplyTheme(kpTheme, false);
+      kpRenderAccount();
 
       root.querySelectorAll('.kp-phone').forEach(phone => {
         const key = phone.id === 'kp-phone-cards' ? 'cardsScreen' : 'listScreen';
-        showScreen(phone, saved[key] || 'products');
+        const firstScreen = phone.id === 'kp-phone-cards'
+          ? (kpOnboarded ? (saved[key] || 'home') : 'onboarding')
+          : (saved[key] || 'products');
+        showScreen(phone, firstScreen);
         phone.addEventListener('click', event => {
           const button = event.target.closest('[data-go]');
           if (button) showScreen(phone, button.dataset.go);
