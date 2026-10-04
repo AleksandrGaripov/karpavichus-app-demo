@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Приложение «Карпавичус» — демо нового визуала</title>
 <meta property="og:title" content="Приложение «Карпавичус» — демо нового визуала">
-<meta property="og:description" content="Кликабельный макет: три программы на 10 дней, тесты, дневник.">
+<meta property="og:description" content="Кликабельный макет: программы, тесты, дневник и запись на консультацию.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://aleksandrgaripov.github.io/karpavichus-app-demo/">
 <meta property="og:image" content="https://aleksandrgaripov.github.io/karpavichus-app-demo/preview.png">
@@ -75,9 +75,9 @@
 <body>
 <div class="showcase">
   <header class="showcase-head">
-    <p class="showcase-eyebrow">Черновик макета · 3 октября 2026</p>
+    <p class="showcase-eyebrow">Черновик макета · 4 октября 2026</p>
     <h1>Приложение «Карпавичус» — новый визуал</h1>
-    <p class="showcase-sub">Кликабельный макет: экраны, тесты, три программы на 10 дней («Тревоги», «Внутренний критик», «Мои границы»), дневник. Все переходы живые — ходите по кнопкам.</p>
+    <p class="showcase-sub">Кликабельный макет: тесты, три программы на 10 дней («Тревоги», «Внутренний критик», «Мои границы»), дневник и запись на консультацию. Все переходы живые — ходите по кнопкам.</p>
   </header>
   <div class="showcase-stage">
 <script>/**
@@ -19771,6 +19771,92 @@
     #kp-prototype-v1 .kp-test-card small { display: block; }
     #kp-prototype-v1 .kp-test-card strong { font-size: 14px; font-weight: 600; }
     #kp-prototype-v1 .kp-test-card small { margin-top: 4px; color: var(--kp-muted); line-height: 1.35; }
+    #kp-prototype-v1 .kp-consult-intro { margin-bottom: 14px; }
+    #kp-prototype-v1 .kp-specialist-card {
+      padding: 15px;
+      margin-bottom: 10px;
+      border: 1px solid var(--kp-line);
+      border-radius: 18px;
+      background: var(--kp-surface);
+    }
+    #kp-prototype-v1 .kp-specialist-card.is-featured {
+      border-color: color-mix(in srgb, var(--kp-primary) 58%, var(--kp-line));
+      box-shadow: inset 3px 0 0 var(--kp-primary);
+    }
+    #kp-prototype-v1 .kp-specialist-head {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      align-items: center;
+      gap: 11px;
+    }
+    #kp-prototype-v1 .kp-specialist-avatar {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--kp-primary);
+      background: var(--kp-surface-2);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    #kp-prototype-v1 .kp-specialist-card h3 {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.25;
+      font-weight: 650;
+    }
+    #kp-prototype-v1 .kp-specialist-card .kp-specialist-role {
+      display: block;
+      margin-top: 3px;
+      color: var(--kp-muted);
+      font-size: 11px;
+      line-height: 1.3;
+    }
+    #kp-prototype-v1 .kp-specialist-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 12px 0 10px;
+    }
+    #kp-prototype-v1 .kp-specialist-tag {
+      padding: 6px 9px;
+      border-radius: 999px;
+      background: var(--kp-surface-2);
+      color: var(--kp-text);
+      font-size: 10.5px;
+      line-height: 1.2;
+    }
+    #kp-prototype-v1 .kp-specialist-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 7px;
+      color: var(--kp-muted);
+      font-size: 11px;
+      line-height: 1.35;
+    }
+    #kp-prototype-v1 .kp-specialist-action {
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      margin-top: 12px;
+      padding: 9px 14px;
+      border: 1px solid var(--kp-line);
+      border-radius: 999px;
+      background: var(--kp-glass-fill);
+      color: var(--kp-text);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    #kp-prototype-v1 .kp-specialist-card.is-featured .kp-specialist-action {
+      border-color: transparent;
+      background: var(--kp-primary);
+      color: var(--kp-brand-ink);
+    }
     #kp-prototype-v1 .kp-info {
       padding: 13px 14px;
       margin: 16px 0;
@@ -20763,7 +20849,7 @@
     }
     #kp-prototype-v1 .kp-bottom {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 2px;
       padding: 9px 8px 12px;
       border-top: 1px solid var(--kp-line);
@@ -20793,6 +20879,7 @@
     #kp-prototype-v1 .kp-journal-detail,
     #kp-prototype-v1 .kp-checkin,
     #kp-prototype-v1 .kp-week-card,
+    #kp-prototype-v1 .kp-specialist-card,
     #kp-prototype-v1 .kp-task,
     #kp-prototype-v1 .kp-breath {
       background: var(--kp-surface);
@@ -20886,6 +20973,7 @@
           <button class="btn btn-ghost" type="button" data-jump="program">Программа</button>
           <button class="btn btn-ghost" type="button" data-jump="day">День</button>
           <button class="btn btn-ghost" type="button" data-jump="diary">Дневник</button>
+          <button class="btn btn-ghost" type="button" data-jump="consultation">Консультация</button>
         </div>
         <div class="kp-phone" id="kp-phone-cards" aria-label="Прототип приложения, спокойные карточки">
           <div class="kp-status"><span>10:24</span><span>● Wi‑Fi 89%</span></div>
@@ -21223,6 +21311,49 @@
             <section class="kp-journal-detail"><h3 id="kp-journal-detail-need-label">Что вам было нужно?</h3><p id="kp-journal-detail-need"></p></section>
           </main>
 
+          <main class="kp-screen" data-screen="consultation">
+            <div class="kp-head">
+              <div><p class="kp-eyebrow">Прямая запись</p><h2 class="kp-title">Консультация</h2></div>
+              <span class="kp-test-icon"><i data-lucide="messages-square" aria-hidden="true"></i></span>
+            </div>
+            <p class="kp-subtitle kp-consult-intro">Выберите Артёма или специалиста из команды, чьи образование, опыт и профессиональный подход проверены лично Артёмом.</p>
+            <div class="kp-info"><strong>Без комиссии сервиса</strong><br>Вы связываетесь со специалистом напрямую. Приложение не получает содержание обращения и не участвует в оплате консультации.</div>
+
+            <article class="kp-specialist-card is-featured">
+              <div class="kp-specialist-head"><span class="kp-specialist-avatar">АК</span><span><h3>Артём Карпавичус</h3><small class="kp-specialist-role">Психолог, автор книг и программ</small></span></div>
+              <div class="kp-specialist-tags"><span class="kp-specialist-tag">Тревога</span><span class="kp-specialist-tag">Отношения</span><span class="kp-specialist-tag">Панические атаки</span><span class="kp-specialist-tag">Самооценка</span></div>
+              <div class="kp-specialist-meta"><span>Онлайн · с 21 года</span><span>от 17 000 ₽</span></div>
+              <a class="kp-specialist-action cursor-interaction" href="https://wa.me/79006255818" target="_blank" rel="noopener noreferrer"><i data-lucide="calendar-check" aria-hidden="true"></i>Записаться к Артёму</a>
+            </article>
+
+            <h3 class="kp-section-title" style="margin:18px 0 10px">Команда специалистов</h3>
+            <article class="kp-specialist-card">
+              <div class="kp-specialist-head"><span class="kp-specialist-avatar">МА</span><span><h3>Марина Акулина</h3><small class="kp-specialist-role">Гештальт-психотерапевт</small></span></div>
+              <div class="kp-specialist-tags"><span class="kp-specialist-tag">Отношения</span><span class="kp-specialist-tag">Созависимость</span><span class="kp-specialist-tag">Самооценка</span></div>
+              <div class="kp-specialist-meta"><span>Онлайн и Алматы · с 18 лет</span><span>5 000 ₽</span></div>
+              <a class="kp-specialist-action cursor-interaction" href="https://t.me/psy_akulina" target="_blank" rel="noopener noreferrer">Подробнее и записаться<i data-lucide="external-link" aria-hidden="true"></i></a>
+            </article>
+            <article class="kp-specialist-card">
+              <div class="kp-specialist-head"><span class="kp-specialist-avatar">КБ</span><span><h3>Ксения Богачевская</h3><small class="kp-specialist-role">Психолог, бережный интегративный подход</small></span></div>
+              <div class="kp-specialist-tags"><span class="kp-specialist-tag">Тревога</span><span class="kp-specialist-tag">Травма</span><span class="kp-specialist-tag">Панические атаки</span></div>
+              <div class="kp-specialist-meta"><span>Онлайн · с 20 лет</span><span>3 800 ₽</span></div>
+              <a class="kp-specialist-action cursor-interaction" href="https://kseniya-bogachevskaya.tilda.ws/" target="_blank" rel="noopener noreferrer">Подробнее и записаться<i data-lucide="external-link" aria-hidden="true"></i></a>
+            </article>
+            <article class="kp-specialist-card">
+              <div class="kp-specialist-head"><span class="kp-specialist-avatar">ЛВ</span><span><h3>Лейла Волкотрубенко</h3><small class="kp-specialist-role">Психолог, гештальт-подход</small></span></div>
+              <div class="kp-specialist-tags"><span class="kp-specialist-tag">Горе и утрата</span><span class="kp-specialist-tag">Отношения</span><span class="kp-specialist-tag">Границы</span></div>
+              <div class="kp-specialist-meta"><span>Онлайн · с 18 лет</span><span>3 000 ₽</span></div>
+              <a class="kp-specialist-action cursor-interaction" href="https://t.me/VLO8888" target="_blank" rel="noopener noreferrer">Подробнее и записаться<i data-lucide="external-link" aria-hidden="true"></i></a>
+            </article>
+            <article class="kp-specialist-card">
+              <div class="kp-specialist-head"><span class="kp-specialist-avatar">НБ</span><span><h3>Наталья Быстрицкая</h3><small class="kp-specialist-role">Психолог, индивидуальная и семейная работа</small></span></div>
+              <div class="kp-specialist-tags"><span class="kp-specialist-tag">Травма</span><span class="kp-specialist-tag">Созависимость</span><span class="kp-specialist-tag">Кризисы</span></div>
+              <div class="kp-specialist-meta"><span>Онлайн и Санкт-Петербург · с 18 лет</span><span>от 4 000 ₽</span></div>
+              <a class="kp-specialist-action cursor-interaction" href="https://t.me/Nata_Bystrik" target="_blank" rel="noopener noreferrer">Подробнее и записаться<i data-lucide="external-link" aria-hidden="true"></i></a>
+            </article>
+            <p class="kp-note"><i data-lucide="info" aria-hidden="true"></i><span>Стоимость, формат и доступность времени нужно подтвердить непосредственно у выбранного специалиста.</span></p>
+          </main>
+
           <main class="kp-screen" data-screen="profile">
             <div class="kp-head"><div><p class="kp-eyebrow">kardertk@gmail.com</p><h2 class="kp-title">Профиль</h2></div></div>
             <div class="kp-setting kp-setting-stack"><span><strong>Оформление</strong><small id="kp-theme-note">Как в системе</small></span><div class="kp-segments kp-theme" role="radiogroup" aria-label="Тема оформления"><button class="kp-segment cursor-interaction is-on" type="button" role="radio" aria-checked="true" data-theme-choice="auto">Авто</button><button class="kp-segment cursor-interaction" type="button" role="radio" aria-checked="false" data-theme-choice="light">Светлая</button><button class="kp-segment cursor-interaction" type="button" role="radio" aria-checked="false" data-theme-choice="dark">Тёмная</button></div></div>
@@ -21237,6 +21368,7 @@
             <button class="cursor-interaction is-active" type="button" data-go="products" data-nav="programs"><i data-lucide="library" aria-hidden="true"></i><span>Программы</span></button>
             <button class="cursor-interaction" type="button" data-go="tests" data-nav="tests"><i data-lucide="clipboard-check" aria-hidden="true"></i><span>Тесты</span></button>
             <button class="cursor-interaction" type="button" data-go="diary" data-nav="diary"><i data-lucide="notebook-pen" aria-hidden="true"></i><span>Дневник</span></button>
+            <button class="cursor-interaction" type="button" data-go="consultation" data-nav="consultation"><i data-lucide="calendar-check" aria-hidden="true"></i><span>Запись</span></button>
             <button class="cursor-interaction" type="button" data-go="profile" data-nav="profile"><i data-lucide="user-round" aria-hidden="true"></i><span>Профиль</span></button>
           </nav>
         </div>
@@ -21298,7 +21430,7 @@
     (() => {
       const root = document.getElementById('kp-prototype-v1');
       if (!root) return;
-      const allowedScreens = ['login', 'code', 'products', 'tests', 'test-intro', 'test-run', 'test-result', 'test-history-lock', 'test-history', 'program', 'day', 'diary', 'diary-entry', 'journal-lock', 'journal', 'journal-entry', 'profile'];
+      const allowedScreens = ['login', 'code', 'products', 'tests', 'test-intro', 'test-run', 'test-result', 'test-history-lock', 'test-history', 'program', 'day', 'diary', 'diary-entry', 'journal-lock', 'journal', 'journal-entry', 'consultation', 'profile'];
       const saved = window.openai?.widgetState?.privateContent || {};
 
       /* ——— Материалы переноса «гибрида»: тёплое зерно и линза по кромке стекла ——— */
@@ -21431,6 +21563,7 @@
         phone.querySelectorAll('.kp-bottom button').forEach(button => {
           const activeSection = ['tests', 'test-intro', 'test-run', 'test-result', 'test-history-lock', 'test-history'].includes(target) ? 'tests' :
             ['diary', 'diary-entry', 'journal-lock', 'journal', 'journal-entry'].includes(target) ? 'diary' :
+            target === 'consultation' ? 'consultation' :
             target === 'profile' ? 'profile' : 'programs';
           button.classList.toggle('is-active', button.dataset.nav === activeSection);
         });
@@ -23536,7 +23669,7 @@
   </div>
   <aside class="showcase-notes">
     <p><b>Код блокировки</b> (история тестов, журнал) — подойдут любые четыре цифры.</p>
-    <p><b>На что посмотреть:</b> рыжий градиентный фон, плотные карточки, стеклянные кнопки и нижняя панель. На экране «Программы» — три практики на 10 дней; у каждой свои дни и видео. В Chrome и на Android у стекла лёгкое преломление по краю; на iPhone оно ровное — это ограничение движка, не ошибка.</p>
+    <p><b>На что посмотреть:</b> рыжий градиентный фон, плотные карточки, стеклянные кнопки и нижняя панель. На экране «Программы» — три практики на 10 дней; у каждой свои дни и видео. В разделе «Запись» — Артём и команда одобренных специалистов. В Chrome и на Android у стекла лёгкое преломление по краю; на iPhone оно ровное — это ограничение движка, не ошибка.</p>
     <p><b>Видео:</b> ролики в днях программ настоящие — нажмите ▶ на афише, плеер откроется прямо в макете.</p>
     <p>Ответы и прогресс сохраняются, пока страница открыта. Несколько второстепенных кнопок пока декоративные.</p>
   </aside>
