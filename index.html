@@ -19779,26 +19779,21 @@
       border-radius: 18px;
       background: var(--kp-surface);
     }
-    #kp-prototype-v1 .kp-specialist-card.is-featured {
-      border-color: color-mix(in srgb, var(--kp-primary) 58%, var(--kp-line));
-      box-shadow: inset 3px 0 0 var(--kp-primary);
-    }
     #kp-prototype-v1 .kp-specialist-head {
       display: grid;
-      grid-template-columns: 44px 1fr;
+      grid-template-columns: 58px 1fr;
       align-items: center;
       gap: 11px;
     }
     #kp-prototype-v1 .kp-specialist-avatar {
-      width: 44px;
-      height: 44px;
-      display: grid;
-      place-items: center;
+      width: 58px;
+      height: 58px;
+      display: block;
       border-radius: 50%;
-      color: var(--kp-primary);
       background: var(--kp-surface-2);
-      font-size: 13px;
-      font-weight: 700;
+      object-fit: cover;
+      object-position: center 22%;
+      border: 1px solid var(--kp-line);
     }
     #kp-prototype-v1 .kp-specialist-card h3 {
       margin: 0;
@@ -19849,13 +19844,91 @@
       background: var(--kp-glass-fill);
       color: var(--kp-text);
       text-decoration: none;
+      font-family: inherit;
       font-size: 13px;
       font-weight: 600;
+      cursor: pointer;
     }
-    #kp-prototype-v1 .kp-specialist-card.is-featured .kp-specialist-action {
-      border-color: transparent;
-      background: var(--kp-primary);
-      color: var(--kp-brand-ink);
+    #kp-prototype-v1 .kp-info.kp-consult-note {
+      border: 1px solid var(--kp-line);
+      border-radius: 14px;
+    }
+    #kp-prototype-v1 .kp-specialist-detail-screen.is-active {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      padding: 0;
+    }
+    #kp-prototype-v1 .kp-specialist-detail-scroll {
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+      scrollbar-width: none;
+      padding: 14px 18px 112px;
+    }
+    #kp-prototype-v1 .kp-specialist-detail-scroll::-webkit-scrollbar { display: none; }
+    #kp-prototype-v1 .kp-specialist-detail-photo {
+      width: 100%;
+      aspect-ratio: 16 / 11;
+      display: block;
+      margin: 4px 0 18px;
+      border: 1px solid var(--kp-line);
+      border-radius: 20px;
+      background: var(--kp-surface-2);
+      object-fit: cover;
+      object-position: center 20%;
+    }
+    #kp-prototype-v1 .kp-specialist-detail-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin: 14px 0 16px;
+    }
+    #kp-prototype-v1 .kp-specialist-detail-section {
+      padding: 15px;
+      margin-bottom: 10px;
+      border: 1px solid var(--kp-line);
+      border-radius: 18px;
+      background: var(--kp-surface);
+    }
+    #kp-prototype-v1 .kp-specialist-detail-section h3 {
+      margin: 0 0 8px;
+      font-size: 14px;
+    }
+    #kp-prototype-v1 .kp-specialist-detail-section ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--kp-muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    #kp-prototype-v1 .kp-specialist-detail-section li + li { margin-top: 6px; }
+    #kp-prototype-v1 .kp-specialist-quote {
+      margin: 12px 0 0;
+      padding: 15px;
+      border: 1px solid var(--kp-line);
+      border-radius: 18px;
+      background: var(--kp-surface-2);
+      color: var(--kp-text);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    #kp-prototype-v1 .kp-specialist-sticky {
+      position: absolute;
+      z-index: 4;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 30px 18px 14px;
+      background: linear-gradient(to bottom, transparent, var(--kp-bg) 30%, var(--kp-bg));
+    }
+    #kp-prototype-v1 .kp-specialist-sticky .kp-main-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
     }
     #kp-prototype-v1 .kp-info {
       padding: 13px 14px;
@@ -21317,41 +21390,63 @@
               <span class="kp-test-icon"><i data-lucide="messages-square" aria-hidden="true"></i></span>
             </div>
             <p class="kp-subtitle kp-consult-intro">Выберите Артёма или специалиста из команды, чьи образование, опыт и профессиональный подход проверены лично Артёмом.</p>
-            <div class="kp-info"><strong>Без комиссии сервиса</strong><br>Вы связываетесь со специалистом напрямую. Приложение не получает содержание обращения и не участвует в оплате консультации.</div>
+            <div class="kp-info kp-consult-note"><strong>Без комиссии сервиса</strong><br>Вы связываетесь со специалистом напрямую. Приложение не получает содержание обращения и не участвует в оплате консультации.</div>
 
-            <article class="kp-specialist-card is-featured">
-              <div class="kp-specialist-head"><span class="kp-specialist-avatar">АК</span><span><h3>Артём Карпавичус</h3><small class="kp-specialist-role">Психолог, автор книг и программ</small></span></div>
+            <article class="kp-specialist-card">
+              <div class="kp-specialist-head"><img class="kp-specialist-avatar" src="https://i.wfolio.ru/x/YlZBuLfiwED7IIYskcnC69c3-cWgXMtb/3V41Y37cA2Wx7DxsjfMOg0IzcbkpHNb_/loSmcvstWwFGYMLE3EQFtEDIsmZlrQoO/t7qKraZU8wLe7kxiHMV2zGHsYkI7JNf5/zfXxHuOjD8BCIK2gKA8saayasVjFQkXt/7Bw2DZCqbLDnDJsRuKb0k9U5rnG5s5F2.png" alt="Артём Карпавичус"><span><h3>Артём Карпавичус</h3><small class="kp-specialist-role">Психолог, автор книг и программ</small></span></div>
               <div class="kp-specialist-tags"><span class="kp-specialist-tag">Тревога</span><span class="kp-specialist-tag">Отношения</span><span class="kp-specialist-tag">Панические атаки</span><span class="kp-specialist-tag">Самооценка</span></div>
               <div class="kp-specialist-meta"><span>Онлайн · с 21 года</span><span>от 17 000 ₽</span></div>
-              <a class="kp-specialist-action cursor-interaction" href="https://wa.me/79006255818" target="_blank" rel="noopener noreferrer"><i data-lucide="calendar-check" aria-hidden="true"></i>Записаться к Артёму</a>
+              <button class="kp-specialist-action cursor-interaction" type="button" data-specialist-open="artem">Подробнее и записаться<i data-lucide="arrow-right" aria-hidden="true"></i></button>
             </article>
 
             <h3 class="kp-section-title" style="margin:18px 0 10px">Команда специалистов</h3>
             <article class="kp-specialist-card">
-              <div class="kp-specialist-head"><span class="kp-specialist-avatar">МА</span><span><h3>Марина Акулина</h3><small class="kp-specialist-role">Гештальт-психотерапевт</small></span></div>
+              <div class="kp-specialist-head"><img class="kp-specialist-avatar" src="https://i.wfolio.ru/x/18zV2vdcMQVUm4WNHym8KJONDrdWgav3/dHlOL4qJebQgDqz-cq7BvLDSy9kX8_UB/6hoQjOtSopNLLcUQErs8oxIkJc3M-F2-/JhJvtmLZ-HveLRCYBYT38CEXC9rD1Zy3/xp-4N2Ero1Yua1YvRQ4_UIGRb1WAkT1e/hxuIzikiTgaYvLglazATUzcoV3cHQtjj.png" alt="Марина Акулина"><span><h3>Марина Акулина</h3><small class="kp-specialist-role">Гештальт-психотерапевт</small></span></div>
               <div class="kp-specialist-tags"><span class="kp-specialist-tag">Отношения</span><span class="kp-specialist-tag">Созависимость</span><span class="kp-specialist-tag">Самооценка</span></div>
               <div class="kp-specialist-meta"><span>Онлайн и Алматы · с 18 лет</span><span>5 000 ₽</span></div>
-              <a class="kp-specialist-action cursor-interaction" href="https://t.me/psy_akulina" target="_blank" rel="noopener noreferrer">Подробнее и записаться<i data-lucide="external-link" aria-hidden="true"></i></a>
+              <button class="kp-specialist-action cursor-interaction" type="button" data-specialist-open="marina">Подробнее и записаться<i data-lucide="arrow-right" aria-hidden="true"></i></button>
             </article>
             <article class="kp-specialist-card">
-              <div class="kp-specialist-head"><span class="kp-specialist-avatar">КБ</span><span><h3>Ксения Богачевская</h3><small class="kp-specialist-role">Психолог, бережный интегративный подход</small></span></div>
+              <div class="kp-specialist-head"><img class="kp-specialist-avatar" src="https://i.wfolio.ru/x/GP5T5rCFFTIiW-FuSqle5ezeaSIpu876/U3YwObRSZpi0unQjC8qa7GrreniW8cRz/SHEJpqxr3oS9Flr17JIc4jMIj1e0gDuB/52IPY75Hc85f2D7XSaYw81fPYtjWnR5p/LaqbPOSV0Yd0xz3p6vUpYmV6ay2nM7f8/u2-INp2M0Kg.png" alt="Ксения Богачевская"><span><h3>Ксения Богачевская</h3><small class="kp-specialist-role">Психолог, бережный интегративный подход</small></span></div>
               <div class="kp-specialist-tags"><span class="kp-specialist-tag">Тревога</span><span class="kp-specialist-tag">Травма</span><span class="kp-specialist-tag">Панические атаки</span></div>
               <div class="kp-specialist-meta"><span>Онлайн · с 20 лет</span><span>3 800 ₽</span></div>
-              <a class="kp-specialist-action cursor-interaction" href="https://kseniya-bogachevskaya.tilda.ws/" target="_blank" rel="noopener noreferrer">Подробнее и записаться<i data-lucide="external-link" aria-hidden="true"></i></a>
+              <button class="kp-specialist-action cursor-interaction" type="button" data-specialist-open="ksenia">Подробнее и записаться<i data-lucide="arrow-right" aria-hidden="true"></i></button>
             </article>
             <article class="kp-specialist-card">
-              <div class="kp-specialist-head"><span class="kp-specialist-avatar">ЛВ</span><span><h3>Лейла Волкотрубенко</h3><small class="kp-specialist-role">Психолог, гештальт-подход</small></span></div>
+              <div class="kp-specialist-head"><img class="kp-specialist-avatar" src="https://i.wfolio.ru/x/pflTMcITitraWa8hPBODn1ssG_W5ohtZ/6eS1ywh2jwHExbuY-AIF9JYY_1ma3mNq/q3-6KU9zrXBNzRnfL0LiNquFiGTz_2Bv/0xAA45gYeB51-iDWywljEwSQULISsL5u/Tcdo_5W66efsjJJ_UBl4byH8d3dDsuoI/VV11kAkslE6Jqvh4M_im_zGGAkK3BElp.png" alt="Лейла Волкотрубенко"><span><h3>Лейла Волкотрубенко</h3><small class="kp-specialist-role">Психолог, гештальт-подход</small></span></div>
               <div class="kp-specialist-tags"><span class="kp-specialist-tag">Горе и утрата</span><span class="kp-specialist-tag">Отношения</span><span class="kp-specialist-tag">Границы</span></div>
               <div class="kp-specialist-meta"><span>Онлайн · с 18 лет</span><span>3 000 ₽</span></div>
-              <a class="kp-specialist-action cursor-interaction" href="https://t.me/VLO8888" target="_blank" rel="noopener noreferrer">Подробнее и записаться<i data-lucide="external-link" aria-hidden="true"></i></a>
+              <button class="kp-specialist-action cursor-interaction" type="button" data-specialist-open="leila">Подробнее и записаться<i data-lucide="arrow-right" aria-hidden="true"></i></button>
             </article>
             <article class="kp-specialist-card">
-              <div class="kp-specialist-head"><span class="kp-specialist-avatar">НБ</span><span><h3>Наталья Быстрицкая</h3><small class="kp-specialist-role">Психолог, индивидуальная и семейная работа</small></span></div>
+              <div class="kp-specialist-head"><img class="kp-specialist-avatar" src="https://i.wfolio.ru/x/ViNfixC2cjr_a2lfe4ESDt0dhqjmI7dN/9hM6buXM8nPkOkNUKdqdPwQJaxm2uYFX/5D4R_UZZ4Td99-8CavTudcyXPor-zNLc/nGyWRhr5ZwIQegbTPdBATGUJWN3upWbR/e8To4_uB_q7QhLU0mpC8HMvoy77MfIha/zFK3DK01vx_Pp7A49dpiWXaohDS2kK1Z.jpg" alt="Наталья Быстрицкая"><span><h3>Наталья Быстрицкая</h3><small class="kp-specialist-role">Психолог, индивидуальная и семейная работа</small></span></div>
               <div class="kp-specialist-tags"><span class="kp-specialist-tag">Травма</span><span class="kp-specialist-tag">Созависимость</span><span class="kp-specialist-tag">Кризисы</span></div>
               <div class="kp-specialist-meta"><span>Онлайн и Санкт-Петербург · с 18 лет</span><span>от 4 000 ₽</span></div>
-              <a class="kp-specialist-action cursor-interaction" href="https://t.me/Nata_Bystrik" target="_blank" rel="noopener noreferrer">Подробнее и записаться<i data-lucide="external-link" aria-hidden="true"></i></a>
+              <button class="kp-specialist-action cursor-interaction" type="button" data-specialist-open="natalia">Подробнее и записаться<i data-lucide="arrow-right" aria-hidden="true"></i></button>
             </article>
             <p class="kp-note"><i data-lucide="info" aria-hidden="true"></i><span>Стоимость, формат и доступность времени нужно подтвердить непосредственно у выбранного специалиста.</span></p>
+          </main>
+
+          <main class="kp-screen kp-specialist-detail-screen" data-screen="consultation-detail">
+            <div class="kp-specialist-detail-scroll">
+              <div class="kp-head">
+                <button class="kp-back cursor-interaction" type="button" data-go="consultation"><i data-lucide="arrow-left" aria-hidden="true"></i><span class="sr-only">К списку специалистов</span></button>
+                <span class="kp-pill">Профиль специалиста</span>
+              </div>
+              <img class="kp-specialist-detail-photo" id="kp-specialist-detail-photo" src="" alt="">
+              <p class="kp-eyebrow" id="kp-specialist-detail-role"></p>
+              <h2 class="kp-title" id="kp-specialist-detail-name"></h2>
+              <div class="kp-specialist-detail-meta" id="kp-specialist-detail-meta"></div>
+              <section class="kp-specialist-detail-section" id="kp-specialist-format-section"><h3>Формат и стоимость</h3><ul id="kp-specialist-detail-format"></ul></section>
+              <section class="kp-specialist-detail-section" id="kp-specialist-education-section"><h3>Образование</h3><ul id="kp-specialist-detail-education"></ul></section>
+              <section class="kp-specialist-detail-section" id="kp-specialist-activity-section"><h3>Профессиональная деятельность</h3><ul id="kp-specialist-detail-activity"></ul></section>
+              <section class="kp-specialist-detail-section" id="kp-specialist-topics-section"><h3>С какими темами работает</h3><ul id="kp-specialist-detail-topics"></ul></section>
+              <blockquote class="kp-specialist-quote" id="kp-specialist-detail-quote"></blockquote>
+              <p class="kp-note"><i data-lucide="info" aria-hidden="true"></i><span>Стоимость и свободное время подтвердите непосредственно у специалиста.</span></p>
+            </div>
+            <div class="kp-specialist-sticky">
+              <a class="kp-main-button cursor-interaction" id="kp-specialist-detail-book" href="#" target="_blank" rel="noopener noreferrer"><i data-lucide="message-circle" aria-hidden="true"></i>Перейти к записи</a>
+            </div>
           </main>
 
           <main class="kp-screen" data-screen="profile">
@@ -21430,7 +21525,7 @@
     (() => {
       const root = document.getElementById('kp-prototype-v1');
       if (!root) return;
-      const allowedScreens = ['login', 'code', 'products', 'tests', 'test-intro', 'test-run', 'test-result', 'test-history-lock', 'test-history', 'program', 'day', 'diary', 'diary-entry', 'journal-lock', 'journal', 'journal-entry', 'consultation', 'profile'];
+      const allowedScreens = ['login', 'code', 'products', 'tests', 'test-intro', 'test-run', 'test-result', 'test-history-lock', 'test-history', 'program', 'day', 'diary', 'diary-entry', 'journal-lock', 'journal', 'journal-entry', 'consultation', 'consultation-detail', 'profile'];
       const saved = window.openai?.widgetState?.privateContent || {};
 
       /* ——— Материалы переноса «гибрида»: тёплое зерно и линза по кромке стекла ——— */
@@ -21555,7 +21650,8 @@
         const preview = phone.closest('.kp-preview');
         preview.querySelectorAll('[data-jump]').forEach(button => {
           const topSection = ['test-intro', 'test-run', 'test-result', 'test-history-lock', 'test-history'].includes(target) ? 'tests' :
-            ['diary-entry', 'journal-lock', 'journal', 'journal-entry'].includes(target) ? 'diary' : target;
+            ['diary-entry', 'journal-lock', 'journal', 'journal-entry'].includes(target) ? 'diary' :
+            target === 'consultation-detail' ? 'consultation' : target;
           const active = button.dataset.jump === topSection || (target === 'code' && button.dataset.jump === 'login');
           button.setAttribute('aria-pressed', active ? 'true' : 'false');
           button.classList.toggle('btn-ghost', !active);
@@ -21563,7 +21659,7 @@
         phone.querySelectorAll('.kp-bottom button').forEach(button => {
           const activeSection = ['tests', 'test-intro', 'test-run', 'test-result', 'test-history-lock', 'test-history'].includes(target) ? 'tests' :
             ['diary', 'diary-entry', 'journal-lock', 'journal', 'journal-entry'].includes(target) ? 'diary' :
-            target === 'consultation' ? 'consultation' :
+            ['consultation', 'consultation-detail'].includes(target) ? 'consultation' :
             target === 'profile' ? 'profile' : 'programs';
           button.classList.toggle('is-active', button.dataset.nav === activeSection);
         });
@@ -21605,6 +21701,111 @@
       let testIndex = 0;
       const testAnswers = Array(testQuestions.length).fill(null);
       const cardsPhone = document.getElementById('kp-phone-cards');
+
+      const consultationSpecialists = {
+        artem: {
+          name: 'Артём Карпавичус',
+          role: 'Психолог, автор книг и психологических программ',
+          image: 'https://i.wfolio.ru/x/YlZBuLfiwED7IIYskcnC69c3-cWgXMtb/3V41Y37cA2Wx7DxsjfMOg0IzcbkpHNb_/loSmcvstWwFGYMLE3EQFtEDIsmZlrQoO/t7qKraZU8wLe7kxiHMV2zGHsYkI7JNf5/zfXxHuOjD8BCIK2gKA8saayasVjFQkXt/7Bw2DZCqbLDnDJsRuKb0k9U5rnG5s5F2.png',
+          meta: ['Онлайн', 'С 21 года'],
+          format: ['Индивидуальная консультация — 60 минут, 17 000 ₽ / 170 €.', 'Семейная консультация — 80 минут, 20 000 ₽ / 200 €.'],
+          education: ['Московский институт психоанализа: магистратура по психотерапии и психологическому консультированию.', 'Магистерская диссертация посвящена особенностям волевой сферы клиентов психологических и оккультных услуг.'],
+          activity: ['Автор книг, психологических курсов и программ.', 'Популяризатор научной психологии на YouTube.', 'Приглашённый эксперт прессы и телевизионных программ.'],
+          topics: ['Семейная психотерапия и отношения.', 'Неврозы и внутренние конфликты.', 'Тревожные состояния, панические атаки и психосоматика.', 'Одиночество, самооценка и личностные кризисы.', 'Эмоциональная коррекция и развитие личности.'],
+          quote: 'В работе использует проверенные психотерапевтические методы и подбирает подход под конкретного человека и его ситуацию.',
+          link: 'https://wa.me/79006255818'
+        },
+        marina: {
+          name: 'Марина Акулина',
+          role: 'Психолог, сертифицированный гештальт-терапевт',
+          image: 'https://i.wfolio.ru/x/18zV2vdcMQVUm4WNHym8KJONDrdWgav3/dHlOL4qJebQgDqz-cq7BvLDSy9kX8_UB/6hoQjOtSopNLLcUQErs8oxIkJc3M-F2-/JhJvtmLZ-HveLRCYBYT38CEXC9rD1Zy3/xp-4N2Ero1Yua1YvRQ4_UIGRb1WAkT1e/hxuIzikiTgaYvLglazATUzcoV3cHQtjj.png',
+          meta: ['Онлайн и Алматы', 'С 18 лет'],
+          format: ['Онлайн-консультация — 60 минут, 5 000 ₽ / 60 $.', 'Очная консультация в Алматы — 5 000 ₽ / 30 000 ₸ / 60 $.', 'Оплата картами МИР, Visa и Mastercard.'],
+          education: ['Казахский национальный университет: бакалавриат по психологии.', 'Московский гештальт-институт.', 'Дипломная работа посвящена сленгу как способу эмоциональной регуляции.'],
+          activity: ['Сертифицированный и аккредитованный гештальт-терапевт.'],
+          topics: ['Межличностные отношения.', 'Неопределённость и сложный выбор.', 'Созависимые отношения.', 'Смыслы, цели и самооценка.', 'Переживание травматического опыта.'],
+          quote: 'Помогает внимательнее увидеть свои чувства, потребности и повторяющиеся способы строить отношения.',
+          link: 'https://t.me/psy_akulina'
+        },
+        ksenia: {
+          name: 'Ксения Богачевская',
+          role: 'Психолог, бережный интегративный подход',
+          image: 'https://i.wfolio.ru/x/GP5T5rCFFTIiW-FuSqle5ezeaSIpu876/U3YwObRSZpi0unQjC8qa7GrreniW8cRz/SHEJpqxr3oS9Flr17JIc4jMIj1e0gDuB/52IPY75Hc85f2D7XSaYw81fPYtjWnR5p/LaqbPOSV0Yd0xz3p6vUpYmV6ay2nM7f8/u2-INp2M0Kg.png',
+          meta: ['Онлайн', 'С 20 лет'],
+          format: ['Онлайн-консультация — 60 минут, 3 800 ₽.', 'Возможна оплата картой МИР, а также в долларах и евро.'],
+          education: ['Восточно-Европейский институт психоанализа: бакалавриат по психологии.', 'Дипломная работа о визуализации как способе повышения стрессоустойчивости.'],
+          activity: ['Опыт работы в реабилитационном центре и фонде помощи женщинам в кризисной ситуации.', 'Состоит в профессиональных психологических сообществах.'],
+          topics: ['Тревога и последствия психологической травмы.', 'Комплекс жертвы.', 'Панические атаки.', 'ПТСР и комплексное ПТСР.', 'Экзистенциальные кризисы, самооценка и саморегуляция.'],
+          quote: 'Опирается на уважение к внутренним ресурсам человека и выстраивает работу в безопасном темпе.',
+          link: 'https://kseniya-bogachevskaya.tilda.ws/'
+        },
+        leila: {
+          name: 'Лейла Волкотрубенко',
+          role: 'Психолог, гештальт-подход',
+          image: 'https://i.wfolio.ru/x/pflTMcITitraWa8hPBODn1ssG_W5ohtZ/6eS1ywh2jwHExbuY-AIF9JYY_1ma3mNq/q3-6KU9zrXBNzRnfL0LiNquFiGTz_2Bv/0xAA45gYeB51-iDWywljEwSQULISsL5u/Tcdo_5W66efsjJJ_UBl4byH8d3dDsuoI/VV11kAkslE6Jqvh4M_im_zGGAkK3BElp.png',
+          meta: ['Онлайн', 'С 18 лет'],
+          format: ['Онлайн-консультация — 60 минут, 3 000 ₽.'],
+          education: ['Казахский национальный медицинский университет.', 'Университет «Туран»: психология.', 'Московский гештальт-институт.', 'Дипломная работа о переживании горя и посттравматическом росте.'],
+          activity: [],
+          topics: ['Горе и утрата.', 'Одиночество и отношения.', 'Возвращение радости и уверенности.', 'Сложный выбор.', 'Баланс, время и личные границы.'],
+          quote: 'Создаёт пространство, в котором можно бережно проживать трудные чувства и находить собственную опору.',
+          link: 'https://t.me/VLO8888'
+        },
+        natalia: {
+          name: 'Наталья Быстрицкая',
+          role: 'Психолог, индивидуальная и семейная работа',
+          image: 'https://i.wfolio.ru/x/ViNfixC2cjr_a2lfe4ESDt0dhqjmI7dN/9hM6buXM8nPkOkNUKdqdPwQJaxm2uYFX/5D4R_UZZ4Td99-8CavTudcyXPor-zNLc/nGyWRhr5ZwIQegbTPdBATGUJWN3upWbR/e8To4_uB_q7QhLU0mpC8HMvoy77MfIha/zFK3DK01vx_Pp7A49dpiWXaohDS2kK1Z.jpg',
+          meta: ['Онлайн и Санкт-Петербург', 'С 18 лет'],
+          format: ['Индивидуальная онлайн-консультация — 60 минут, 4 000 ₽.', 'Семейная онлайн-консультация — 90 минут, 7 000 ₽.', 'Очная консультация в Санкт-Петербурге — 5 000 ₽.', 'Оплата картами МИР и Visa.'],
+          education: ['Санкт-Петербургский институт управления и права: специальность «Психология».', 'Дипломная работа о гендерных различиях в восприятии литературы о любви.'],
+          activity: ['Разрабатывает психологические курсы и тренинги.', 'Проводит трансформационные игры, видеоразборы и демонстрационные консультации.'],
+          topics: ['Психологические травмы, EMDR и диссоциативные состояния.', 'Панические атаки, тревога и психосоматика.', 'Созависимость и повторяющиеся сценарии отношений.', 'Самооценка и депрессивные состояния.', 'Личностные и семейные кризисы.'],
+          quote: 'Сочетает структурную работу с вниманием к переживаниям человека и задачам его повседневной жизни.',
+          link: 'https://t.me/Nata_Bystrik'
+        }
+      };
+
+      function fillSpecialistList(list, items) {
+        list.replaceChildren(...items.map(text => {
+          const item = document.createElement('li');
+          item.textContent = text;
+          return item;
+        }));
+      }
+
+      function openSpecialistProfile(key) {
+        const specialist = consultationSpecialists[key];
+        if (!specialist) return;
+        const photo = cardsPhone.querySelector('#kp-specialist-detail-photo');
+        photo.src = specialist.image;
+        photo.alt = specialist.name;
+        cardsPhone.querySelector('#kp-specialist-detail-role').textContent = specialist.role;
+        cardsPhone.querySelector('#kp-specialist-detail-name').textContent = specialist.name;
+        const meta = cardsPhone.querySelector('#kp-specialist-detail-meta');
+        meta.replaceChildren(...specialist.meta.map(text => {
+          const tag = document.createElement('span');
+          tag.className = 'kp-specialist-tag';
+          tag.textContent = text;
+          return tag;
+        }));
+        ['format', 'education', 'activity', 'topics'].forEach(section => {
+          const items = specialist[section];
+          const host = cardsPhone.querySelector(`#kp-specialist-${section}-section`);
+          host.hidden = items.length === 0;
+          fillSpecialistList(cardsPhone.querySelector(`#kp-specialist-detail-${section}`), items);
+        });
+        const quote = cardsPhone.querySelector('#kp-specialist-detail-quote');
+        quote.textContent = specialist.quote;
+        quote.hidden = !specialist.quote;
+        cardsPhone.querySelector('#kp-specialist-detail-book').href = specialist.link;
+        const scroll = cardsPhone.querySelector('.kp-specialist-detail-scroll');
+        scroll.scrollTop = 0;
+        showScreen(cardsPhone, 'consultation-detail');
+      }
+
+      cardsPhone.querySelectorAll('[data-specialist-open]').forEach(button => {
+        button.addEventListener('click', () => openSpecialistProfile(button.dataset.specialistOpen));
+      });
 
       function renderTestQuestion() {
         const question = testQuestions[testIndex];
